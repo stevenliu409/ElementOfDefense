@@ -137,6 +137,7 @@
 		2663FD01173307840003C377 /* backpic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2663FD00173307840003C377 /* backpic.jpg */; };
 		2663FD031733078A0003C377 /* soilder2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2663FD021733078A0003C377 /* soilder2.png */; };
 		2663FD051733089A0003C377 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2663FD041733089A0003C377 /* Default-568h@2x.png */; };
+		2663FD0917330CAB0003C377 /* soldier.m in Sources */ = {isa = PBXBuildFile; fileRef = 2663FD0817330CAB0003C377 /* soldier.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -406,6 +407,8 @@
 		2663FD00173307840003C377 /* backpic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = backpic.jpg; path = Resources/backpic.jpg; sourceTree = "<group>"; };
 		2663FD021733078A0003C377 /* soilder2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = soilder2.png; path = Resources/soilder2.png; sourceTree = "<group>"; };
 		2663FD041733089A0003C377 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		2663FD0717330CAB0003C377 /* soldier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soldier.h; sourceTree = "<group>"; };
+		2663FD0817330CAB0003C377 /* soldier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = soldier.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -848,6 +851,8 @@
 		2663FD0617330A190003C377 /* Game Objects */ = {
 			isa = PBXGroup;
 			children = (
+				2663FD0717330CAB0003C377 /* soldier.h */,
+				2663FD0817330CAB0003C377 /* soldier.m */,
 			);
 			name = "Game Objects";
 			sourceTree = "<group>";
@@ -1033,6 +1038,7 @@
 				2626BB4E1724E1A9006702D9 /* AppDelegate.m in Sources */,
 				2626BB511724E1A9006702D9 /* HelloWorldLayer.m in Sources */,
 				2626BB541724E1A9006702D9 /* IntroLayer.m in Sources */,
+				2663FD0917330CAB0003C377 /* soldier.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
