@@ -12,13 +12,15 @@
 
 // Needed to obtain the Navigation Controller
 #import "AppDelegate.h"
-
+#import "mgsoldier.h"
+#import "snipersoldier.h"
 #pragma mark - HelloWorldLayer
 
 // HelloWorldLayer implementation
 @interface HelloWorldLayer(PrivateMethod)
 -(void) initUI;
 -(void) initBg;
+-(void) initSoldiers;
 @end
 
 @implementation HelloWorldLayer
@@ -49,6 +51,9 @@
 	if( (self=[super init]) ) {
 		
 		[self initUI];
+        [self initSoldiers];
+        [self scheduleUpdate];
+        army = [[[NSMutableArray alloc] init]autorelease];
     }
 	return self;
 }
@@ -66,6 +71,23 @@
 
 }
 
+
+-(void) initSoldiers{
+    s1 = [mgsoldier makeMg];
+    CGSize size = [[CCDirector sharedDirector] winSize];
+    s1.position = ccp(size.width/2,size.height/2);
+    s1.scaleX = 75/s1.contentSize.width;
+    s1.scaleY = 75/s1.contentSize.height;
+    [self addChild:s1 z:2];
+    
+    snipersoldier* s2 = [snipersoldier makeSniper];
+    s2.position = ccp(size.width/2,size.height/2 - 80);
+    s2.scaleX = 75/s2.contentSize.width;
+    s2.scaleY = 75/s2.contentSize.height;
+    [self addChild:s2 z:2];
+    
+}
+
 -(void) initUI{
     [self initBg];
 }
@@ -79,6 +101,14 @@
 	
 	// don't forget to call "super dealloc"
 	[super dealloc];
+}
+
+
+-(void) update:(ccTime*) dt{
+    [s1 updateSoldier:dt];
+    if(s1.dead){
+        [self removeChild:s1 cleanup:YES];
+    }
 }
 
 #pragma mark GameKit delegate

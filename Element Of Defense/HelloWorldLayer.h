@@ -8,13 +8,16 @@
 
 
 #import <GameKit/GameKit.h>
-
+#import "mgsoldier.h"
 // When you import this file, you import all the cocos2d classes
 #import "cocos2d.h"
 
 // HelloWorldLayer
 @interface HelloWorldLayer : CCLayer <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate>
 {
+    mgsoldier* s1;
+    NSMutableArray* army;
+
 }
 
 // returns a CCScene that contains the HelloWorldLayer as the only child
