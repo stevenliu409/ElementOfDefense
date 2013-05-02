@@ -133,6 +133,10 @@
 		2626BB4E1724E1A9006702D9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2626BB4D1724E1A9006702D9 /* AppDelegate.m */; };
 		2626BB511724E1A9006702D9 /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2626BB501724E1A9006702D9 /* HelloWorldLayer.m */; };
 		2626BB541724E1A9006702D9 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2626BB531724E1A9006702D9 /* IntroLayer.m */; };
+		2663FCFF1733077A0003C377 /* soilder1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2663FCFE1733077A0003C377 /* soilder1.png */; };
+		2663FD01173307840003C377 /* backpic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2663FD00173307840003C377 /* backpic.jpg */; };
+		2663FD031733078A0003C377 /* soilder2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2663FD021733078A0003C377 /* soilder2.png */; };
+		2663FD051733089A0003C377 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2663FD041733089A0003C377 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -398,6 +402,10 @@
 		2626BB501724E1A9006702D9 /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
 		2626BB521724E1A9006702D9 /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
 		2626BB531724E1A9006702D9 /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
+		2663FCFE1733077A0003C377 /* soilder1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = soilder1.png; path = Resources/soilder1.png; sourceTree = "<group>"; };
+		2663FD00173307840003C377 /* backpic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = backpic.jpg; path = Resources/backpic.jpg; sourceTree = "<group>"; };
+		2663FD021733078A0003C377 /* soilder2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = soilder2.png; path = Resources/soilder2.png; sourceTree = "<group>"; };
+		2663FD041733089A0003C377 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -423,6 +431,8 @@
 		2626B9B61724E1A7006702D9 = {
 			isa = PBXGroup;
 			children = (
+				2663FD0617330A190003C377 /* Game Objects */,
+				2663FD041733089A0003C377 /* Default-568h@2x.png */,
 				2626B9D41724E1A7006702D9 /* Element Of Defense */,
 				2626B9C11724E1A7006702D9 /* Frameworks */,
 				2626B9C01724E1A7006702D9 /* Products */,
@@ -472,6 +482,9 @@
 		2626B9D51724E1A7006702D9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2663FD021733078A0003C377 /* soilder2.png */,
+				2663FD00173307840003C377 /* backpic.jpg */,
+				2663FCFE1733077A0003C377 /* soilder1.png */,
 				2626B9D61724E1A7006702D9 /* Default.png */,
 				2626B9D81724E1A7006702D9 /* Default-Landscape~ipad.png */,
 				2626B9DA1724E1A7006702D9 /* fps_images.png */,
@@ -832,6 +845,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		2663FD0617330A190003C377 /* Game Objects */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Game Objects";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -895,6 +915,10 @@
 				2626B9EB1724E1A7006702D9 /* Icon@2x.png in Resources */,
 				2626B9EE1724E1A7006702D9 /* iTunesArtwork in Resources */,
 				2626BB2C1724E1A9006702D9 /* ChangeLog in Resources */,
+				2663FCFF1733077A0003C377 /* soilder1.png in Resources */,
+				2663FD01173307840003C377 /* backpic.jpg in Resources */,
+				2663FD031733078A0003C377 /* soilder2.png in Resources */,
+				2663FD051733089A0003C377 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1067,6 +1091,7 @@
 					"\"Element Of Defense/libs/kazmath/include\"",
 				);
 				INFOPLIST_FILE = "Element Of Defense/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
@@ -1087,6 +1112,7 @@
 					"\"Element Of Defense/libs/kazmath/include\"",
 				);
 				INFOPLIST_FILE = "Element Of Defense/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
@@ -1116,6 +1142,7 @@
 				2626BB591724E1A9006702D9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
