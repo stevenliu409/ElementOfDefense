@@ -15,17 +15,18 @@
 }
 
 -(id) initSniper{
-    if(self = [super initWithFile:@"soilder2.png"]){
+    if(self = [super initWithFile:@"soldier2.png"]){
         health = 6;
         damage = 7;
         range = 10;
         freq = 2;
+        speed = 3;
     }
     return self;
 }
 
--(void) updateSoldier:(ccTime *)ct{
-
+-(void) updateSoldier:(ccTime *)ct :(int) speed{
+    [super updateSoldier:ct :speed ];
 }
 
 
