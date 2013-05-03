@@ -17,6 +17,7 @@
 {
     mgsoldier* s1;
     NSMutableArray* army;
+    NSUserDefaults* prefs;
 
 }
 

@@ -14,6 +14,7 @@
 #import "AppDelegate.h"
 #import "mgsoldier.h"
 #import "snipersoldier.h"
+#import "leve1.h"
 #pragma mark - HelloWorldLayer
 
 // HelloWorldLayer implementation
@@ -49,7 +50,7 @@
 	// always call "super" init
 	// Apple recommends to re-assign "self" with the "super's" return value
 	if( (self=[super init]) ) {
-		
+		prefs = [NSUserDefaults standardUserDefaults];
 		[self initUI];
         [self initSoldiers];
         [self scheduleUpdate];
@@ -59,7 +60,10 @@
 }
 
 -(void) initBg{
-    CCSprite* bg = [CCSprite spriteWithFile:@"backpic.jpg"];
+    
+    NSData* d = [prefs objectForKey:@"currentLevel"];
+    leve1* l = [NSKeyedUnarchiver unarchiveObjectWithData:d];
+    CCSprite* bg = [CCSprite spriteWithFile:l.bgdir];
     [bg setAnchorPoint:CGPointMake(0, 0)];
     CGSize size = [[CCDirector sharedDirector] winSize];
     
@@ -100,6 +104,7 @@
 	// cocos2d will automatically release all the children (Label)
 	
 	// don't forget to call "super dealloc"
+    [self removeAllChildrenWithCleanup:YES];
 	[super dealloc];
 }
 

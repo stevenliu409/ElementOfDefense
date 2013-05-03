@@ -141,6 +141,10 @@
 		2663FD0C17330F200003C377 /* mgsoldier.m in Sources */ = {isa = PBXBuildFile; fileRef = 2663FD0B17330F200003C377 /* mgsoldier.m */; };
 		2663FD0F1733120F0003C377 /* snipersoldier.m in Sources */ = {isa = PBXBuildFile; fileRef = 2663FD0E1733120F0003C377 /* snipersoldier.m */; };
 		2663FD1217331C010003C377 /* zArmy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2663FD1117331C010003C377 /* zArmy.m */; };
+		7F160DF717341BB300B99759 /* loadingLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F160DF617341BB300B99759 /* loadingLayer.m */; };
+		7F160DFA17341C6D00B99759 /* openningLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F160DF917341C6D00B99759 /* openningLayer.m */; };
+		7F160DFC17341CAD00B99759 /* openbg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7F160DFB17341CAD00B99759 /* openbg.jpg */; };
+		7F160E03173428ED00B99759 /* leve1.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F160E02173428ED00B99759 /* leve1.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -418,6 +422,13 @@
 		2663FD0E1733120F0003C377 /* snipersoldier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = snipersoldier.m; sourceTree = "<group>"; };
 		2663FD1017331C010003C377 /* zArmy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zArmy.h; sourceTree = "<group>"; };
 		2663FD1117331C010003C377 /* zArmy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zArmy.m; sourceTree = "<group>"; };
+		7F160DF517341BB300B99759 /* loadingLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loadingLayer.h; sourceTree = "<group>"; };
+		7F160DF617341BB300B99759 /* loadingLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loadingLayer.m; sourceTree = "<group>"; };
+		7F160DF817341C6D00B99759 /* openningLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openningLayer.h; sourceTree = "<group>"; };
+		7F160DF917341C6D00B99759 /* openningLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = openningLayer.m; sourceTree = "<group>"; };
+		7F160DFB17341CAD00B99759 /* openbg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = openbg.jpg; sourceTree = "<group>"; };
+		7F160E01173428ED00B99759 /* leve1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = leve1.h; sourceTree = "<group>"; };
+		7F160E02173428ED00B99759 /* leve1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = leve1.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -443,6 +454,8 @@
 		2626B9B61724E1A7006702D9 = {
 			isa = PBXGroup;
 			children = (
+				7F160DFD17341EF900B99759 /* Game Levels */,
+				7F160DF417341B8500B99759 /* Game Views */,
 				2663FD0617330A190003C377 /* Game Objects */,
 				2663FD041733089A0003C377 /* Default-568h@2x.png */,
 				2626B9D41724E1A7006702D9 /* Element Of Defense */,
@@ -494,6 +507,7 @@
 		2626B9D51724E1A7006702D9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7F160DFB17341CAD00B99759 /* openbg.jpg */,
 				2663FD021733078A0003C377 /* soilder2.png */,
 				2663FD00173307840003C377 /* backpic.jpg */,
 				2663FCFE1733077A0003C377 /* soilder1.png */,
@@ -872,6 +886,26 @@
 			name = "Game Objects";
 			sourceTree = "<group>";
 		};
+		7F160DF417341B8500B99759 /* Game Views */ = {
+			isa = PBXGroup;
+			children = (
+				7F160DF517341BB300B99759 /* loadingLayer.h */,
+				7F160DF617341BB300B99759 /* loadingLayer.m */,
+				7F160DF817341C6D00B99759 /* openningLayer.h */,
+				7F160DF917341C6D00B99759 /* openningLayer.m */,
+			);
+			name = "Game Views";
+			sourceTree = "<group>";
+		};
+		7F160DFD17341EF900B99759 /* Game Levels */ = {
+			isa = PBXGroup;
+			children = (
+				7F160E01173428ED00B99759 /* leve1.h */,
+				7F160E02173428ED00B99759 /* leve1.m */,
+			);
+			name = "Game Levels";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -939,6 +973,7 @@
 				2663FD01173307840003C377 /* backpic.jpg in Resources */,
 				2663FD031733078A0003C377 /* soilder2.png in Resources */,
 				2663FD051733089A0003C377 /* Default-568h@2x.png in Resources */,
+				7F160DFC17341CAD00B99759 /* openbg.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1057,6 +1092,9 @@
 				2663FD0C17330F200003C377 /* mgsoldier.m in Sources */,
 				2663FD0F1733120F0003C377 /* snipersoldier.m in Sources */,
 				2663FD1217331C010003C377 /* zArmy.m in Sources */,
+				7F160DF717341BB300B99759 /* loadingLayer.m in Sources */,
+				7F160DFA17341C6D00B99759 /* openningLayer.m in Sources */,
+				7F160E03173428ED00B99759 /* leve1.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1115,12 +1153,13 @@
 					"\"Element Of Defense/libs/kazmath/include\"",
 				);
 				INFOPLIST_FILE = "Element Of Defense/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1136,12 +1175,13 @@
 					"\"Element Of Defense/libs/kazmath/include\"",
 				);
 				INFOPLIST_FILE = "Element Of Defense/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
