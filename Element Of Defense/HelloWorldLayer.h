@@ -9,6 +9,8 @@
 
 #import <GameKit/GameKit.h>
 #import "mgsoldier.h"
+#import "snipersoldier.h"
+#import "tanksoldier.h"
 // When you import this file, you import all the cocos2d classes
 #import "cocos2d.h"
 
@@ -16,6 +18,9 @@
 @interface HelloWorldLayer : CCLayer <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate>
 {
     mgsoldier* s1;
+    snipersoldier* s2;
+    tanksoldier* s3 ;
+    
     NSMutableArray* army;
     NSUserDefaults* prefs;
 

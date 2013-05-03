@@ -12,8 +12,6 @@
 
 // Needed to obtain the Navigation Controller
 #import "AppDelegate.h"
-#import "mgsoldier.h"
-#import "snipersoldier.h"
 #import "leve1.h"
 #import "tanksoldier.h"
 #pragma mark - HelloWorldLayer
@@ -85,13 +83,13 @@
     s1.scaleY = 75/s1.contentSize.height;
     [self addChild:s1 z:2];
     
-    snipersoldier* s2 = [snipersoldier makeSniper];
+    s2 = [snipersoldier makeSniper];
     s2.position = ccp(size.width/2,size.height/2 - 80);
     s2.scaleX = 75/s2.contentSize.width;
     s2.scaleY = 75/s2.contentSize.height;
     [self addChild:s2 z:2];
     
-    tanksoldier* s3 = [tanksoldier makeTankSoldier];
+    s3 = [tanksoldier makeTankSoldier];
     s3.position = ccp(size.width/2 - 80,size.height/2 - 80);
     s3.scaleX = 75/s3.contentSize.width;
     s3.scaleY = 75/s3.contentSize.height;
@@ -116,7 +114,9 @@
 
 
 -(void) update:(ccTime*) dt{
-    [s1 updateSoldier:dt];
+    [s1 updateSoldier:dt :s1.speed];
+    [s2 updateSoldier:dt :s2.speed];
+    [s3 updateSoldier:dt :s3.speed];
     if(s1.dead){
         [self removeChild:s1 cleanup:YES];
     }

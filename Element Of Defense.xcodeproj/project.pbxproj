@@ -133,9 +133,9 @@
 		2626BB4E1724E1A9006702D9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2626BB4D1724E1A9006702D9 /* AppDelegate.m */; };
 		2626BB511724E1A9006702D9 /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2626BB501724E1A9006702D9 /* HelloWorldLayer.m */; };
 		2626BB541724E1A9006702D9 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2626BB531724E1A9006702D9 /* IntroLayer.m */; };
-		2663FCFF1733077A0003C377 /* soilder1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2663FCFE1733077A0003C377 /* soilder1.png */; };
+		2663FCFF1733077A0003C377 /* soldier1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2663FCFE1733077A0003C377 /* soldier1.png */; };
 		2663FD01173307840003C377 /* backpic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2663FD00173307840003C377 /* backpic.jpg */; };
-		2663FD031733078A0003C377 /* soilder2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2663FD021733078A0003C377 /* soilder2.png */; };
+		2663FD031733078A0003C377 /* soldier2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2663FD021733078A0003C377 /* soldier2.png */; };
 		2663FD051733089A0003C377 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2663FD041733089A0003C377 /* Default-568h@2x.png */; };
 		2663FD0917330CAB0003C377 /* soldier.m in Sources */ = {isa = PBXBuildFile; fileRef = 2663FD0817330CAB0003C377 /* soldier.m */; };
 		2663FD0C17330F200003C377 /* mgsoldier.m in Sources */ = {isa = PBXBuildFile; fileRef = 2663FD0B17330F200003C377 /* mgsoldier.m */; };
@@ -412,9 +412,9 @@
 		2626BB501724E1A9006702D9 /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
 		2626BB521724E1A9006702D9 /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
 		2626BB531724E1A9006702D9 /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
-		2663FCFE1733077A0003C377 /* soilder1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = soilder1.png; path = Resources/soilder1.png; sourceTree = "<group>"; };
+		2663FCFE1733077A0003C377 /* soldier1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = soldier1.png; path = Resources/soldier1.png; sourceTree = "<group>"; };
 		2663FD00173307840003C377 /* backpic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = backpic.jpg; path = Resources/backpic.jpg; sourceTree = "<group>"; };
-		2663FD021733078A0003C377 /* soilder2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = soilder2.png; path = Resources/soilder2.png; sourceTree = "<group>"; };
+		2663FD021733078A0003C377 /* soldier2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = soldier2.png; path = Resources/soldier2.png; sourceTree = "<group>"; };
 		2663FD041733089A0003C377 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		2663FD0717330CAB0003C377 /* soldier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soldier.h; sourceTree = "<group>"; };
 		2663FD0817330CAB0003C377 /* soldier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = soldier.m; sourceTree = "<group>"; };
@@ -514,9 +514,9 @@
 			children = (
 				26B32E5817344A7400CE397D /* soldier3.png */,
 				7F160DFB17341CAD00B99759 /* openbg.jpg */,
-				2663FD021733078A0003C377 /* soilder2.png */,
+				2663FD021733078A0003C377 /* soldier2.png */,
 				2663FD00173307840003C377 /* backpic.jpg */,
-				2663FCFE1733077A0003C377 /* soilder1.png */,
+				2663FCFE1733077A0003C377 /* soldier1.png */,
 				2626B9D61724E1A7006702D9 /* Default.png */,
 				2626B9D81724E1A7006702D9 /* Default-Landscape~ipad.png */,
 				2626B9DA1724E1A7006702D9 /* fps_images.png */,
@@ -977,9 +977,9 @@
 				2626B9EB1724E1A7006702D9 /* Icon@2x.png in Resources */,
 				2626B9EE1724E1A7006702D9 /* iTunesArtwork in Resources */,
 				2626BB2C1724E1A9006702D9 /* ChangeLog in Resources */,
-				2663FCFF1733077A0003C377 /* soilder1.png in Resources */,
+				2663FCFF1733077A0003C377 /* soldier1.png in Resources */,
 				2663FD01173307840003C377 /* backpic.jpg in Resources */,
-				2663FD031733078A0003C377 /* soilder2.png in Resources */,
+				2663FD031733078A0003C377 /* soldier2.png in Resources */,
 				2663FD051733089A0003C377 /* Default-568h@2x.png in Resources */,
 				7F160DFC17341CAD00B99759 /* openbg.jpg in Resources */,
 				26B32E5917344A7400CE397D /* soldier3.png in Resources */,

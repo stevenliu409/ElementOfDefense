@@ -21,10 +21,14 @@
         damage = 5;
         range = 1;
         freq = 3;
+        speed = 1;
     }
     return self;
 }
 
+-(void) updateSoldier:(ccTime *)ct :(int) speed{
+    [super updateSoldier:ct :speed ];
+}
 
 
 @end
