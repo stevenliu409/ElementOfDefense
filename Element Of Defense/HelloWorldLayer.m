@@ -16,6 +16,9 @@
 #import "snipersoldier.h"
 #import "leve1.h"
 #import "tanksoldier.h"
+#import "zombieHead.h"
+#import "monster.h"
+#import "vampireHead.h"
 #pragma mark - HelloWorldLayer
 
 // HelloWorldLayer implementation
@@ -71,6 +74,15 @@
     
     bg.scaleX = size.width/bg.contentSize.width;
     bg.scaleY = size.height/bg.contentSize.height;
+    
+    zombieHead* zhead = [zombieHead makeZhead];
+    //zhead.position = ccp(size.width/2,size.height/2);
+    //[self addChild:zhead z:2];
+    zombieHead* zhead1 = [zombieHead makeZhead];
+    vampireHead* vhead = [vampireHead makevampireHead];
+    monster* m = [monster makeMonster:zhead mhead:vhead];
+    m.position = ccp(size.width/2,size.height/2);
+    [self addChild:m z:2];
     
     [self addChild:bg z:1];
 
