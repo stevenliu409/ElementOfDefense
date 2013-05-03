@@ -141,6 +141,8 @@
 		2663FD0C17330F200003C377 /* mgsoldier.m in Sources */ = {isa = PBXBuildFile; fileRef = 2663FD0B17330F200003C377 /* mgsoldier.m */; };
 		2663FD0F1733120F0003C377 /* snipersoldier.m in Sources */ = {isa = PBXBuildFile; fileRef = 2663FD0E1733120F0003C377 /* snipersoldier.m */; };
 		2663FD1217331C010003C377 /* zArmy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2663FD1117331C010003C377 /* zArmy.m */; };
+		26B32E571734486900CE397D /* tanksoldier.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B32E561734486900CE397D /* tanksoldier.m */; };
+		26B32E5917344A7400CE397D /* soldier3.png in Resources */ = {isa = PBXBuildFile; fileRef = 26B32E5817344A7400CE397D /* soldier3.png */; };
 		7F160DF717341BB300B99759 /* loadingLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F160DF617341BB300B99759 /* loadingLayer.m */; };
 		7F160DFA17341C6D00B99759 /* openningLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F160DF917341C6D00B99759 /* openningLayer.m */; };
 		7F160DFC17341CAD00B99759 /* openbg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7F160DFB17341CAD00B99759 /* openbg.jpg */; };
@@ -422,6 +424,9 @@
 		2663FD0E1733120F0003C377 /* snipersoldier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = snipersoldier.m; sourceTree = "<group>"; };
 		2663FD1017331C010003C377 /* zArmy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zArmy.h; sourceTree = "<group>"; };
 		2663FD1117331C010003C377 /* zArmy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zArmy.m; sourceTree = "<group>"; };
+		26B32E551734486900CE397D /* tanksoldier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tanksoldier.h; sourceTree = "<group>"; };
+		26B32E561734486900CE397D /* tanksoldier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tanksoldier.m; sourceTree = "<group>"; };
+		26B32E5817344A7400CE397D /* soldier3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soldier3.png; sourceTree = "<group>"; };
 		7F160DF517341BB300B99759 /* loadingLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loadingLayer.h; sourceTree = "<group>"; };
 		7F160DF617341BB300B99759 /* loadingLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loadingLayer.m; sourceTree = "<group>"; };
 		7F160DF817341C6D00B99759 /* openningLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openningLayer.h; sourceTree = "<group>"; };
@@ -507,6 +512,7 @@
 		2626B9D51724E1A7006702D9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				26B32E5817344A7400CE397D /* soldier3.png */,
 				7F160DFB17341CAD00B99759 /* openbg.jpg */,
 				2663FD021733078A0003C377 /* soilder2.png */,
 				2663FD00173307840003C377 /* backpic.jpg */,
@@ -882,6 +888,8 @@
 				2663FD0E1733120F0003C377 /* snipersoldier.m */,
 				2663FD1017331C010003C377 /* zArmy.h */,
 				2663FD1117331C010003C377 /* zArmy.m */,
+				26B32E551734486900CE397D /* tanksoldier.h */,
+				26B32E561734486900CE397D /* tanksoldier.m */,
 			);
 			name = "Game Objects";
 			sourceTree = "<group>";
@@ -974,6 +982,7 @@
 				2663FD031733078A0003C377 /* soilder2.png in Resources */,
 				2663FD051733089A0003C377 /* Default-568h@2x.png in Resources */,
 				7F160DFC17341CAD00B99759 /* openbg.jpg in Resources */,
+				26B32E5917344A7400CE397D /* soldier3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1095,6 +1104,7 @@
 				7F160DF717341BB300B99759 /* loadingLayer.m in Sources */,
 				7F160DFA17341C6D00B99759 /* openningLayer.m in Sources */,
 				7F160E03173428ED00B99759 /* leve1.m in Sources */,
+				26B32E571734486900CE397D /* tanksoldier.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

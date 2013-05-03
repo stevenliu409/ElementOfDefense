@@ -15,6 +15,7 @@
 #import "mgsoldier.h"
 #import "snipersoldier.h"
 #import "leve1.h"
+#import "tanksoldier.h"
 #pragma mark - HelloWorldLayer
 
 // HelloWorldLayer implementation
@@ -90,6 +91,11 @@
     s2.scaleY = 75/s2.contentSize.height;
     [self addChild:s2 z:2];
     
+    tanksoldier* s3 = [tanksoldier makeTankSoldier];
+    s3.position = ccp(size.width/2 - 80,size.height/2 - 80);
+    s3.scaleX = 75/s3.contentSize.width;
+    s3.scaleY = 75/s3.contentSize.height;
+    [self addChild:s3 z:2];
 }
 
 -(void) initUI{

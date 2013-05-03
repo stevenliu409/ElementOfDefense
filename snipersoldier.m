@@ -16,9 +16,16 @@
 
 -(id) initSniper{
     if(self = [super initWithFile:@"soilder2.png"]){
-        
+        health = 6;
+        damage = 7;
+        range = 10;
+        freq = 2;
     }
     return self;
+}
+
+-(void) updateSoldier:(ccTime *)ct{
+
 }
 
 
