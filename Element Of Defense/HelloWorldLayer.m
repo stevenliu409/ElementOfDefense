@@ -16,6 +16,7 @@
 #import "snipersoldier.h"
 #import "leve1.h"
 #import "tanksoldier.h"
+#import "Bullet.h"
 #pragma mark - HelloWorldLayer
 
 // HelloWorldLayer implementation
@@ -54,6 +55,7 @@
 		prefs = [NSUserDefaults standardUserDefaults];
 		[self initUI];
         [self initSoldiers];
+        [self initBullet];
         [self scheduleUpdate];
         army = [[[NSMutableArray alloc] init]autorelease];
     }
@@ -96,6 +98,16 @@
     s3.scaleX = 75/s3.contentSize.width;
     s3.scaleY = 75/s3.contentSize.height;
     [self addChild:s3 z:2];
+}
+
+-(void)initBullet{
+    Bullet* b1 = [Bullet makeBullet];
+    CGSize size = [[CCDirector sharedDirector] winSize];
+    b1.position = ccp(size.width/2,size.height/2);
+    b1.scaleX = 75/b1.contentSize.width;
+    b1.scaleY = 75/b1.contentSize.height;
+    [self addChild:b1 z:2];
+    
 }
 
 -(void) initUI{
