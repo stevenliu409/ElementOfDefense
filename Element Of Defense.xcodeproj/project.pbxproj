@@ -147,6 +147,12 @@
 		7F160DFC17341CAD00B99759 /* openbg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7F160DFB17341CAD00B99759 /* openbg.jpg */; };
 		7F160E03173428ED00B99759 /* leve1.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F160E02173428ED00B99759 /* leve1.m */; };
 		7F160E0E17345BB300B99759 /* soldier3.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F160E0D17345BB300B99759 /* soldier3.png */; };
+		7F160E11173467BB00B99759 /* body.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F160E10173467BB00B99759 /* body.m */; };
+		7F160E1317346A3100B99759 /* zhead.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F160E1217346A3100B99759 /* zhead.png */; };
+		7F160E1617346B0100B99759 /* zombieHead.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F160E1517346B0100B99759 /* zombieHead.m */; };
+		7F160E1917346F4F00B99759 /* monster.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F160E1817346F4F00B99759 /* monster.m */; };
+		7F160E1C1734780400B99759 /* vampireHead.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F160E1B1734780400B99759 /* vampireHead.m */; };
+		7F160E1E1734789300B99759 /* vhead.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F160E1D1734789300B99759 /* vhead.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -434,6 +440,16 @@
 		7F160E01173428ED00B99759 /* leve1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = leve1.h; sourceTree = "<group>"; };
 		7F160E02173428ED00B99759 /* leve1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = leve1.m; sourceTree = "<group>"; };
 		7F160E0D17345BB300B99759 /* soldier3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = soldier3.png; path = Resources/soldier3.png; sourceTree = "<group>"; };
+		7F160E0F173467BB00B99759 /* body.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = body.h; sourceTree = "<group>"; };
+		7F160E10173467BB00B99759 /* body.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = body.m; sourceTree = "<group>"; };
+		7F160E1217346A3100B99759 /* zhead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = zhead.png; path = Resources/zhead.png; sourceTree = "<group>"; };
+		7F160E1417346B0100B99759 /* zombieHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zombieHead.h; sourceTree = "<group>"; };
+		7F160E1517346B0100B99759 /* zombieHead.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zombieHead.m; sourceTree = "<group>"; };
+		7F160E1717346F4F00B99759 /* monster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = monster.h; sourceTree = "<group>"; };
+		7F160E1817346F4F00B99759 /* monster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = monster.m; sourceTree = "<group>"; };
+		7F160E1A1734780300B99759 /* vampireHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vampireHead.h; sourceTree = "<group>"; };
+		7F160E1B1734780400B99759 /* vampireHead.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vampireHead.m; sourceTree = "<group>"; };
+		7F160E1D1734789300B99759 /* vhead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = vhead.png; path = Resources/vhead.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -512,6 +528,8 @@
 		2626B9D51724E1A7006702D9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7F160E1D1734789300B99759 /* vhead.png */,
+				7F160E1217346A3100B99759 /* zhead.png */,
 				7F160DFB17341CAD00B99759 /* openbg.jpg */,
 				7F160E0D17345BB300B99759 /* soldier3.png */,
 				2663FD021733078A0003C377 /* soldier2.png */,
@@ -890,6 +908,14 @@
 				2663FD1117331C010003C377 /* zArmy.m */,
 				26B32E551734486900CE397D /* tanksoldier.h */,
 				26B32E561734486900CE397D /* tanksoldier.m */,
+				7F160E0F173467BB00B99759 /* body.h */,
+				7F160E10173467BB00B99759 /* body.m */,
+				7F160E1417346B0100B99759 /* zombieHead.h */,
+				7F160E1517346B0100B99759 /* zombieHead.m */,
+				7F160E1717346F4F00B99759 /* monster.h */,
+				7F160E1817346F4F00B99759 /* monster.m */,
+				7F160E1A1734780300B99759 /* vampireHead.h */,
+				7F160E1B1734780400B99759 /* vampireHead.m */,
 			);
 			name = "Game Objects";
 			sourceTree = "<group>";
@@ -983,6 +1009,8 @@
 				2663FD051733089A0003C377 /* Default-568h@2x.png in Resources */,
 				7F160DFC17341CAD00B99759 /* openbg.jpg in Resources */,
 				7F160E0E17345BB300B99759 /* soldier3.png in Resources */,
+				7F160E1317346A3100B99759 /* zhead.png in Resources */,
+				7F160E1E1734789300B99759 /* vhead.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1105,6 +1133,10 @@
 				7F160DFA17341C6D00B99759 /* openningLayer.m in Sources */,
 				7F160E03173428ED00B99759 /* leve1.m in Sources */,
 				26B32E571734486900CE397D /* tanksoldier.m in Sources */,
+				7F160E11173467BB00B99759 /* body.m in Sources */,
+				7F160E1617346B0100B99759 /* zombieHead.m in Sources */,
+				7F160E1917346F4F00B99759 /* monster.m in Sources */,
+				7F160E1C1734780400B99759 /* vampireHead.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
