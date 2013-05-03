@@ -15,6 +15,9 @@
 #import "leve1.h"
 #import "tanksoldier.h"
 #import "Bullet.h"
+#import "zombieHead.h"
+#import "monster.h"
+#import "vampireHead.h"
 #pragma mark - HelloWorldLayer
 
 // HelloWorldLayer implementation
@@ -53,7 +56,7 @@
 		prefs = [NSUserDefaults standardUserDefaults];
 		[self initUI];
         [self initSoldiers];
-        [self initBullet];
+        //[self initBullet];
         [self scheduleUpdate];
         army = [[[NSMutableArray alloc] init]autorelease];
     }
