@@ -11,7 +11,7 @@
 #import "snipersoldier.h"
 #import "tanksoldier.h"
 
-@interface zArmy : CCNode
+@interface sArmy : CCNode
 {
     
     NSMutableArray* mgSoldier_array;

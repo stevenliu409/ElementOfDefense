@@ -6,9 +6,9 @@
 //
 //
 
-#import "zArmy.h"
+#import "sArmy.h"
 
-@implementation zArmy
+@implementation sArmy
 
 +(id) makeArmy:(int)numMGsoldier NumberOfSniper:(int)numSniper NumberOfTankSoldier:(int)numTankSoldier{
     return [[self alloc] initArmy:numMGsoldier  NumberOfSniper:numSniper NumberOfTankSoldiers:numTankSoldier];

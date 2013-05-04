@@ -11,7 +11,7 @@
 @implementation body
 @synthesize speed;
 @synthesize health;
-@synthesize sheid;
+@synthesize shield;
 @synthesize attack;
 
 +(id) makeBody:(NSString *)dir{
@@ -34,7 +34,7 @@
         self.speed = [decoder decodeIntForKey:@"speed"];
         self.health = [decoder decodeIntForKey:@"health"];
         self.attack = [decoder decodeIntForKey:@"attack"];
-        self.sheid = [decoder decodeIntForKey:@"sheid"];
+        self.shield = [decoder decodeIntForKey:@"shield"];
     }
     return self;
 }
@@ -42,7 +42,7 @@
 - (void)encodeWithCoder:(NSCoder *)encoder {
     [encoder encodeInt:speed forKey:@"speed"];
     [encoder encodeInt:health forKey:@"health"];
-    [encoder encodeInt:sheid forKey:@"sheid"];
+    [encoder encodeInt:shield forKey:@"shield"];
     [encoder encodeInt:attack forKey:@"attack"];
 }
 
