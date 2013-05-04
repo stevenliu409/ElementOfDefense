@@ -30,7 +30,6 @@
     CCArray* bullets = [batch children];
     CCNode* node = [bullets objectAtIndex:nextBullet];
     Bullet* b = (Bullet*) node;
-    NSLog(@"%f",s.freq);
     if(!b.shoted){
         
         [b shootBulletFrom:s timer:dt];

@@ -67,6 +67,8 @@ static HelloWorldLayer* level;
         [self initSoldiers];
         [self scheduleUpdate];
         army = [[[NSMutableArray alloc] init]autorelease];
+        bodyCache = [[[NSMutableArray alloc] init] autorelease];
+        
     }
 	return self;
 }

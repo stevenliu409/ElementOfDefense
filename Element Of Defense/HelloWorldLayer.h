@@ -23,7 +23,9 @@
     tanksoldier* s3 ;
     Bullet* b1;
     NSMutableArray* army;
+    NSMutableArray* bodyCache;
     NSUserDefaults* prefs;
+    
 }
 
 @property(nonatomic,retain) BulletCache* cache;
