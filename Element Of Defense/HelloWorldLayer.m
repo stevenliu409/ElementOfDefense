@@ -63,6 +63,7 @@ static HelloWorldLayer* level;
 		prefs = [NSUserDefaults standardUserDefaults];
         cache = [[BulletCache alloc] init];
         bodyCache = [[NSMutableArray alloc] init];
+        monsterCache = [[NSMutableArray alloc] init];
         [self addChild:cache z:2];
 		[self initUI];
         [self initSoldiers];
@@ -97,6 +98,12 @@ static HelloWorldLayer* level;
     vhead.position = CGPointMake(120,120);
     [self addChild:vhead z:2];
     [bodyCache addObject:vhead];
+    
+    zombieHead* zhead = [zombieHead makeZhead];
+    zhead.position = CGPointMake(200,130);
+    [self addChild:zhead z:2];
+    [bodyCache addObject:zhead];
+    
 }
 
 -(void) initSoldiers{
@@ -148,18 +155,32 @@ static HelloWorldLayer* level;
 
 
 -(void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    NSLog(@"touches!");
     UITouch *touch = [touches anyObject];
 	CGPoint point = [touch locationInView: [touch view]];
     point = [[CCDirector sharedDirector] convertToGL: point];
+    NSLog(@"size of monster cache is %d",[monsterCache count]);
     for(int n = 0; n < [bodyCache count];n++){
         body* b = [bodyCache objectAtIndex:n];
         if([b checkTouch:point]){
             NSLog(@"touch a body part");
+            [self removeChild:b cleanup:YES];
+            [monsterCache addObject:b];
+            if([monsterCache count] == 2){
+                monster* m = [monster makeMonster:[monsterCache objectAtIndex:0] mhead:[monsterCache objectAtIndex:1]];
+                m.position = CGPointMake(200,100);
+                [self addChild:m z:2];
+                [monsterCache removeAllObjects];
+            }
+            
+            [bodyCache removeObject:b];
+            break;
         }
     }
-    
 }
+
+-(void) ccTouchEnded:(NSSet *) touches withEvent:(UIEvent *)event{
+}
+
 
 #pragma mark GameKit delegate
 

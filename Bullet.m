@@ -45,22 +45,9 @@
     //self.position.y = s.position.y;
     self.position = CGPointMake(s.position.x,s.position.y);
     self.visible = YES;
-    //[self updateBullet:dt];
     [self unscheduleUpdate];
     [self scheduleUpdate];
 }
-
-/*-(void)updateBullet:(ccTime)ct{
-    CGPoint pos = self.position;
-    pos.x = pos.x + speed;
-    self.position = CGPointMake(pos.x,pos.y);
-    if(self.position.x>480){
-        [self stopAllActions];
-        self.visible = NO;
-        shoted = NO;
-    }
-}*/
-
 
 -(void) update:(ccTime) delta{
     CGPoint pos = self.position;

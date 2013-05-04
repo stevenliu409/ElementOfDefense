@@ -15,6 +15,7 @@
 #import "cocos2d.h"
 #import "Bullet.h"
 #import "BulletCache.h"
+#import "vampireHead.h"
 // HelloWorldLayer
 @interface HelloWorldLayer : CCLayer <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate>
 {
@@ -24,7 +25,10 @@
     Bullet* b1;
     NSMutableArray* army;
     NSMutableArray* bodyCache;
+    NSMutableArray* monsterCache;
     NSUserDefaults* prefs;
+    vampireHead* v1;
+    vampireHead* v2;
     
 }
 

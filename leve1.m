@@ -13,7 +13,6 @@
 -(id) init{
     if (self = [super init]){
         bgdir = @"backpic.jpg";
-        NSLog(@"here");
     }
     return self;
 }

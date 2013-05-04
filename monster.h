@@ -7,17 +7,19 @@
 //
 
 #import "CCSprite.h"
-
+#import "body.h"
 @interface monster : CCSprite{
     
 }
 
 
-@property(nonatomic, retain) CCSprite* body;
-@property(nonatomic, retain) CCSprite* head;
+@property(nonatomic, retain) CCSprite* mbody;
+@property(nonatomic, retain) CCSprite* mhead;
 
 
 +(id) makeMonster:(CCSprite*) b mhead:(CCSprite*) h;
 -(id) initMonster:(CCSprite*) b mhead:(CCSprite*) h;
-
++(id) newMonster;
+-(BOOL) addBody:(body*) b;
+-(BOOL) checkMonster;
 @end
