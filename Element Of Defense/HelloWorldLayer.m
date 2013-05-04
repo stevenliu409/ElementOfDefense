@@ -61,6 +61,7 @@ static HelloWorldLayer* level;
         level = self;
 		prefs = [NSUserDefaults standardUserDefaults];
         cache = [[BulletCache alloc] init];
+        self.isTouchEnabled = YES;
         [self addChild:cache z:2];
 		[self initUI];
         [self initSoldiers];
@@ -118,6 +119,7 @@ static HelloWorldLayer* level;
 	
 	// don't forget to call "super dealloc"
     [self removeAllChildrenWithCleanup:YES];
+    [army release];
 	[super dealloc];
 }
 
@@ -130,7 +132,14 @@ static HelloWorldLayer* level;
         [self removeChild:s1 cleanup:YES];
     }*/
     //[s1 updateSoldier:dt];
+    [s1 updateSoldier:dt];
     [s2 updateSoldier:dt];
+}
+
+
+-(void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    NSLog(@"touches!");
+    
 }
 
 #pragma mark GameKit delegate

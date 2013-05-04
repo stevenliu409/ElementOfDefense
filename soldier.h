@@ -9,15 +9,17 @@
 #import "CCSprite.h"
 
 @interface soldier : CCSprite{
-    int health,range, damage, freq, speed;
+    int health,range, damage, speed;
     BOOL dead;
+    double freq;
+    double currentTime;
 }
 
 @property (readonly) BOOL dead;
 @property (readonly) int speed;
 @property (readonly) int range;
 @property (readonly) int damage;
-@property (readonly) int freq;
+@property (assign) double freq;
 +(id) makeSoldier:(int) type;
 -(id) initSoldier:(int) type;
 -(void) updateSoldier:(ccTime) ct;

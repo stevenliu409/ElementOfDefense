@@ -24,7 +24,7 @@
 
 -(id) initBullet{
     if(self = [super initWithFile:@"bullet.png"]){
-        speed = 1;
+        speed = 10;
         self.scaleX = 50/self.contentSize.width;
         self.scaleY = 25/self.contentSize.height;
         shoted = NO;

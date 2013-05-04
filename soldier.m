@@ -46,7 +46,13 @@
     if(health == 0){
         dead = true;
     }*/
-    [self fire:ct];
+    
+    currentTime+=ct;
+    if(currentTime > freq){
+    
+        [self fire:ct];
+        currentTime = 0;
+    }
 
 }
 

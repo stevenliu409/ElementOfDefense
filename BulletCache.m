@@ -30,18 +30,14 @@
     CCArray* bullets = [batch children];
     CCNode* node = [bullets objectAtIndex:nextBullet];
     Bullet* b = (Bullet*) node;
-    currentTime += dt;
-    totalTime = currentTime;
-    
-    if(!b.shoted && totalTime>s.freq){
+    NSLog(@"%f",s.freq);
+    if(!b.shoted){
         
         [b shootBulletFrom:s timer:dt];
         nextBullet++;
         if(nextBullet > 999){
             nextBullet = 0;
         }
-        totalTime = 0;
-        currentTime = 0;
     }
 }
 
