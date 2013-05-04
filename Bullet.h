@@ -24,5 +24,5 @@
 +(id)makeBullet;
 -(id)initBullet;
 -(void) shootBulletFrom:(soldier*) s timer:(ccTime)ct;
-//-(void)updateBullet:(ccTime)ct;
+
 @end
