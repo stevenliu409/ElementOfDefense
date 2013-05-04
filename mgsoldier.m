@@ -19,15 +19,12 @@
         health = 10;
         damage = 2;
         range = 5;
-        freq = 7;
+        freq = 2;
         speed =2;
     }
     return self;
 }
 
 
--(void) updateSoldier:(ccTime *)ct :(int) speed{
-    [super updateSoldier:ct :speed ];
-  }
 
 @end

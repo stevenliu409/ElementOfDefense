@@ -15,9 +15,12 @@
 
 @property (readonly) BOOL dead;
 @property (readonly) int speed;
-
+@property (readonly) int range;
+@property (readonly) int damage;
+@property (readonly) int freq;
 +(id) makeSoldier:(int) type;
 -(id) initSoldier:(int) type;
--(void) updateSoldier:(ccTime*) ct:(int)speed;
+-(void) updateSoldier:(ccTime) ct;
 //-(void) getAttacked:(monster*) m;
+-(void) fire:(ccTime) dt;
 @end

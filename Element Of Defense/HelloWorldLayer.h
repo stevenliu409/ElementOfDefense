@@ -13,20 +13,23 @@
 #import "tanksoldier.h"
 // When you import this file, you import all the cocos2d classes
 #import "cocos2d.h"
-
+#import "Bullet.h"
+#import "BulletCache.h"
 // HelloWorldLayer
 @interface HelloWorldLayer : CCLayer <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate>
 {
     mgsoldier* s1;
     snipersoldier* s2;
     tanksoldier* s3 ;
-    
+    Bullet* b1;
     NSMutableArray* army;
     NSUserDefaults* prefs;
-
 }
+
+@property(nonatomic,retain) BulletCache* cache;
 
 // returns a CCScene that contains the HelloWorldLayer as the only child
 +(CCScene *) scene;
++(HelloWorldLayer*) getLevel;
 
 @end

@@ -25,9 +25,5 @@
     return self;
 }
 
--(void) updateSoldier:(ccTime *)ct :(int) speed{
-    [super updateSoldier:ct :speed ];
-}
-
 
 @end

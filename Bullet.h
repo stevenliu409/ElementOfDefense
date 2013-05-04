@@ -8,11 +8,20 @@
 
 #import "soldier.h"
 
-@interface Bullet : soldier
+@interface Bullet : CCSprite{
+    BOOL shoted;
+    double currentTime;
+    int totalTime;
+}
 
 
+@property(assign) double speed;
+@property(assign) double damage;
+@property(assign) double range;
+@property(assign) BOOL shoted;
+@property(assign) double freq;
 +(id)makeBullet;
 -(id)initBullet;
--(void)updateBullet:(soldier*) s;
-
+-(void) shootBulletFrom:(soldier*) s timer:(ccTime)ct;
+-(void)updateBullet:(ccTime)ct;
 @end

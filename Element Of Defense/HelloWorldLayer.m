@@ -28,10 +28,15 @@
 @end
 
 @implementation HelloWorldLayer
-
+@synthesize cache;
 
 
 // Helper class method that creates a Scene with the HelloWorldLayer as the only child.
+static HelloWorldLayer* level;
++(HelloWorldLayer*) getLevel{
+    return level;
+}
+
 +(CCScene *) scene
 {
 	// 'scene' is an autorelease object.
@@ -53,10 +58,12 @@
 	// always call "super" init
 	// Apple recommends to re-assign "self" with the "super's" return value
 	if( (self=[super init]) ) {
+        level = self;
 		prefs = [NSUserDefaults standardUserDefaults];
+        cache = [[BulletCache alloc] init];
+        [self addChild:cache z:2];
 		[self initUI];
         [self initSoldiers];
-        //[self initBullet];
         [self scheduleUpdate];
         army = [[[NSMutableArray alloc] init]autorelease];
     }
@@ -75,15 +82,6 @@
     bg.scaleX = size.width/bg.contentSize.width;
     bg.scaleY = size.height/bg.contentSize.height;
     
-    zombieHead* zhead = [zombieHead makeZhead];
-    //zhead.position = ccp(size.width/2,size.height/2);
-    //[self addChild:zhead z:2];
-    zombieHead* zhead1 = [zombieHead makeZhead];
-    vampireHead* vhead = [vampireHead makevampireHead];
-    monster* m = [monster makeMonster:zhead mhead:vhead];
-    m.position = ccp(size.width/2,size.height/2);
-    [self addChild:m z:2];
-    
     [self addChild:bg z:1];
 
 }
@@ -96,29 +94,9 @@
     s1.scaleX = 75/s1.contentSize.width;
     s1.scaleY = 75/s1.contentSize.height;
     [self addChild:s1 z:2];
-    
-    s2 = [snipersoldier makeSniper];
-    s2.position = ccp(size.width/2,size.height/2 - 80);
-    s2.scaleX = 75/s2.contentSize.width;
-    s2.scaleY = 75/s2.contentSize.height;
-    [self addChild:s2 z:2];
-    
-    s3 = [tanksoldier makeTankSoldier];
-    s3.position = ccp(size.width/2 - 80,size.height/2 - 80);
-    s3.scaleX = 75/s3.contentSize.width;
-    s3.scaleY = 75/s3.contentSize.height;
-    [self addChild:s3 z:2];
+    //[s1 fire];
 }
 
--(void)initBullet{
-    Bullet* b1 = [Bullet makeBullet];
-    CGSize size = [[CCDirector sharedDirector] winSize];
-    b1.position = ccp(size.width/2,size.height/2);
-    b1.scaleX = 75/b1.contentSize.width;
-    b1.scaleY = 75/b1.contentSize.height;
-    [self addChild:b1 z:2];
-    
-}
 
 -(void) initUI{
     [self initBg];
@@ -137,13 +115,14 @@
 }
 
 
--(void) update:(ccTime*) dt{
-    [s1 updateSoldier:dt :s1.speed];
+-(void) update:(ccTime) dt{
+    /*[s1 updateSoldier:dt :s1.speed];
     [s2 updateSoldier:dt :s2.speed];
     [s3 updateSoldier:dt :s3.speed];
     if(s1.dead){
         [self removeChild:s1 cleanup:YES];
-    }
+    }*/
+    [s1 updateSoldier:dt];
 }
 
 #pragma mark GameKit delegate
