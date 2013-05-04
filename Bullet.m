@@ -42,7 +42,6 @@
     freq = s.freq;
     shoted = YES;
     lastpos = s.position;
-    //self.position.y = s.position.y;
     self.position = CGPointMake(s.position.x,s.position.y);
     self.visible = YES;
     [self unscheduleUpdate];

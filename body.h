@@ -18,7 +18,7 @@
 @property(assign) int speed;
 @property(assign) int health;
 @property(assign) int attack;
-@property(assign) int sheid;
+@property(assign) int shield;
 
 -(BOOL) checkTouch:(CGPoint) pt;
 
