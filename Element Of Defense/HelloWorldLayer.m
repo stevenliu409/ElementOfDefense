@@ -25,6 +25,7 @@
 -(void) initUI;
 -(void) initBg;
 -(void) initSoldiers;
+-(void) initBody;
 @end
 
 @implementation HelloWorldLayer
@@ -61,13 +62,14 @@ static HelloWorldLayer* level;
         level = self;
 		prefs = [NSUserDefaults standardUserDefaults];
         cache = [[BulletCache alloc] init];
-        self.isTouchEnabled = YES;
+        bodyCache = [[NSMutableArray alloc] init];
         [self addChild:cache z:2];
 		[self initUI];
         [self initSoldiers];
+        [self initBody];
         [self scheduleUpdate];
         army = [[[NSMutableArray alloc] init]autorelease];
-        bodyCache = [[[NSMutableArray alloc] init] autorelease];
+        self.isTouchEnabled = YES;
         
     }
 	return self;
@@ -89,6 +91,13 @@ static HelloWorldLayer* level;
 
 }
 
+
+-(void) initBody{
+    vampireHead* vhead = [vampireHead makevampireHead];
+    vhead.position = CGPointMake(120,120);
+    [self addChild:vhead z:2];
+    [bodyCache addObject:vhead];
+}
 
 -(void) initSoldiers{
     s1 = [mgsoldier makeMg];
@@ -133,7 +142,6 @@ static HelloWorldLayer* level;
     if(s1.dead){
         [self removeChild:s1 cleanup:YES];
     }*/
-    //[s1 updateSoldier:dt];
     [s1 updateSoldier:dt];
     [s2 updateSoldier:dt];
 }
@@ -141,6 +149,15 @@ static HelloWorldLayer* level;
 
 -(void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     NSLog(@"touches!");
+    UITouch *touch = [touches anyObject];
+	CGPoint point = [touch locationInView: [touch view]];
+    point = [[CCDirector sharedDirector] convertToGL: point];
+    for(int n = 0; n < [bodyCache count];n++){
+        body* b = [bodyCache objectAtIndex:n];
+        if([b checkTouch:point]){
+            NSLog(@"touch a body part");
+        }
+    }
     
 }
 

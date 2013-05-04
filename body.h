@@ -20,6 +20,7 @@
 @property(assign) int attack;
 @property(assign) int sheid;
 
+-(BOOL) checkTouch:(CGPoint) pt;
 
 
 @end

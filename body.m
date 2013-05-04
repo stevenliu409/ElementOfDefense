@@ -21,4 +21,10 @@
     return self;
 }
 
+-(BOOL) checkTouch:(CGPoint)pt{
+    return CGRectContainsPoint(self.boundingBox, pt);
+}
+
+
+
 @end

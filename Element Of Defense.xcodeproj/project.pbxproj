@@ -156,6 +156,7 @@
 		7F160E1E1734789300B99759 /* vhead.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F160E1D1734789300B99759 /* vhead.png */; };
 		7F160E281734A08300B99759 /* bullet.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F160E271734A08300B99759 /* bullet.png */; };
 		7F160E301734AC9100B99759 /* BulletCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F160E2F1734AC9100B99759 /* BulletCache.m */; };
+		7F160E3E17357ABC00B99759 /* bodycache.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F160E3D17357ABC00B99759 /* bodycache.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -458,6 +459,8 @@
 		7F160E271734A08300B99759 /* bullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bullet.png; path = Resources/bullet.png; sourceTree = "<group>"; };
 		7F160E2E1734AC9100B99759 /* BulletCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletCache.h; sourceTree = "<group>"; };
 		7F160E2F1734AC9100B99759 /* BulletCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletCache.m; sourceTree = "<group>"; };
+		7F160E3C17357ABC00B99759 /* bodycache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bodycache.h; sourceTree = "<group>"; };
+		7F160E3D17357ABC00B99759 /* bodycache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bodycache.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -483,6 +486,7 @@
 		2626B9B61724E1A7006702D9 = {
 			isa = PBXGroup;
 			children = (
+				7F160E3B17357A7200B99759 /* Monster */,
 				7F160E321734ACD400B99759 /* Bullet */,
 				7F160E311734ACA900B99759 /* Soldier */,
 				7F160DFD17341EF900B99759 /* Game Levels */,
@@ -909,14 +913,6 @@
 		2663FD0617330A190003C377 /* Game Objects */ = {
 			isa = PBXGroup;
 			children = (
-				7F160E0F173467BB00B99759 /* body.h */,
-				7F160E10173467BB00B99759 /* body.m */,
-				7F160E1417346B0100B99759 /* zombieHead.h */,
-				7F160E1517346B0100B99759 /* zombieHead.m */,
-				7F160E1717346F4F00B99759 /* monster.h */,
-				7F160E1817346F4F00B99759 /* monster.m */,
-				7F160E1A1734780300B99759 /* vampireHead.h */,
-				7F160E1B1734780400B99759 /* vampireHead.m */,
 			);
 			name = "Game Objects";
 			sourceTree = "<group>";
@@ -967,6 +963,23 @@
 				77573909173461A900592899 /* Bullet.m */,
 			);
 			name = Bullet;
+			sourceTree = "<group>";
+		};
+		7F160E3B17357A7200B99759 /* Monster */ = {
+			isa = PBXGroup;
+			children = (
+				7F160E0F173467BB00B99759 /* body.h */,
+				7F160E10173467BB00B99759 /* body.m */,
+				7F160E1417346B0100B99759 /* zombieHead.h */,
+				7F160E1517346B0100B99759 /* zombieHead.m */,
+				7F160E1717346F4F00B99759 /* monster.h */,
+				7F160E1817346F4F00B99759 /* monster.m */,
+				7F160E1A1734780300B99759 /* vampireHead.h */,
+				7F160E1B1734780400B99759 /* vampireHead.m */,
+				7F160E3C17357ABC00B99759 /* bodycache.h */,
+				7F160E3D17357ABC00B99759 /* bodycache.m */,
+			);
+			name = Monster;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1169,6 +1182,7 @@
 				7F160E1917346F4F00B99759 /* monster.m in Sources */,
 				7F160E1C1734780400B99759 /* vampireHead.m in Sources */,
 				7F160E301734AC9100B99759 /* BulletCache.m in Sources */,
+				7F160E3E17357ABC00B99759 /* bodycache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
