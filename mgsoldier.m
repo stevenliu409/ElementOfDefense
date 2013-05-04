@@ -18,8 +18,8 @@
     if(self = [super initWithFile:@"soldier1.png"]){
         health = 10;
         damage = 2;
-        range = 5;
-        freq = 2;
+        range = 2;
+        freq = 0.5;
         speed =2;
     }
     return self;

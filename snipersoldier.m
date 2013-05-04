@@ -19,7 +19,7 @@
         health = 6;
         damage = 7;
         range = 10;
-        freq = 2;
+        freq = 4;
         speed = 3;
     }
     return self;

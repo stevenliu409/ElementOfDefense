@@ -20,8 +20,9 @@
 @property(assign) double range;
 @property(assign) BOOL shoted;
 @property(assign) double freq;
+@property(assign) CGPoint lastpos;
 +(id)makeBullet;
 -(id)initBullet;
 -(void) shootBulletFrom:(soldier*) s timer:(ccTime)ct;
--(void)updateBullet:(ccTime)ct;
+//-(void)updateBullet:(ccTime)ct;
 @end

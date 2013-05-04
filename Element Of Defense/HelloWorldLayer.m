@@ -90,11 +90,18 @@ static HelloWorldLayer* level;
 -(void) initSoldiers{
     s1 = [mgsoldier makeMg];
     CGSize size = [[CCDirector sharedDirector] winSize];
-    s1.position = ccp(size.width/2,size.height/2);
+    s1.position = ccp(size.width/2-80,size.height/2);
     s1.scaleX = 75/s1.contentSize.width;
     s1.scaleY = 75/s1.contentSize.height;
     [self addChild:s1 z:2];
-    //[s1 fire];
+    
+    s2 = [snipersoldier makeSniper];
+    s2.position = ccp(size.width/2-150,size.height/2 - 80);
+    s2.scaleX = 75/s2.contentSize.width;
+    s2.scaleY = 75/s2.contentSize.height;
+    [self addChild:s2 z:2];
+
+
 }
 
 
@@ -122,7 +129,8 @@ static HelloWorldLayer* level;
     if(s1.dead){
         [self removeChild:s1 cleanup:YES];
     }*/
-    [s1 updateSoldier:dt];
+    //[s1 updateSoldier:dt];
+    [s2 updateSoldier:dt];
 }
 
 #pragma mark GameKit delegate
