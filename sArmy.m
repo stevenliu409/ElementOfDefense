@@ -38,11 +38,25 @@
     return self;
 }
 
--(id) call_reinforcements{
-
-
-
+-(id) call_MG_reinforcements:(int)numMGsoldier{
+    for(int i =0; i<numMGsoldier; i++){
+        [mgSoldier_array removeLastObject];
+    }
     return self;
 }
 
+-(id) call_Sniper_reinforcements:(int)numSniper{
+    for (int i=0; i<numSniper; i++) {
+        [Sniper_array removeLastObject];
+    }
+    return self;
+
+}
+
+-(id) call_Tank_reinforcements:(int)numTanksoldier{
+    for(int i =0; i < numTanksoldier;i++){
+        [TankSoldier_array removeLastObject];
+    }
+    return self;
+}
 @end
