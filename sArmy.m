@@ -10,26 +10,40 @@
 
 @implementation sArmy
 
-+(id) makeArmy:(int)numMGsoldier NumberOfSniper:(int)numSniper NumberOfTankSoldier:(int)numTankSoldier{
-    return [[self alloc] initArmy:numMGsoldier  NumberOfSniper:numSniper NumberOfTankSoldiers:numTankSoldier];
+
++(id) makeMGArmy:(int)numMGsoldier{
+    return [[self alloc] initMGArmy:numMGsoldier];
 }
 
++(id) makeSniperArmy:(int)numSniper{
+    return [[self alloc] initSniperArmy:numSniper ];
+}
 
--(id) initArmy:(int)numMGsoldiers NumberofSniper:(int)numSnipers NumberofTankSoldier:(int)numTankSoldiers{
++(id) makeTankArmy:(int)numTankSoldier{
+    return [[self alloc] initTankArmy:numTankSoldier ];
+}
+
+-(id) initMGArmy:(int)numMGsoldiers{
     mgSoldier_array = [[[NSMutableArray alloc] init]autorelease];
-    Sniper_array = [[[NSMutableArray alloc] init] autorelease];
-    TankSoldier_array = [[[NSMutableArray alloc] init] autorelease];
-    
     for(int i =0; i<numMGsoldiers;i++){
         mgsoldier *s1 = [ mgsoldier makeMg];
         [mgSoldier_array addObject:s1];
     }
-    
+    return self;
+}
+-(id) initSniperArmy:(int)numSnipers{
+    Sniper_array = [[[NSMutableArray alloc] init] autorelease];
     for(int j =0; j<numSnipers;j++){
         snipersoldier *s2 = [ snipersoldier makeSniper];
         [Sniper_array addObject:s2];
     }
     
+    return self;
+}
+
+
+-(id) initTankArmy:(int)numTankSoldiers{
+    TankSoldier_array = [[[NSMutableArray alloc] init] autorelease];
     for(int k =0; k<numTankSoldiers;k++){
         tanksoldier *s3 = [ tanksoldier makeTankSoldier];
         [TankSoldier_array addObject:s3];
