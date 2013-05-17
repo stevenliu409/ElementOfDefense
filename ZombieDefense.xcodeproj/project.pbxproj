@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		261FB63C173F2EBB00B20485 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 261FB63B173F2EBB00B20485 /* SenTestingKit.framework */; };
+		261FB63D173F2EBB00B20485 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2626B9CC1724E1A7006702D9 /* UIKit.framework */; };
+		261FB63E173F2EBB00B20485 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2626B9CE1724E1A7006702D9 /* Foundation.framework */; };
 		2626B9C31724E1A7006702D9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2626B9C21724E1A7006702D9 /* QuartzCore.framework */; };
 		2626B9C51724E1A7006702D9 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2626B9C41724E1A7006702D9 /* OpenGLES.framework */; };
 		2626B9C71724E1A7006702D9 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2626B9C61724E1A7006702D9 /* OpenAL.framework */; };
@@ -160,6 +163,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		261FB63A173F2EBB00B20485 /* sArmyTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sArmyTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		261FB63B173F2EBB00B20485 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		2626B9BF1724E1A7006702D9 /* ZombieDefense.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZombieDefense.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2626B9C21724E1A7006702D9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		2626B9C41724E1A7006702D9 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -464,6 +469,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		261FB636173F2EBB00B20485 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				261FB63C173F2EBB00B20485 /* SenTestingKit.framework in Frameworks */,
+				261FB63D173F2EBB00B20485 /* UIKit.framework in Frameworks */,
+				261FB63E173F2EBB00B20485 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2626B9BC1724E1A7006702D9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -503,6 +518,7 @@
 			isa = PBXGroup;
 			children = (
 				2626B9BF1724E1A7006702D9 /* ZombieDefense.app */,
+				261FB63A173F2EBB00B20485 /* sArmyTest.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -519,6 +535,7 @@
 				2626B9CE1724E1A7006702D9 /* Foundation.framework */,
 				2626B9D01724E1A7006702D9 /* CoreGraphics.framework */,
 				2626B9D21724E1A7006702D9 /* GameKit.framework */,
+				261FB63B173F2EBB00B20485 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -986,6 +1003,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		261FB639173F2EBB00B20485 /* sArmyTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 261FB64B173F2EBB00B20485 /* Build configuration list for PBXNativeTarget "sArmyTest" */;
+			buildPhases = (
+				261FB635173F2EBB00B20485 /* Sources */,
+				261FB636173F2EBB00B20485 /* Frameworks */,
+				261FB637173F2EBB00B20485 /* Resources */,
+				261FB638173F2EBB00B20485 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = sArmyTest;
+			productName = sArmyTest;
+			productReference = 261FB63A173F2EBB00B20485 /* sArmyTest.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		2626B9BE1724E1A7006702D9 /* ZombieDefense */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2626BB571724E1A9006702D9 /* Build configuration list for PBXNativeTarget "ZombieDefense" */;
@@ -1024,11 +1059,19 @@
 			projectRoot = "";
 			targets = (
 				2626B9BE1724E1A7006702D9 /* ZombieDefense */,
+				261FB639173F2EBB00B20485 /* sArmyTest */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		261FB637173F2EBB00B20485 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2626B9BD1724E1A7006702D9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1060,7 +1103,30 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		261FB638173F2EBB00B20485 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		261FB635173F2EBB00B20485 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2626B9BB1724E1A7006702D9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1190,6 +1256,65 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		261FB649173F2EBB00B20485 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "sArmyTest/sArmyTest-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				INFOPLIST_FILE = "sArmyTest/sArmyTest-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		261FB64A173F2EBB00B20485 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "sArmyTest/sArmyTest-Prefix.pch";
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				INFOPLIST_FILE = "sArmyTest/sArmyTest-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		2626BB551724E1A9006702D9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1279,6 +1404,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		261FB64B173F2EBB00B20485 /* Build configuration list for PBXNativeTarget "sArmyTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				261FB649173F2EBB00B20485 /* Debug */,
+				261FB64A173F2EBB00B20485 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2626B9BA1724E1A7006702D9 /* Build configuration list for PBXProject "ZombieDefense" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

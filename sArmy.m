@@ -24,53 +24,32 @@
 }
 
 -(id) initMGArmy:(int)numMGsoldiers{
-    mgSoldier_array = [[[NSMutableArray alloc] init]autorelease];
-    for(int i =0; i<numMGsoldiers;i++){
-        mgsoldier *s1 = [ mgsoldier makeMg];
-        [mgSoldier_array addObject:s1];
-    }
+    num_MG_Soldier = numMGsoldiers;
     return self;
 }
 -(id) initSniperArmy:(int)numSnipers{
-    Sniper_array = [[[NSMutableArray alloc] init] autorelease];
-    for(int j =0; j<numSnipers;j++){
-        snipersoldier *s2 = [ snipersoldier makeSniper];
-        [Sniper_array addObject:s2];
-    }
-    
+    num_Sniper = numSnipers;
     return self;
 }
 
 
 -(id) initTankArmy:(int)numTankSoldiers{
-    TankSoldier_array = [[[NSMutableArray alloc] init] autorelease];
-    for(int k =0; k<numTankSoldiers;k++){
-        tanksoldier *s3 = [ tanksoldier makeTankSoldier];
-        [TankSoldier_array addObject:s3];
-    }
-
+    num_tank_soldier = numTankSoldiers;
     return self;
 }
 
 -(id) call_MG_reinforcements:(int)numMGsoldier{
-    for(int i =0; i<numMGsoldier; i++){
-        [mgSoldier_array removeLastObject];
-    }
+    num_MG_Soldier -= numMGsoldier;
     return self;
 }
 
 -(id) call_Sniper_reinforcements:(int)numSniper{
-    for (int i=0; i<numSniper; i++) {
-        [Sniper_array removeLastObject];
-    }
+    num_Sniper -= numSniper;
     return self;
-
 }
 
 -(id) call_Tank_reinforcements:(int)numTanksoldier{
-    for(int i =0; i < numTanksoldier;i++){
-        [TankSoldier_array removeLastObject];
-    }
+    num_tank_soldier-= numTanksoldier;
     return self;
 }
 @end

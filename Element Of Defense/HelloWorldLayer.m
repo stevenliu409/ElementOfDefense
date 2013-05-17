@@ -84,7 +84,9 @@ static HelloWorldLayer* level;
     [bg setAnchorPoint:CGPointMake(0, 0)];
     CGSize size = [[CCDirector sharedDirector] winSize];
     
-    
+   // sArmy my_army = [sArmy makeMGArmy:5];
+    //[my_army call_MG_reinforcements:1];
+
     bg.scaleX = size.width/bg.contentSize.width;
     bg.scaleY = size.height/bg.contentSize.height;
     
