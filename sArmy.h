@@ -13,7 +13,10 @@
 
 @interface sArmy : CCNode
 {
-    int num_MG_Soldier, num_Sniper, num_tank_soldier;
+    NSMutableArray* mgSoldier_array;
+    NSMutableArray* Sniper_array;
+    NSMutableArray* TankSoldier_array;
+
 }
 +(id) makeMGArmy:(int)numMGsoldier;
 +(id) makeSniperArmy:(int)numSniper;
