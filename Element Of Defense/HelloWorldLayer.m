@@ -18,6 +18,7 @@
 #import "zombieHead.h"
 #import "monster.h"
 #import "vampireHead.h"
+#import "sArmy.h"
 #pragma mark - HelloWorldLayer
 
 // HelloWorldLayer implementation
@@ -66,7 +67,7 @@ static HelloWorldLayer* level;
         monsterCache = [[NSMutableArray alloc] init];
         [self addChild:cache z:2];
 		[self initUI];
-        [self initSoldiers];
+        //[self initSoldiers];
         [self initBody];
         [self scheduleUpdate];
         army = [[[NSMutableArray alloc] init]autorelease];
@@ -84,13 +85,13 @@ static HelloWorldLayer* level;
     [bg setAnchorPoint:CGPointMake(0, 0)];
     CGSize size = [[CCDirector sharedDirector] winSize];
     
-   // sArmy my_army = [sArmy makeMGArmy:5];
-    //[my_army call_MG_reinforcements:1];
-
     bg.scaleX = size.width/bg.contentSize.width;
     bg.scaleY = size.height/bg.contentSize.height;
     
     [self addChild:bg z:1];
+    sArmy* my_army = [sArmy makeMGArmy:5];
+    [my_army call_MG_reinforcements:1 layer:self];
+
 
 }
 
@@ -151,8 +152,8 @@ static HelloWorldLayer* level;
     if(s1.dead){
         [self removeChild:s1 cleanup:YES];
     }*/
-    [s1 updateSoldier:dt];
-    [s2 updateSoldier:dt];
+    //[s1 updateSoldier:dt];
+    //[s2 updateSoldier:dt];
 }
 
 

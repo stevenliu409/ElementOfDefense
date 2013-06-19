@@ -24,10 +24,11 @@
 }
 
 -(id) initMGArmy:(int)numMGsoldiers{
-    mgSoldier_array = [[[NSMutableArray alloc] init]autorelease];
+    mgSoldier_array = [[NSMutableArray alloc] init];
     for(int i =0; i<numMGsoldiers;i++){
         mgsoldier *s1 = [ mgsoldier makeMg];
         [mgSoldier_array addObject:s1];
+        //[self addChild:s1 z:4];
     }
     return self;
 }
@@ -52,19 +53,19 @@
     return self;
 }
 
--(id) call_MG_reinforcements:(int)numMGsoldier{
+-(void) call_MG_reinforcements:(int)numMGsoldier layer:(CCLayer *)l{
+    
     for(int i =0; i<numMGsoldier; i++){
         mgsoldier *temp_soldier = [mgSoldier_array objectAtIndex:0];
-        [self addChild:temp_soldier];
+        [l addChild:temp_soldier z:3];
         [mgSoldier_array removeLastObject];
     }
-    return self;
 }
 
 -(id) call_Sniper_reinforcements:(int)numSniper{
     for (int i=0; i<numSniper; i++) {
         snipersoldier *temp_soldier = [Sniper_array objectAtIndex:0];
-        [self addChild:temp_soldier];
+        [self addChild:temp_soldier z:3];
         [Sniper_array removeLastObject];
     }
     return self;
@@ -74,7 +75,7 @@
 -(id) call_Tank_reinforcements:(int)numTanksoldier{
     for(int i =0; i < numTanksoldier;i++){
         tanksoldier *temp_soldier = [TankSoldier_array objectAtIndex:0];
-        [self addChild:temp_soldier];
+        [self addChild:temp_soldier z:3];
         [TankSoldier_array removeLastObject];
     }
     return self;
