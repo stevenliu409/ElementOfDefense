@@ -89,9 +89,8 @@ static HelloWorldLayer* level;
     bg.scaleY = size.height/bg.contentSize.height;
     
     [self addChild:bg z:1];
-    sArmy* my_army = [sArmy makeSniperArmy:5];
-    [my_army call_Sniper_reinforcements:1 layer:self];
-
+    sArmy* my_army = [sArmy makeMGArmy:5];
+    [my_army call_MG_reinforcements:2 layer:self];
 
 }
 

@@ -58,7 +58,7 @@
     for(int i =0; i<numMGsoldier; i++){
         mgsoldier *temp_soldier = [mgSoldier_array objectAtIndex:0];
         [l addChild:temp_soldier z:3];
-        [mgSoldier_array removeLastObject];
+        [mgSoldier_array removeObject:temp_soldier];
     }
 }
 
@@ -66,7 +66,7 @@
     for (int i=0; i<numSniper; i++) {
         snipersoldier *temp_soldier = [Sniper_array objectAtIndex:0];
         [l addChild:temp_soldier z:3];
-        [Sniper_array removeLastObject];
+        [Sniper_array removeObject:temp_soldier];
     }
     return self;
     
@@ -76,7 +76,7 @@
     for(int i =0; i < numTanksoldier;i++){
         tanksoldier *temp_soldier = [TankSoldier_array objectAtIndex:0];
         [l addChild:temp_soldier z:3];
-        [TankSoldier_array removeLastObject];
+        [TankSoldier_array removeObject:temp_soldier];
     }
     return self;
 }
