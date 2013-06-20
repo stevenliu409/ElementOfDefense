@@ -9,7 +9,7 @@
 #import "soldier.h"
 
 @interface snipersoldier : soldier
-
+@property (nonatomic,assign) CCSprite *mySprite;
 +(id) makeSniper;
 -(id) initSniper;
 

@@ -9,6 +9,7 @@
 #import "soldier.h"
 
 @interface mgsoldier : soldier
+@property (nonatomic,assign) CCSprite *mySprite;
 
 +(id) makeMg;
 -(id) initMg;

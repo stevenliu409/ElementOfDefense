@@ -19,9 +19,6 @@
 // HelloWorldLayer
 @interface HelloWorldLayer : CCLayer <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate>
 {
-    mgsoldier* s1;
-    snipersoldier* s2;
-    tanksoldier* s3 ;
     Bullet* b1;
     NSMutableArray* army;
     NSMutableArray* bodyCache;

@@ -25,8 +25,8 @@
 -(id) initSniperArmy:(int)numSnipers;
 -(id) initTankArmy:(int)numTankSoldier;
 -(void) call_MG_reinforcements:(int)numMGsoldier layer:(CCLayer*) l;
--(id) call_Sniper_reinforcements:(int)numSniper;
--(id) call_Tank_reinforcements:(int)numTanksoldier;
+-(id) call_Sniper_reinforcements:(int)numSniper layer:(CCLayer *)l;
+-(id) call_Tank_reinforcements:(int)numTanksoldier layer:(CCLayer *)l;
 
 
 

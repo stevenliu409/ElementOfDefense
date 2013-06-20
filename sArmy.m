@@ -62,20 +62,20 @@
     }
 }
 
--(id) call_Sniper_reinforcements:(int)numSniper{
+-(id) call_Sniper_reinforcements:(int)numSniper layer:(CCLayer *)l{
     for (int i=0; i<numSniper; i++) {
         snipersoldier *temp_soldier = [Sniper_array objectAtIndex:0];
-        [self addChild:temp_soldier z:3];
+        [l addChild:temp_soldier z:3];
         [Sniper_array removeLastObject];
     }
     return self;
     
 }
 
--(id) call_Tank_reinforcements:(int)numTanksoldier{
+-(id) call_Tank_reinforcements:(int)numTanksoldier layer:(CCLayer*) l{
     for(int i =0; i < numTanksoldier;i++){
         tanksoldier *temp_soldier = [TankSoldier_array objectAtIndex:0];
-        [self addChild:temp_soldier z:3];
+        [l addChild:temp_soldier z:3];
         [TankSoldier_array removeLastObject];
     }
     return self;

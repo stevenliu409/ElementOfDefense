@@ -89,8 +89,8 @@ static HelloWorldLayer* level;
     bg.scaleY = size.height/bg.contentSize.height;
     
     [self addChild:bg z:1];
-    sArmy* my_army = [sArmy makeMGArmy:5];
-    [my_army call_MG_reinforcements:1 layer:self];
+    sArmy* my_army = [sArmy makeSniperArmy:5];
+    [my_army call_Sniper_reinforcements:1 layer:self];
 
 
 }
@@ -108,24 +108,6 @@ static HelloWorldLayer* level;
     [bodyCache addObject:zhead];
     
 }
-
--(void) initSoldiers{
-    s1 = [mgsoldier makeMg];
-    CGSize size = [[CCDirector sharedDirector] winSize];
-    s1.position = ccp(size.width/2-80,size.height/2);
-    s1.scaleX = 75/s1.contentSize.width;
-    s1.scaleY = 75/s1.contentSize.height;
-    [self addChild:s1 z:2];
-    
-    s2 = [snipersoldier makeSniper];
-    s2.position = ccp(size.width/2-150,size.height/2 - 80);
-    s2.scaleX = 75/s2.contentSize.width;
-    s2.scaleY = 75/s2.contentSize.height;
-    [self addChild:s2 z:2];
-
-
-}
-
 
 -(void) initUI{
     [self initBg];

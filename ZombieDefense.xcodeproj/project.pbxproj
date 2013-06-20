@@ -441,6 +441,7 @@
 		2663FD1117331C010003C377 /* sArmy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sArmy.m; sourceTree = "<group>"; };
 		26B32E551734486900CE397D /* tanksoldier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tanksoldier.h; sourceTree = "<group>"; };
 		26B32E561734486900CE397D /* tanksoldier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tanksoldier.m; sourceTree = "<group>"; };
+		26E336261772543E00365D01 /* Waves.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Waves.plist; path = ../Waves.plist; sourceTree = "<group>"; };
 		77573908173461A900592899 /* Bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bullet.h; sourceTree = "<group>"; };
 		77573909173461A900592899 /* Bullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bullet.m; sourceTree = "<group>"; };
 		7F160DF517341BB300B99759 /* loadingLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loadingLayer.h; sourceTree = "<group>"; };
@@ -560,6 +561,7 @@
 		2626B9D51724E1A7006702D9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				26E336261772543E00365D01 /* Waves.plist */,
 				7F160E1D1734789300B99759 /* vhead.png */,
 				7F160E1217346A3100B99759 /* zhead.png */,
 				7F160DFB17341CAD00B99759 /* openbg.jpg */,

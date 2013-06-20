@@ -8,7 +8,9 @@
 
 #import "soldier.h"
 
+
 @interface tanksoldier : soldier
+@property (nonatomic,assign) CCSprite *mySprite;
 
 +(id) makeTankSoldier;
 -(id) initTankSoldier;
