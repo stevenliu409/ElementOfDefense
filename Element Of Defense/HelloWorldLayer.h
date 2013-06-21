@@ -8,14 +8,12 @@
 
 
 #import <GameKit/GameKit.h>
-#import "mgsoldier.h"
-#import "snipersoldier.h"
-#import "tanksoldier.h"
 // When you import this file, you import all the cocos2d classes
 #import "cocos2d.h"
 #import "Bullet.h"
 #import "BulletCache.h"
 #import "vampireHead.h"
+
 // HelloWorldLayer
 @interface HelloWorldLayer : CCLayer <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate>
 {
@@ -30,6 +28,7 @@
 }
 
 @property(nonatomic,retain) BulletCache* cache;
+@property (nonatomic,strong) NSMutableArray *waypoints;
 
 // returns a CCScene that contains the HelloWorldLayer as the only child
 +(CCScene *) scene;

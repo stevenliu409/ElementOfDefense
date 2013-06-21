@@ -13,12 +13,12 @@
 // Needed to obtain the Navigation Controller
 #import "AppDelegate.h"
 #import "leve1.h"
-#import "tanksoldier.h"
 #import "Bullet.h"
 #import "zombieHead.h"
 #import "monster.h"
 #import "vampireHead.h"
 #import "sArmy.h"
+#import "Waypoint.h"
 #pragma mark - HelloWorldLayer
 
 // HelloWorldLayer implementation
@@ -31,14 +31,15 @@
 
 @implementation HelloWorldLayer
 @synthesize cache;
+@synthesize waypoints;
 
 
-// Helper class method that creates a Scene with the HelloWorldLayer as the only child.
 static HelloWorldLayer* level;
 +(HelloWorldLayer*) getLevel{
     return level;
 }
 
+// Helper class method that creates a Scene with the HelloWorldLayer as the only child.
 +(CCScene *) scene
 {
 	// 'scene' is an autorelease object.
@@ -67,11 +68,12 @@ static HelloWorldLayer* level;
         monsterCache = [[NSMutableArray alloc] init];
         [self addChild:cache z:2];
 		[self initUI];
-        //[self initSoldiers];
+        [self addWaypoints];
         [self initBody];
         [self scheduleUpdate];
         army = [[[NSMutableArray alloc] init]autorelease];
         self.isTouchEnabled = YES;
+       
         
     }
 	return self;
@@ -91,6 +93,9 @@ static HelloWorldLayer* level;
     [self addChild:bg z:1];
     sArmy* my_army = [sArmy makeMGArmy:5];
     [my_army call_MG_reinforcements:2 layer:self];
+    [my_army call_MG_reinforcements:2 layer:self];
+    [my_army call_MG_reinforcements:1 layer:self];
+
 
 }
 
@@ -108,8 +113,26 @@ static HelloWorldLayer* level;
     
 }
 
+
+-(void)addWaypoints
+{
+    waypoints = [[NSMutableArray alloc] init];
+    
+    Waypoint * waypoint1 = [Waypoint nodeWithTheGame:self location:ccp(200,130)];
+    [waypoints addObject:waypoint1];
+    
+    Waypoint * waypoint2 = [Waypoint nodeWithTheGame:self location:ccp(200,150)];
+    [waypoints addObject:waypoint2];
+    waypoint2.nextWaypoint =waypoint1;
+    
+    
+}
+
+
+
 -(void) initUI{
     [self initBg];
+
 }
 
 // on "dealloc" you need to release all your retained objects
