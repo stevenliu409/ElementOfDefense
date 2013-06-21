@@ -10,7 +10,7 @@
 
 @implementation Waypoint
 
-@synthesize myPosition, nextWaypoint, mySprite;
+@synthesize myPosition, nextWaypoint;
 
 +(id)nodeWithTheGame:(CCLayer*)_game location:(CGPoint)location
 {
@@ -25,14 +25,25 @@
         
         [self setPosition:CGPointZero];
         myPosition = location;
-        mySprite = [CCSprite spriteWithFile:@"circle.png"];
-        mySprite.position = location;
-        [theGame addChild:mySprite z:3];
-        [theGame addChild:self];
+        [theGame addChild:self z:3];
         
 	}
     
 	return self;
+}
+
+
+//used for debugging
+-(void)draw
+{
+    ccDrawColor4B(0, 255, 2, 255);
+    ccDrawCircle(myPosition, 6, 360, 30, false);
+    ccDrawCircle(myPosition, 2, 360, 30, false);
+    
+    if(nextWaypoint)
+        ccDrawLine(myPosition, nextWaypoint.myPosition);
+    
+    [super draw];
 }
 
 @end

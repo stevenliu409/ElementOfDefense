@@ -15,7 +15,6 @@
 
 @property (nonatomic,readwrite) CGPoint myPosition;
 @property (nonatomic,assign) Waypoint *nextWaypoint;
-@property (nonatomic,assign) CCSprite *mySprite;
 
 +(id)nodeWithTheGame:(CCLayer*)_game location:(CGPoint)location;
 -(id)initWithTheGame:(CCLayer *)_game location:(CGPoint)location;
