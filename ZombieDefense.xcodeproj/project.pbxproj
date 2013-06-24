@@ -162,6 +162,7 @@
 		7F160E281734A08300B99759 /* bullet.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F160E271734A08300B99759 /* bullet.png */; };
 		7F160E301734AC9100B99759 /* BulletCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F160E2F1734AC9100B99759 /* BulletCache.m */; };
 		7F160E3E17357ABC00B99759 /* bodycache.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F160E3D17357ABC00B99759 /* bodycache.m */; };
+		7FD65EF11778E6FA001F909F /* mWave.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD65EF01778E6FA001F909F /* mWave.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -472,6 +473,8 @@
 		7F160E2F1734AC9100B99759 /* BulletCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletCache.m; sourceTree = "<group>"; };
 		7F160E3C17357ABC00B99759 /* bodycache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bodycache.h; sourceTree = "<group>"; };
 		7F160E3D17357ABC00B99759 /* bodycache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bodycache.m; sourceTree = "<group>"; };
+		7FD65EEF1778E6FA001F909F /* mWave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mWave.h; sourceTree = "<group>"; };
+		7FD65EF01778E6FA001F909F /* mWave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mWave.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1006,6 +1009,8 @@
 				7F160E1B1734780400B99759 /* vampireHead.m */,
 				7F160E3C17357ABC00B99759 /* bodycache.h */,
 				7F160E3D17357ABC00B99759 /* bodycache.m */,
+				7FD65EEF1778E6FA001F909F /* mWave.h */,
+				7FD65EF01778E6FA001F909F /* mWave.m */,
 			);
 			name = Monster;
 			sourceTree = "<group>";
@@ -1262,6 +1267,7 @@
 				7F160E301734AC9100B99759 /* BulletCache.m in Sources */,
 				7F160E3E17357ABC00B99759 /* bodycache.m in Sources */,
 				266FF86F1773EE8A00561D48 /* Waypoint.m in Sources */,
+				7FD65EF11778E6FA001F909F /* mWave.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
