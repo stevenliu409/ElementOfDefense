@@ -7,7 +7,7 @@
 //
 
 #import "soldier.h"
-
+#import "monster.h"
 @interface Bullet : CCSprite{
     BOOL shoted;
     double currentTime;
@@ -24,5 +24,6 @@
 +(id)makeBullet;
 -(id)initBullet;
 -(void) shootBulletFrom:(soldier*) s timer:(ccTime)ct;
+-(void) hitMonster:(monster*) m;
 
 @end

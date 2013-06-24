@@ -34,7 +34,11 @@
 }
 
 
-
+-(void) hitMonster:(monster *)m{
+    if(CGRectIntersectsRect(self.boundingBox, m.boundingBox)){
+        NSLog(@"hit Monster");
+    }
+}
 
 -(void) shootBulletFrom:(soldier *)s timer:(ccTime) dt{
     damage = s.damage;
@@ -59,6 +63,7 @@
         self.position = CGPointMake(0,self.position.y);
     }
 }
+
 
 
 @end

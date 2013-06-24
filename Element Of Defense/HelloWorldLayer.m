@@ -165,20 +165,19 @@ static HelloWorldLayer* level;
     UITouch *touch = [touches anyObject];
 	CGPoint point = [touch locationInView: [touch view]];
     point = [[CCDirector sharedDirector] convertToGL: point];
-    NSLog(@"size of monster cache is %d",[monsterCache count]);
+    
+    if([monsterCache count] == 2){
+        monster* m = [monster makeMonster:[monsterCache objectAtIndex:0] mhead:[monsterCache objectAtIndex:1]];
+        m.position = CGPointMake(point.x,point.y);
+        [self addChild:m z:2];
+        [monsterCache removeAllObjects];
+    }
+    
     for(int n = 0; n < [bodyCache count];n++){
         body* b = [bodyCache objectAtIndex:n];
         if([b checkTouch:point]){
-            NSLog(@"touch a body part");
             [self removeChild:b cleanup:YES];
             [monsterCache addObject:b];
-            if([monsterCache count] == 2){
-                monster* m = [monster makeMonster:[monsterCache objectAtIndex:0] mhead:[monsterCache objectAtIndex:1]];
-                m.position = CGPointMake(200,100);
-                [self addChild:m z:2];
-                [monsterCache removeAllObjects];
-            }
-            
             [bodyCache removeObject:b];
             break;
         }
