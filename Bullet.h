@@ -24,6 +24,6 @@
 +(id)makeBullet;
 -(id)initBullet;
 -(void) shootBulletFrom:(soldier*) s timer:(ccTime)ct;
--(void) hitMonster:(monster*) m;
+-(bool) hitMonster:(monster*) m;
 
 @end

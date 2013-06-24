@@ -17,5 +17,5 @@
 }
 
 -(void) shootBulletFrom:(soldier*) s timer:(ccTime) dt;
-
+-(CCArray*) getCache;
 @end

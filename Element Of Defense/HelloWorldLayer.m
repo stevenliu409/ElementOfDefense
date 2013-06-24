@@ -145,6 +145,7 @@ static HelloWorldLayer* level;
 	// don't forget to call "super dealloc"
     [self removeAllChildrenWithCleanup:YES];
     [army release];
+    [cache release];
 	[super dealloc];
 }
 
@@ -158,6 +159,20 @@ static HelloWorldLayer* level;
     }*/
     //[s1 updateSoldier:dt];
     //[s2 updateSoldier:dt];
+    
+    CCArray* bs = [cache getCache];
+    for(int n = 0; n < [bs count]; n++ ){
+        Bullet* b = [bs objectAtIndex:n];
+        if(b.visible == YES){
+            for(int x= 0; x < [monsterCache count]; x++){
+                if([b hitMonster:[monsterCache objectAtIndex:n]]){
+                    b.visible = NO;
+                    b.shoted = NO;
+                    b.position = ccp(0,b.self.position.y);
+                }
+            }
+        }
+    }
 }
 
 
