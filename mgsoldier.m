@@ -32,20 +32,34 @@
         Waypoint *waypoint = (Waypoint*)[gameLayer.waypoints objectAtIndex:([gameLayer.waypoints count]-1)];
         spawnpoint = waypoint.nextWaypoint;
         CGPoint pos = waypoint.myPosition;
-        //CGPoint pos = ccp(200,130);
         myPosition = pos;
         [mySprite setPosition:pos];
         [gameLayer addChild:self z:3];
-        //[self scheduleUpdate];
+        [self scheduleUpdate];
     }
     
     return self;
 }
 
 -(void)update:(ccTime)dt{
+    //if there is a next point then move there
+    if(spawnpoint.nextWaypoint){
+        spawnpoint = spawnpoint.nextWaypoint;
+    
+    }
+    else{
+       //stay at that point
+        spawnpoint.nextWaypoint = spawnpoint;
+    
+    }
 
+    CGPoint targetPoint = spawnpoint.myPosition;
+    float movingspeed = speed;
 
+    CGPoint normalized = ccpNormalize(ccp(targetPoint.x-myPosition.x, targetPoint.y-myPosition.y));
 
+    myPosition =ccp(myPosition.x+normalized.x *movingspeed, myPosition.y+normalized.y *movingspeed);
+    [mySprite setPosition:myPosition];
 }
 
 

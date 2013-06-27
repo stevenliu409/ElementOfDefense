@@ -117,7 +117,7 @@ static HelloWorldLayer* level;
     Waypoint * waypoint1 = [Waypoint nodeWithTheGame:self location:ccp(200,130)];
     [waypoints addObject:waypoint1];
     
-    Waypoint * waypoint2 = [Waypoint nodeWithTheGame:self location:ccp(20,130)];
+    Waypoint * waypoint2 = [Waypoint nodeWithTheGame:self location:ccp(20,100)];
     [waypoints addObject:waypoint2];
     waypoint2.nextWaypoint =waypoint1;
 }
