@@ -7,7 +7,7 @@
 //
 
 #import "mgsoldier.h"
-
+#import "Waypoint.h"
 
 @implementation mgsoldier
 @synthesize mySprite,gameLayer;
@@ -22,7 +22,7 @@
         damage = 2;
         range = 2;
         freq = 0.5;
-        speed =2;
+        speed =1;
         gameLayer = _gamelayer;
         mySprite = [CCSprite spriteWithFile:@"soldier1.png"];
         mySprite.scaleX = 75/mySprite.contentSize.width;
@@ -42,22 +42,20 @@
 }
 
 -(void)update:(ccTime)dt{
-    //if there is a next point then move there
-    if(spawnpoint.nextWaypoint){
-        spawnpoint = spawnpoint.nextWaypoint;
     
-    }
-    else{
-       //stay at that point
-        spawnpoint.nextWaypoint = spawnpoint;
     
+    if([gameLayer circle:myPosition withRadius:1 collisionWithCirle:spawnpoint.myPosition collisionCircleRadius:1]){
+        //if there is a next point then move there
+        if(spawnpoint.nextWaypoint){
+            spawnpoint = spawnpoint.nextWaypoint;
+    
+        }
     }
-
     CGPoint targetPoint = spawnpoint.myPosition;
     float movingspeed = speed;
 
     CGPoint normalized = ccpNormalize(ccp(targetPoint.x-myPosition.x, targetPoint.y-myPosition.y));
-
+    
     myPosition =ccp(myPosition.x+normalized.x *movingspeed, myPosition.y+normalized.y *movingspeed);
     [mySprite setPosition:myPosition];
 }

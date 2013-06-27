@@ -114,12 +114,17 @@ static HelloWorldLayer* level;
 {
     waypoints = [[NSMutableArray alloc] init];
     
-    Waypoint * waypoint1 = [Waypoint nodeWithTheGame:self location:ccp(200,130)];
+    Waypoint * waypoint1 = [Waypoint nodeWithTheGame:self location:ccp(350,50)];
     [waypoints addObject:waypoint1];
     
-    Waypoint * waypoint2 = [Waypoint nodeWithTheGame:self location:ccp(20,100)];
+    Waypoint * waypoint2 = [Waypoint nodeWithTheGame:self location:ccp(35,35)];
     [waypoints addObject:waypoint2];
     waypoint2.nextWaypoint =waypoint1;
+    
+    Waypoint * waypoint3 = [Waypoint nodeWithTheGame:self location:ccp(35,100)];
+    [waypoints addObject:waypoint3];
+    waypoint3.nextWaypoint =waypoint2;
+
 }
 
 
@@ -186,6 +191,20 @@ static HelloWorldLayer* level;
 
 -(void) ccTouchEnded:(NSSet *) touches withEvent:(UIEvent *)event{
 }
+
+-(BOOL)circle:(CGPoint)circlePoint withRadius:(float)radius collisionWithCirle:(CGPoint)circlePointTwo collisionCircleRadius:(float)radiusTwo{
+
+    float xdiff =circlePoint.x-circlePointTwo.x;
+    float ydiff =circlePoint.y-circlePointTwo.y;
+    
+    float distance = sqrtf(xdiff*xdiff+ydiff*ydiff);
+    if (distance<=radius+radiusTwo) {
+        return YES;
+    }
+    return NO;
+
+}
+
 
 
 #pragma mark GameKit delegate
