@@ -1,5 +1,5 @@
 //
-//  zArmy.m
+//  sArmy.m
 //  Element Of Defense
 //
 //  Created by Steven Liu on 2013-05-02.
@@ -7,6 +7,10 @@
 //
 
 #import "sArmy.h"
+#import "Waypoint.h"
+#import "mgsoldier.h"
+#import "snipersoldier.h"
+#import "tanksoldier.h"
 
 @implementation sArmy
 
@@ -28,7 +32,6 @@
     for(int i =0; i<numMGsoldiers;i++){
         mgsoldier *s1 = [ mgsoldier makeMg];
         [mgSoldier_array addObject:s1];
-        //[self addChild:s1 z:4];
     }
     return self;
 }
@@ -54,7 +57,6 @@
 }
 
 -(void) call_MG_reinforcements:(int)numMGsoldier layer:(CCLayer *)l{
-    
     for(int i =0; i<numMGsoldier; i++){
         mgsoldier *temp_soldier = [mgSoldier_array objectAtIndex:0];
         [l addChild:temp_soldier z:3];
@@ -62,22 +64,19 @@
     }
 }
 
--(id) call_Sniper_reinforcements:(int)numSniper layer:(CCLayer *)l{
+-(void) call_Sniper_reinforcements:(int)numSniper layer:(CCLayer *)l{
     for (int i=0; i<numSniper; i++) {
         snipersoldier *temp_soldier = [Sniper_array objectAtIndex:0];
         [l addChild:temp_soldier z:3];
         [Sniper_array removeObject:temp_soldier];
     }
-    return self;
-    
 }
 
--(id) call_Tank_reinforcements:(int)numTanksoldier layer:(CCLayer*) l{
+-(void) call_Tank_reinforcements:(int)numTanksoldier layer:(CCLayer*) l{
     for(int i =0; i < numTanksoldier;i++){
         tanksoldier *temp_soldier = [TankSoldier_array objectAtIndex:0];
         [l addChild:temp_soldier z:3];
         [TankSoldier_array removeObject:temp_soldier];
     }
-    return self;
 }
 @end

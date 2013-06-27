@@ -19,6 +19,7 @@
 #import "vampireHead.h"
 #import "sArmy.h"
 #import "Waypoint.h"
+#import "mgsoldier.h"
 #pragma mark - HelloWorldLayer
 
 // HelloWorldLayer implementation
@@ -73,7 +74,8 @@ static HelloWorldLayer* level;
         [self scheduleUpdate];
         army = [[[NSMutableArray alloc] init]autorelease];
         self.isTouchEnabled = YES;
-       
+        [mgsoldier makeMg:self ];
+        //[self addChild:s1 z:3];
         
     }
 	return self;
@@ -91,12 +93,6 @@ static HelloWorldLayer* level;
     bg.scaleY = size.height/bg.contentSize.height;
     
     [self addChild:bg z:1];
-    sArmy* my_army = [sArmy makeMGArmy:5];
-    [my_army call_MG_reinforcements:2 layer:self];
-    [my_army call_MG_reinforcements:2 layer:self];
-    [my_army call_MG_reinforcements:1 layer:self];
-
-
 }
 
 
@@ -121,11 +117,9 @@ static HelloWorldLayer* level;
     Waypoint * waypoint1 = [Waypoint nodeWithTheGame:self location:ccp(200,130)];
     [waypoints addObject:waypoint1];
     
-    Waypoint * waypoint2 = [Waypoint nodeWithTheGame:self location:ccp(200,150)];
+    Waypoint * waypoint2 = [Waypoint nodeWithTheGame:self location:ccp(20,130)];
     [waypoints addObject:waypoint2];
     waypoint2.nextWaypoint =waypoint1;
-    
-    
 }
 
 
@@ -151,15 +145,6 @@ static HelloWorldLayer* level;
 
 
 -(void) update:(ccTime) dt{
-    /*[s1 updateSoldier:dt :s1.speed];
-    [s2 updateSoldier:dt :s2.speed];
-    [s3 updateSoldier:dt :s3.speed];
-    if(s1.dead){
-        [self removeChild:s1 cleanup:YES];
-    }*/
-    //[s1 updateSoldier:dt];
-    //[s2 updateSoldier:dt];
-    
     CCArray* bs = [cache getCache];
     for(int n = 0; n < [bs count]; n++ ){
         Bullet* b = [bs objectAtIndex:n];

@@ -7,12 +7,15 @@
 //
 
 #import "CCSprite.h"
+#import "Waypoint.h"
 
 @interface soldier : CCSprite{
     int health,range, damage, speed;
     BOOL dead;
     double freq;
     double currentTime;
+    Waypoint *spawnpoint;
+    CGPoint myPosition;
 }
 
 @property (readonly) BOOL dead;
@@ -20,6 +23,7 @@
 @property (readonly) int range;
 @property (readonly) int damage;
 @property (assign) double freq;
+
 +(id) makeSoldier:(int) type;
 -(id) initSoldier:(int) type;
 -(void) updateSoldier:(ccTime) ct;

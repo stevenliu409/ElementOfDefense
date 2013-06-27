@@ -7,11 +7,12 @@
 //
 
 #import "soldier.h"
+#import "HelloWorldLayer.h"
 
 @interface mgsoldier : soldier
 @property (nonatomic,assign) CCSprite *mySprite;
-
-+(id) makeMg;
--(id) initMg;
+@property (nonatomic, assign) HelloWorldLayer *gameLayer;
++(id) makeMg:(HelloWorldLayer*)_gameLayer;
+-(id) initMg:(HelloWorldLayer*)_gameLayer;
 
 @end

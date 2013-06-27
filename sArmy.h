@@ -1,16 +1,17 @@
 //
-//  zArmy.h
+//  sArmy.h
 //  Element Of Defense
 //
 //  Created by Steven Liu on 2013-05-02.
 //
 //
 
+/** Removing this class **/
+
+
 #import "CCNode.h"
-#import "mgsoldier.h"
-#import "snipersoldier.h"
-#import "tanksoldier.h"
 #import "CCLayer.h"
+
 @interface sArmy : CCNode
 {
     NSMutableArray* mgSoldier_array;
@@ -25,8 +26,8 @@
 -(id) initSniperArmy:(int)numSnipers;
 -(id) initTankArmy:(int)numTankSoldier;
 -(void) call_MG_reinforcements:(int)numMGsoldier layer:(CCLayer*) l;
--(id) call_Sniper_reinforcements:(int)numSniper layer:(CCLayer *)l;
--(id) call_Tank_reinforcements:(int)numTanksoldier layer:(CCLayer *)l;
+-(void) call_Sniper_reinforcements:(int)numSniper layer:(CCLayer *)l;
+-(void) call_Tank_reinforcements:(int)numTanksoldier layer:(CCLayer *)l;
 
 
 
