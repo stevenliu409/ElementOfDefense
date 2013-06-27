@@ -12,15 +12,15 @@
 @implementation mgsoldier
 @synthesize mySprite,gameLayer;
 
-+(id) makeMg:(HelloWorldLayer*)_gamelayer{
-    return [[self alloc] initMg:_gamelayer];
++(id) makeMg:(HelloWorldLayer*)_gamelayer waypoint:(NSMutableArray*)mywaypoints{
+    return [[self alloc] initMg:_gamelayer waypoint:mywaypoints];
 }
 
--(id) initMg:(HelloWorldLayer*)_gamelayer{
+-(id) initMg:(HelloWorldLayer*)_gamelayer waypoint:(NSMutableArray*)mywaypoints{
     if(self = [super init]){
         health = 10;
         damage = 2;
-        range = 2;
+        range = 100;
         freq = 0.5;
         speed =1;
         gameLayer = _gamelayer;
@@ -29,7 +29,7 @@
         mySprite.scaleY = 75/mySprite.contentSize.height;
 		[self addChild:mySprite];
         
-        Waypoint *waypoint = (Waypoint*)[gameLayer.waypoints objectAtIndex:([gameLayer.waypoints count]-1)];
+        Waypoint *waypoint = (Waypoint*)[mywaypoints objectAtIndex:([mywaypoints count]-1)];
         spawnpoint = waypoint.nextWaypoint;
         CGPoint pos = waypoint.myPosition;
         myPosition = pos;
@@ -61,5 +61,12 @@
 }
 
 
+//the attack range 
+-(void)draw{
+
+    ccDrawColor4B(255, 0, 0, 0);
+    ccDrawCircle(mySprite.position, range, 360, 30, false);
+    [super draw];
+}
 
 @end

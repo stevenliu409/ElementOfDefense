@@ -28,7 +28,7 @@
 }
 
 @property(nonatomic,retain) BulletCache* cache;
-@property (nonatomic,strong) NSMutableArray *waypoints;
+@property (nonatomic,strong) NSMutableArray *waypoints, *waypoints2;
 
 // returns a CCScene that contains the HelloWorldLayer as the only child
 +(CCScene *) scene;

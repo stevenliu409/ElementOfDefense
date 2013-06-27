@@ -12,7 +12,7 @@
 @interface mgsoldier : soldier
 @property (nonatomic,assign) CCSprite *mySprite;
 @property (nonatomic, assign) HelloWorldLayer *gameLayer;
-+(id) makeMg:(HelloWorldLayer*)_gameLayer;
--(id) initMg:(HelloWorldLayer*)_gameLayer;
++(id) makeMg:(HelloWorldLayer*)_gameLayer waypoint:(NSMutableArray*)mywaypoints;
+-(id) initMg:(HelloWorldLayer*)_gameLayer waypoint:(NSMutableArray*)mywaypoints;
 
 @end

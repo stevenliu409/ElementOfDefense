@@ -32,7 +32,7 @@
 
 @implementation HelloWorldLayer
 @synthesize cache;
-@synthesize waypoints;
+@synthesize waypoints, waypoints2;
 
 
 static HelloWorldLayer* level;
@@ -74,8 +74,8 @@ static HelloWorldLayer* level;
         [self scheduleUpdate];
         army = [[[NSMutableArray alloc] init]autorelease];
         self.isTouchEnabled = YES;
-        [mgsoldier makeMg:self ];
-        //[self addChild:s1 z:3];
+        [mgsoldier makeMg:self waypoint:waypoints];
+        [mgsoldier makeMg:self waypoint:waypoints2];
         
     }
 	return self;
@@ -124,6 +124,21 @@ static HelloWorldLayer* level;
     Waypoint * waypoint3 = [Waypoint nodeWithTheGame:self location:ccp(35,100)];
     [waypoints addObject:waypoint3];
     waypoint3.nextWaypoint =waypoint2;
+    
+    
+    
+    waypoints2 = [[NSMutableArray alloc] init];
+    
+    Waypoint * waypoint4 = [Waypoint nodeWithTheGame:self location:ccp(350,200)];
+    [waypoints2 addObject:waypoint4];
+    
+    Waypoint * waypoint5 = [Waypoint nodeWithTheGame:self location:ccp(35,200)];
+    [waypoints2 addObject:waypoint5];
+    waypoint5.nextWaypoint =waypoint4;
+    
+    Waypoint * waypoint6 = [Waypoint nodeWithTheGame:self location:ccp(35,100)];
+    [waypoints2 addObject:waypoint6];
+    waypoint6.nextWaypoint =waypoint5;
 
 }
 
