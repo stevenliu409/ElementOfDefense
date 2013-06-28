@@ -11,7 +11,7 @@
 
 @interface soldier : CCSprite{
     int health,range, damage, speed;
-    BOOL dead;
+    BOOL dead, destination_reached;
     double freq;
     double currentTime;
     Waypoint *spawnpoint;

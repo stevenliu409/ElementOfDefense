@@ -43,12 +43,18 @@
 
 -(void)update:(ccTime)dt{
     
+    if(destination_reached){
+        return;
+    }
     
     if([gameLayer circle:myPosition withRadius:1 collisionWithCirle:spawnpoint.myPosition collisionCircleRadius:1]){
         //if there is a next point then move there
         if(spawnpoint.nextWaypoint){
             spawnpoint = spawnpoint.nextWaypoint;
     
+        }
+        else{
+            destination_reached = true;
         }
     }
     CGPoint targetPoint = spawnpoint.myPosition;
