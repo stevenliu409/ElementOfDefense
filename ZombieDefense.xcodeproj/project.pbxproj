@@ -154,15 +154,15 @@
 		7F160E03173428ED00B99759 /* leve1.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F160E02173428ED00B99759 /* leve1.m */; };
 		7F160E0E17345BB300B99759 /* soldier3.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F160E0D17345BB300B99759 /* soldier3.png */; };
 		7F160E11173467BB00B99759 /* body.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F160E10173467BB00B99759 /* body.m */; };
-		7F160E1317346A3100B99759 /* zhead.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F160E1217346A3100B99759 /* zhead.png */; };
 		7F160E1617346B0100B99759 /* zombieHead.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F160E1517346B0100B99759 /* zombieHead.m */; };
 		7F160E1917346F4F00B99759 /* monster.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F160E1817346F4F00B99759 /* monster.m */; };
 		7F160E1C1734780400B99759 /* vampireHead.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F160E1B1734780400B99759 /* vampireHead.m */; };
-		7F160E1E1734789300B99759 /* vhead.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F160E1D1734789300B99759 /* vhead.png */; };
 		7F160E281734A08300B99759 /* bullet.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F160E271734A08300B99759 /* bullet.png */; };
 		7F160E301734AC9100B99759 /* BulletCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F160E2F1734AC9100B99759 /* BulletCache.m */; };
 		7F160E3E17357ABC00B99759 /* bodycache.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F160E3D17357ABC00B99759 /* bodycache.m */; };
 		7FD65EF11778E6FA001F909F /* mWave.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD65EF01778E6FA001F909F /* mWave.m */; };
+		7FD65F01177F2B39001F909F /* mlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FD65EFF177F2B39001F909F /* mlist.plist */; };
+		7FD65F05177F32AA001F909F /* mlist.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD65F04177F32AA001F909F /* mlist.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -460,14 +460,12 @@
 		7F160E0D17345BB300B99759 /* soldier3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = soldier3.png; path = Resources/soldier3.png; sourceTree = "<group>"; };
 		7F160E0F173467BB00B99759 /* body.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = body.h; sourceTree = "<group>"; };
 		7F160E10173467BB00B99759 /* body.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = body.m; sourceTree = "<group>"; };
-		7F160E1217346A3100B99759 /* zhead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = zhead.png; path = Resources/zhead.png; sourceTree = "<group>"; };
 		7F160E1417346B0100B99759 /* zombieHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zombieHead.h; sourceTree = "<group>"; };
 		7F160E1517346B0100B99759 /* zombieHead.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zombieHead.m; sourceTree = "<group>"; };
 		7F160E1717346F4F00B99759 /* monster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = monster.h; sourceTree = "<group>"; };
 		7F160E1817346F4F00B99759 /* monster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = monster.m; sourceTree = "<group>"; };
 		7F160E1A1734780300B99759 /* vampireHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vampireHead.h; sourceTree = "<group>"; };
 		7F160E1B1734780400B99759 /* vampireHead.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vampireHead.m; sourceTree = "<group>"; };
-		7F160E1D1734789300B99759 /* vhead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = vhead.png; path = Resources/vhead.png; sourceTree = "<group>"; };
 		7F160E271734A08300B99759 /* bullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bullet.png; path = Resources/bullet.png; sourceTree = "<group>"; };
 		7F160E2E1734AC9100B99759 /* BulletCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletCache.h; sourceTree = "<group>"; };
 		7F160E2F1734AC9100B99759 /* BulletCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletCache.m; sourceTree = "<group>"; };
@@ -475,6 +473,8 @@
 		7F160E3D17357ABC00B99759 /* bodycache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bodycache.m; sourceTree = "<group>"; };
 		7FD65EEF1778E6FA001F909F /* mWave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mWave.h; sourceTree = "<group>"; };
 		7FD65EF01778E6FA001F909F /* mWave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mWave.m; sourceTree = "<group>"; };
+		7FD65EFF177F2B39001F909F /* mlist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = mlist.plist; path = Resources/mlist.plist; sourceTree = "<group>"; };
+		7FD65F04177F32AA001F909F /* mlist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mlist.png; path = Resources/mlist.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -570,10 +570,10 @@
 			isa = PBXGroup;
 			children = (
 				26E336261772543E00365D01 /* Waves.plist */,
-				7F160E1D1734789300B99759 /* vhead.png */,
-				7F160E1217346A3100B99759 /* zhead.png */,
+				7FD65EFF177F2B39001F909F /* mlist.plist */,
 				7F160DFB17341CAD00B99759 /* openbg.jpg */,
 				7F160E0D17345BB300B99759 /* soldier3.png */,
+				7FD65F04177F32AA001F909F /* mlist.png */,
 				266FF8701774102900561D48 /* circle.png */,
 				2663FD021733078A0003C377 /* soldier2.png */,
 				7F160E271734A08300B99759 /* bullet.png */,
@@ -1110,10 +1110,10 @@
 				2663FD051733089A0003C377 /* Default-568h@2x.png in Resources */,
 				7F160DFC17341CAD00B99759 /* openbg.jpg in Resources */,
 				7F160E0E17345BB300B99759 /* soldier3.png in Resources */,
-				7F160E1317346A3100B99759 /* zhead.png in Resources */,
-				7F160E1E1734789300B99759 /* vhead.png in Resources */,
 				7F160E281734A08300B99759 /* bullet.png in Resources */,
 				266FF8711774102900561D48 /* circle.png in Resources */,
+				7FD65F01177F2B39001F909F /* mlist.plist in Resources */,
+				7FD65F05177F32AA001F909F /* mlist.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

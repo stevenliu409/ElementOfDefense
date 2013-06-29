@@ -18,8 +18,9 @@
     return [[self alloc] initBody:dir];
 }
 
--(id) initBody:(NSString *)dir{
-    if(self = [super initWithFile:dir]){
+-(id) initBody:(NSString *) fname{
+    
+    if((self = [super initWithSpriteFrameName:fname])){
     }
     return self;
 }
