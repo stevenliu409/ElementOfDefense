@@ -22,4 +22,6 @@
 +(id) newMonster;
 -(BOOL) addBody:(body*) b;
 -(BOOL) checkMonster;
+-(body*) gethead;
+-(body*) getbody;
 @end

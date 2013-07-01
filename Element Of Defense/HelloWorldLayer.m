@@ -20,6 +20,7 @@
 #import "sArmy.h"
 #import "Waypoint.h"
 #import "mgsoldier.h"
+#import "mWave.h"
 #pragma mark - HelloWorldLayer
 
 // HelloWorldLayer implementation
@@ -33,6 +34,7 @@
 @implementation HelloWorldLayer
 @synthesize cache;
 @synthesize waypoints, waypoints2;
+@synthesize wave;
 
 
 static HelloWorldLayer* level;
@@ -62,15 +64,18 @@ static HelloWorldLayer* level;
 	// always call "super" init
 	// Apple recommends to re-assign "self" with the "super's" return value
 	if( (self=[super init]) ) {
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"mlist.plist"];
         level = self;
 		prefs = [NSUserDefaults standardUserDefaults];
         cache = [[BulletCache alloc] init];
+        wave = [[mWave alloc] init];
         bodyCache = [[NSMutableArray alloc] init];
         monsterCache = [[NSMutableArray alloc] init];
         [self addChild:cache z:2];
+        [self addChild:wave z:3];
 		[self initUI];
         [self addWaypoints];
-        [self initBody];
+        //[self initBody];
         [self scheduleUpdate];
         army = [[[NSMutableArray alloc] init]autorelease];
         self.isTouchEnabled = YES;
@@ -158,6 +163,8 @@ static HelloWorldLayer* level;
 	
 	// don't forget to call "super dealloc"
     [self removeAllChildrenWithCleanup:YES];
+    [waypoints release];
+    [waypoints2 release];
     [army release];
     [cache release];
 	[super dealloc];

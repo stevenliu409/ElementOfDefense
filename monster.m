@@ -7,7 +7,7 @@
 //
 
 #import "monster.h"
-
+#import "cocos2d.h"
 @interface monster(PrivateMethod)
 
 -(void) makeMonster;

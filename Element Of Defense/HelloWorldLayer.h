@@ -13,7 +13,7 @@
 #import "Bullet.h"
 #import "BulletCache.h"
 #import "vampireHead.h"
-
+#import "mWave.h"
 // HelloWorldLayer
 @interface HelloWorldLayer : CCLayer <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate>
 {
@@ -28,6 +28,7 @@
 }
 
 @property(nonatomic,retain) BulletCache* cache;
+@property(nonatomic, retain) mWave* wave;
 @property (nonatomic,strong) NSMutableArray *waypoints, *waypoints2;
 
 // returns a CCScene that contains the HelloWorldLayer as the only child
