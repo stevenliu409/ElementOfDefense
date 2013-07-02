@@ -13,7 +13,6 @@
 -(id) init{
     if(self = [super init]){
         nextBullet = 0;
-        //CCSpriteFrame* bulletFrame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"bullet.png"];
         batch = [CCSpriteBatchNode batchNodeWithFile:@"bullet.png"];
 		[self addChild:batch];
         for (int i = 0; i < 1000; i++)

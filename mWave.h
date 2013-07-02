@@ -10,9 +10,11 @@
 #import "cocos2d.h"
 @interface mWave : CCNode{
     CCSpriteBatchNode* batch;
-    
+    CCArray* mArray;
     
 }
+
+-(void) geneMonsters;
 
 
 

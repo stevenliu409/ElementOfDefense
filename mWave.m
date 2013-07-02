@@ -16,14 +16,29 @@
     if(self = [super init]){
         batch = [CCSpriteBatchNode batchNodeWithFile:@"mlist.png"];
         [self addChild:batch];
-        for(int n = 0; n < 2; n++){
-            monster* m = [monster makeMonster:[zombieHead makeZhead] mhead:[vampireHead makevampireHead]];
-            m.position = ccp(100,100);
-            [m setTexture:batch.texture];
-            [batch addChild:m];
-        }
+        [self geneMonsters];
+        [self scheduleUpdate];
     }
     return self;
+}
+
+-(void) geneMonsters{
+    int pos = 480;
+    for(int n = 0; n < 10; n++){
+        monster* m = [monster makeMonster:[zombieHead makeZhead] mhead:[vampireHead makevampireHead]];
+        m.position = ccp(pos,100);
+        [m setTexture:batch.texture];
+        [batch addChild:m];
+        pos += 50;
+    }
+    mArray = [batch children];
+}
+
+-(void) update:(ccTime) dt{
+    for(int n = 0; n < mArray.count; n++){
+        monster* m = [mArray objectAtIndex:n];
+        [m updateMonster:dt];
+    }
 }
 
 @end

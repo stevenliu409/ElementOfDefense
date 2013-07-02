@@ -37,7 +37,9 @@
 -(bool) hitMonster:(monster *)m{
     if(CGRectIntersectsRect(self.boundingBox, m.boundingBox)){
         NSLog(@"hit Monster");
+        return true;
     }
+    return false;
 }
 
 -(void) shootBulletFrom:(soldier *)s timer:(ccTime) dt{

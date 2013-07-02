@@ -16,11 +16,11 @@
 @implementation monster
 @synthesize mbody;
 @synthesize mhead;
-+(id) makeMonster:(CCSprite *)b mhead:(CCSprite *)h{
++(id) makeMonster:(body *)b mhead:(body *)h{
     return [[self alloc] initMonster:b mhead:h];
 }
 
--(id) initMonster:(CCSprite *)b mhead:(CCSprite *)h{
+-(id) initMonster:(body *)b mhead:(body *)h{
     if(self = [super init]){
         mhead = h;
         mbody = b;
@@ -70,8 +70,37 @@
     }
 }
 
+-(void) moveMonster:(ccTime)ct{
+    
+}
+
+-(void) monsterAttack:(soldier* )s timer:(ccTime)ct{
+    totalTime += ct;
+    currentTime = totalTime;
+    if(currentTime >(mbody.speed + mbody.speed)){
+        currentTime = 0;
+        totalTime = 0;
+    }
+}
+
+-(int) getMSpeed{
+    int s = mbody.speed + mbody.speed;
+    return s;
+}
+
+
+
 -(BOOL) checkMonster{
     return mhead != NULL && mbody != NULL;
+}
+
+
+-(void) updateMonster:(ccTime)ct soilders:(soldier *)s{
+    if([self hitSoldier:s]){
+        [self monsterAttack:s timer:ct];
+    }else{
+        [self moveMonster:ct];
+    }
 }
 
 
