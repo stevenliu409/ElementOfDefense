@@ -34,7 +34,8 @@
 }
 
 
--(bool) hitMonster:(monster *)m{
+
+-(BOOL) hitMonster:(monster *)m{
     if(CGRectIntersectsRect(self.boundingBox, m.boundingBox)){
         NSLog(@"hit Monster");
         return true;
