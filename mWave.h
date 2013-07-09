@@ -8,6 +8,7 @@
 
 #import "CCNode.h"
 #import "cocos2d.h"
+#import "monster.h"
 @interface mWave : CCNode{
     CCSpriteBatchNode* batch;
     CCArray* mArray;
@@ -15,8 +16,9 @@
 }
 
 -(void) geneMonsters;
-
-
+-(void) addMonster:(monster*) m;
+-(CCArray*) getMonsters;
+-(void) removeMonster:(monster*)m;
 
 
 

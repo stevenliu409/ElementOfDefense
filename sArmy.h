@@ -19,6 +19,7 @@
     NSMutableArray* TankSoldier_array;
 
 }
++(id) makeArmy:(int) numMGsoldier sniper:(int) s tank:(int)t;
 +(id) makeMGArmy:(int)numMGsoldier;
 +(id) makeSniperArmy:(int)numSniper;
 +(id) makeTankArmy:(int)numTankSoldier;

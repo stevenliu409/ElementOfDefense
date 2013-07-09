@@ -68,9 +68,9 @@ static HelloWorldLayer* level;
         level = self;
 		prefs = [NSUserDefaults standardUserDefaults];
         cache = [[BulletCache alloc] init];
-        wave = [[mWave alloc] init];
         bodyCache = [[NSMutableArray alloc] init];
         monsterCache = [[NSMutableArray alloc] init];
+        wave = [[mWave alloc] init];
         [self addChild:cache z:2];
         [self addChild:wave z:3];
 		[self initUI];
@@ -167,17 +167,19 @@ static HelloWorldLayer* level;
     [waypoints2 release];
     [army release];
     [cache release];
+    [playerMonster release];
 	[super dealloc];
 }
 
 
 -(void) update:(ccTime) dt{
     CCArray* bs = [cache getCache];
+    CCArray* ms = [wave getMonsters];
     for(int n = 0; n < [bs count]; n++ ){
         Bullet* b = [bs objectAtIndex:n];
         if(b.visible == YES){
-            for(int x= 0; x < [monsterCache count]; x++){
-                if([b hitMonster:[monsterCache objectAtIndex:n]]){
+            for(int x= 0; x < [ms count]; x++){
+                if([b hitMonster:[ms objectAtIndex:n]]){
                     b.visible = NO;
                     b.shoted = NO;
                     b.position = ccp(0,b.self.position.y);
@@ -185,6 +187,11 @@ static HelloWorldLayer* level;
             }
         }
     }
+    for(int n = 0; n < [ms count]; n++){
+        monster* m = [ms objectAtIndex:n];
+        
+    }
+    
 }
 
 
@@ -197,6 +204,7 @@ static HelloWorldLayer* level;
         monster* m = [monster makeMonster:[monsterCache objectAtIndex:0] mhead:[monsterCache objectAtIndex:1]];
         m.position = CGPointMake(point.x,point.y);
         [self addChild:m z:2];
+        [wave addMonster:m];
         [monsterCache removeAllObjects];
     }
     

@@ -15,6 +15,11 @@
 @implementation sArmy
 
 
+
++(id) makeArmy:(int)numMGsoldier sniper:(int)s tank:(int)t{
+    
+}
+
 +(id) makeMGArmy:(int)numMGsoldier{
     return [[self alloc] initMGArmy:numMGsoldier];
 }
@@ -30,7 +35,7 @@
 -(id) initMGArmy:(int)numMGsoldiers{
     mgSoldier_array = [[NSMutableArray alloc] init];
     for(int i =0; i<numMGsoldiers;i++){
-        mgsoldier *s1 = [ mgsoldier makeMg];
+        mgsoldier *s1 = [ mgsoldier make];
         [mgSoldier_array addObject:s1];
     }
     return self;

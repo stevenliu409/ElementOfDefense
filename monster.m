@@ -16,6 +16,7 @@
 @implementation monster
 @synthesize mbody;
 @synthesize mhead;
+@synthesize attFreq;
 +(id) makeMonster:(body *)b mhead:(body *)h{
     return [[self alloc] initMonster:b mhead:h];
 }
@@ -77,10 +78,15 @@
 -(void) monsterAttack:(soldier* )s timer:(ccTime)ct{
     totalTime += ct;
     currentTime = totalTime;
-    if(currentTime >(mbody.speed + mbody.speed)){
+    if(currentTime >attFreq){
         currentTime = 0;
         totalTime = 0;
+        [self attack:s];
     }
+}
+
+-(void) attack:(soldier *)s{
+    
 }
 
 -(int) getMSpeed{

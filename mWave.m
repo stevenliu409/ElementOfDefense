@@ -17,7 +17,7 @@
         batch = [CCSpriteBatchNode batchNodeWithFile:@"mlist.png"];
         [self addChild:batch];
         [self geneMonsters];
-        [self scheduleUpdate];
+        //[self scheduleUpdate];
     }
     return self;
 }
@@ -34,11 +34,23 @@
     mArray = [batch children];
 }
 
+-(void) addMonster:(monster *)m{
+    [batch addChild:m];
+}
+
+-(CCArray*) getMonsters{
+    return [batch children];
+}
+
+
+
+/*
 -(void) update:(ccTime) dt{
     for(int n = 0; n < mArray.count; n++){
         monster* m = [mArray objectAtIndex:n];
-        [m updateMonster:dt];
+        //[m updateMonster:dt];
     }
 }
+ */
 
 @end

@@ -17,7 +17,7 @@
 
 @property(nonatomic, retain) body* mbody;
 @property(nonatomic, retain) body* mhead;
-
+@property(readonly) double attFreq;
 
 +(id) makeMonster:(body*) b mhead:(body*) h;
 -(id) initMonster:(body*) b mhead:(body*) h;
