@@ -33,7 +33,7 @@
 
 @implementation HelloWorldLayer
 @synthesize cache;
-@synthesize waypoints, waypoints2;
+@synthesize waypoints, waypoints2, waypoints3;
 @synthesize wave, soldiers;
 
 
@@ -148,6 +148,20 @@ static HelloWorldLayer* level;
     Waypoint * waypoint6 = [Waypoint nodeWithTheGame:self location:ccp(35,100)];
     [waypoints2 addObject:waypoint6];
     waypoint6.nextWaypoint =waypoint5;
+    
+    
+    waypoints3 = [[NSMutableArray alloc] init];
+    
+    Waypoint * waypoint7 = [Waypoint nodeWithTheGame:self location:ccp(350,250)];
+    [waypoints3 addObject:waypoint7];
+    
+    Waypoint * waypoint8 = [Waypoint nodeWithTheGame:self location:ccp(35,200)];
+    [waypoints3 addObject:waypoint8];
+    waypoint8.nextWaypoint =waypoint7;
+    
+    Waypoint * waypoint9 = [Waypoint nodeWithTheGame:self location:ccp(35,100)];
+    [waypoints3 addObject:waypoint9];
+    waypoint9.nextWaypoint =waypoint8;
 
 }
 
@@ -252,7 +266,18 @@ static HelloWorldLayer* level;
     NSArray *currentArmyData =[NSArray arrayWithArray:[armyData objectAtIndex:army_count]];
     
     for (NSDictionary *soldierData in currentArmyData) {
-        mgsoldier *mgsolider = [mgsoldier makeMg:self waypoint:waypoints];
+        mgsoldier *mgsolider;
+        if ([[soldierData objectForKey:@"type"]floatValue] == 1) {
+            mgsolider = [mgsoldier makeMg:self waypoint:waypoints];
+        }
+        else if ([[soldierData objectForKey:@"type"]floatValue] == 2) {
+            mgsolider = [mgsoldier makeMg:self waypoint:waypoints2];
+        }
+
+        else{
+           mgsolider = [mgsoldier makeMg:self waypoint:waypoints3];
+        }
+       
         [soldiers addObject:mgsolider];
         [mgsolider schedule:@selector(activateSoldier) interval:[[soldierData objectForKey:@"spawnTime"]floatValue]];
     }

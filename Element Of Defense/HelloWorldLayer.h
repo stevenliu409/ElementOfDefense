@@ -32,7 +32,7 @@
 
 @property(nonatomic,retain) BulletCache* cache;
 @property(nonatomic, retain) mWave* wave;
-@property (nonatomic,strong) NSMutableArray *waypoints, *waypoints2;
+@property (nonatomic,strong) NSMutableArray *waypoints, *waypoints2, *waypoints3;
 @property (nonatomic,strong) NSMutableArray *soldiers;
 
 
