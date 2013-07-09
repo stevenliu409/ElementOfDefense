@@ -146,6 +146,7 @@
 		2663FD1217331C010003C377 /* sArmy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2663FD1117331C010003C377 /* sArmy.m */; };
 		266FF86F1773EE8A00561D48 /* Waypoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 266FF86E1773EE8A00561D48 /* Waypoint.m */; };
 		266FF8711774102900561D48 /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 266FF8701774102900561D48 /* circle.png */; };
+		267DEBB0178C10D200740DB3 /* Waves.plist in Resources */ = {isa = PBXBuildFile; fileRef = 267DEBAF178C10D200740DB3 /* Waves.plist */; };
 		26B32E571734486900CE397D /* tanksoldier.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B32E561734486900CE397D /* tanksoldier.m */; };
 		7757390A173461A900592899 /* Bullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 77573909173461A900592899 /* Bullet.m */; };
 		7F160DF717341BB300B99759 /* loadingLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F160DF617341BB300B99759 /* loadingLayer.m */; };
@@ -445,9 +446,9 @@
 		266FF86D1773EE8A00561D48 /* Waypoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Waypoint.h; sourceTree = "<group>"; };
 		266FF86E1773EE8A00561D48 /* Waypoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Waypoint.m; sourceTree = "<group>"; };
 		266FF8701774102900561D48 /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle.png; sourceTree = "<group>"; };
+		267DEBAF178C10D200740DB3 /* Waves.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Waves.plist; sourceTree = "<group>"; };
 		26B32E551734486900CE397D /* tanksoldier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tanksoldier.h; sourceTree = "<group>"; };
 		26B32E561734486900CE397D /* tanksoldier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tanksoldier.m; sourceTree = "<group>"; };
-		26E336261772543E00365D01 /* Waves.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Waves.plist; path = ../Waves.plist; sourceTree = "<group>"; };
 		77573908173461A900592899 /* Bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bullet.h; sourceTree = "<group>"; };
 		77573909173461A900592899 /* Bullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bullet.m; sourceTree = "<group>"; };
 		7F160DF517341BB300B99759 /* loadingLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loadingLayer.h; sourceTree = "<group>"; };
@@ -569,7 +570,7 @@
 		2626B9D51724E1A7006702D9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				26E336261772543E00365D01 /* Waves.plist */,
+				267DEBAF178C10D200740DB3 /* Waves.plist */,
 				7FD65EFF177F2B39001F909F /* mlist.plist */,
 				7F160DFB17341CAD00B99759 /* openbg.jpg */,
 				7F160E0D17345BB300B99759 /* soldier3.png */,
@@ -1114,6 +1115,7 @@
 				266FF8711774102900561D48 /* circle.png in Resources */,
 				7FD65F01177F2B39001F909F /* mlist.plist in Resources */,
 				7FD65F05177F32AA001F909F /* mlist.png in Resources */,
+				267DEBB0178C10D200740DB3 /* Waves.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

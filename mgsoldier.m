@@ -23,6 +23,7 @@
         range = 100;
         freq = 0.5;
         speed =1;
+        active = NO;
         gameLayer = _gamelayer;
         mySprite = [CCSprite spriteWithFile:@"soldier1.png"];
         mySprite.scaleX = 75/mySprite.contentSize.width;
@@ -40,6 +41,12 @@
     
     return self;
 }
+
+
+-(void)activateSoldier{
+    active = YES;
+}
+
 
 -(void)update:(ccTime)dt{
     

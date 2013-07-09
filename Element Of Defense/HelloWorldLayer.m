@@ -34,7 +34,7 @@
 @implementation HelloWorldLayer
 @synthesize cache;
 @synthesize waypoints, waypoints2;
-@synthesize wave;
+@synthesize wave, soldiers;
 
 
 static HelloWorldLayer* level;
@@ -75,12 +75,16 @@ static HelloWorldLayer* level;
         [self addChild:wave z:3];
 		[self initUI];
         [self addWaypoints];
+        
+        soldiers = [[NSMutableArray alloc] init];
+        
+        [self loadArmy];
+        
         //[self initBody];
         [self scheduleUpdate];
-        army = [[[NSMutableArray alloc] init]autorelease];
         self.isTouchEnabled = YES;
-        [mgsoldier makeMg:self waypoint:waypoints];
-        [mgsoldier makeMg:self waypoint:waypoints2];
+//        [mgsoldier makeMg:self waypoint:waypoints];
+//        [mgsoldier makeMg:self waypoint:waypoints2];
         
     }
 	return self;
@@ -165,7 +169,6 @@ static HelloWorldLayer* level;
     [self removeAllChildrenWithCleanup:YES];
     [waypoints release];
     [waypoints2 release];
-    [army release];
     [cache release];
     [playerMonster release];
 	[super dealloc];
@@ -234,6 +237,30 @@ static HelloWorldLayer* level;
     return NO;
 
 }
+
+
+-(BOOL)loadArmy{
+    
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"Waves" ofType:@"plist"];
+    NSArray *armyData = [NSArray arrayWithContentsOfFile:plistPath];
+    
+    NSLog(@"armyData count = %d", [armyData count]);
+    if(army_count >= [armyData count]){
+        return NO;
+    }
+
+    NSArray *currentArmyData =[NSArray arrayWithArray:[armyData objectAtIndex:army_count]];
+    
+    for (NSDictionary *soldierData in currentArmyData) {
+        mgsoldier *mgsolider = [mgsoldier makeMg:self waypoint:waypoints];
+        [soldiers addObject:mgsolider];
+        [mgsolider schedule:@selector(activateSoldier) interval:[[soldierData objectForKey:@"spawnTime"]floatValue]];
+    }
+    army_count++;
+    return YES;
+
+}
+
 
 
 

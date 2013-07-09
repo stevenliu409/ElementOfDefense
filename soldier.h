@@ -16,6 +16,7 @@
     double currentTime;
     Waypoint *spawnpoint;
     CGPoint myPosition;
+    BOOL active;
 }
 
 @property (readonly) BOOL dead;
@@ -27,6 +28,7 @@
 +(id) makeSoldier:(int) type;
 -(id) initSoldier:(int) type;
 -(void) updateSoldier:(ccTime) ct;
+-(void)activateSoldier;
 //-(void) getAttacked:(monster*) m;
 -(void) fire:(ccTime) dt;
 @end

@@ -18,7 +18,7 @@
 @interface HelloWorldLayer : CCLayer <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate>
 {
     Bullet* b1;
-    NSMutableArray* army;
+    int army_count;
     NSMutableArray* bodyCache;
     NSMutableArray* monsterCache;
     NSMutableArray* playerMonster;
@@ -26,11 +26,15 @@
     vampireHead* v1;
     vampireHead* v2;
     
+    
+    
 }
 
 @property(nonatomic,retain) BulletCache* cache;
 @property(nonatomic, retain) mWave* wave;
 @property (nonatomic,strong) NSMutableArray *waypoints, *waypoints2;
+@property (nonatomic,strong) NSMutableArray *soldiers;
+
 
 // returns a CCScene that contains the HelloWorldLayer as the only child
 +(CCScene *) scene;
