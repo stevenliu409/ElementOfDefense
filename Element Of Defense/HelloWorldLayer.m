@@ -123,14 +123,14 @@ static HelloWorldLayer* level;
 {
     waypoints = [[NSMutableArray alloc] init];
     
-    Waypoint * waypoint1 = [Waypoint nodeWithTheGame:self location:ccp(350,50)];
+    Waypoint * waypoint1 = [Waypoint nodeWithTheGame:self location:ccp(350,35)];
     [waypoints addObject:waypoint1];
     
-    Waypoint * waypoint2 = [Waypoint nodeWithTheGame:self location:ccp(35,35)];
+    Waypoint * waypoint2 = [Waypoint nodeWithTheGame:self location:ccp(-35,35)];
     [waypoints addObject:waypoint2];
     waypoint2.nextWaypoint =waypoint1;
     
-    Waypoint * waypoint3 = [Waypoint nodeWithTheGame:self location:ccp(35,100)];
+    Waypoint * waypoint3 = [Waypoint nodeWithTheGame:self location:ccp(-35,100)];
     [waypoints addObject:waypoint3];
     waypoint3.nextWaypoint =waypoint2;
     
@@ -141,25 +141,25 @@ static HelloWorldLayer* level;
     Waypoint * waypoint4 = [Waypoint nodeWithTheGame:self location:ccp(350,200)];
     [waypoints2 addObject:waypoint4];
     
-    Waypoint * waypoint5 = [Waypoint nodeWithTheGame:self location:ccp(35,200)];
+    Waypoint * waypoint5 = [Waypoint nodeWithTheGame:self location:ccp(-35,200)];
     [waypoints2 addObject:waypoint5];
     waypoint5.nextWaypoint =waypoint4;
     
-    Waypoint * waypoint6 = [Waypoint nodeWithTheGame:self location:ccp(35,100)];
+    Waypoint * waypoint6 = [Waypoint nodeWithTheGame:self location:ccp(-35,100)];
     [waypoints2 addObject:waypoint6];
     waypoint6.nextWaypoint =waypoint5;
     
     
     waypoints3 = [[NSMutableArray alloc] init];
     
-    Waypoint * waypoint7 = [Waypoint nodeWithTheGame:self location:ccp(350,250)];
+    Waypoint * waypoint7 = [Waypoint nodeWithTheGame:self location:ccp(350,100)];
     [waypoints3 addObject:waypoint7];
     
-    Waypoint * waypoint8 = [Waypoint nodeWithTheGame:self location:ccp(35,200)];
+    Waypoint * waypoint8 = [Waypoint nodeWithTheGame:self location:ccp(-35,100)];
     [waypoints3 addObject:waypoint8];
     waypoint8.nextWaypoint =waypoint7;
     
-    Waypoint * waypoint9 = [Waypoint nodeWithTheGame:self location:ccp(35,100)];
+    Waypoint * waypoint9 = [Waypoint nodeWithTheGame:self location:ccp(-35,100)];
     [waypoints3 addObject:waypoint9];
     waypoint9.nextWaypoint =waypoint8;
 
