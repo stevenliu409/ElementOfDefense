@@ -20,6 +20,8 @@
     CCAnimation* shotAni;
     CCAnimation* standAni;
     NSString* fileName;
+    NSMutableArray* waypoints;
+    CCLayer* gameLayer;
 }
 
 @property (readonly) BOOL dead;
@@ -32,13 +34,13 @@
 @property (nonatomic,retain) CCAnimation* standAni;
 
 
-+(id) makeSoldier:(int) type;
--(id) initSoldier:(int) type;
++(id) makeSoldier;
+-(id) initSoldier;
 -(void) updateSoldier:(ccTime) ct;
 -(void)activateSoldier;
 //-(void) getAttacked:(monster*) m;
 -(void) fire:(ccTime) dt;
--(CCAnimation*) loadAnimation:(NSString*) aniName;
+-(CCAnimation*) loadAnimation:(NSString*) aniName fileName:(NSString*)fn;
 -(void) changeState:(int) state;
 
 @end

@@ -7,11 +7,12 @@
 //
 
 #import "soldier.h"
+#import "HelloWorldLayer.h"
+@interface snipersoldier : soldier{
 
-@interface snipersoldier : soldier
-@property (nonatomic,assign) CCSprite *mySprite;
-+(id) makeSniper;
--(id) initSniper;
+}
++(id) makeSniper:(HelloWorldLayer*)_gameLayer waypoint:(NSMutableArray*)mywaypoints;
+-(id) initSniper:(HelloWorldLayer*)_gameLayer waypoint:(NSMutableArray*)mywaypoints;
 
 
 @end

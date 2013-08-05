@@ -15,15 +15,15 @@
 @synthesize dead,speed,range,damage,freq;
 @synthesize walkAni, shotAni, standAni;
 
-+(id) makeSoldier:(int)type{
-    return [[self alloc] initSoldier:type];
++(id) makeSoldier{
+    return [[self alloc] initSoldier];
 }
 
 
 -(id) initSoldier{
     
     if(self = [super init]){
-        fileName = [[NSBundle mainBundle] pathForResource:@"solders" ofType:@"plist"];
+        //fileName = [[NSBundle mainBundle] pathForResource:@"solders" ofType:@"plist"];
     }
     
     //NSLog(@"file name is%@",fileName);
@@ -33,7 +33,7 @@
 
 -(id) init{
     if(self = [super init]){
-        fileName = [[NSBundle mainBundle] pathForResource:@"solders" ofType:@"plist"];
+        //fileName = [[NSBundle mainBundle] pathForResource:@"solders" ofType:@"plist"];
         //NSLog(@"%@",fileName);
         //[self loadAnimation:@"breathingAnim"];
         
@@ -74,6 +74,9 @@
         case 2:
             ani = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:walkAni]];
             break;
+        case 3:
+            
+            break;
         default:
             break;
     }
@@ -85,9 +88,9 @@
     
 }
 
--(CCAnimation*) loadAnimation :(NSString *)aniName{
+-(CCAnimation*) loadAnimation :(NSString *)aniName fileName:(NSString*) fn{
     //CCAnimation* ani;
-    fileName = [[NSBundle mainBundle] pathForResource:@"solders" ofType:@"plist"];
+    fileName = [[NSBundle mainBundle] pathForResource:fn ofType:@"plist"];
     NSDictionary* aniDic = [NSDictionary dictionaryWithContentsOfFile:fileName];
     if(aniDic == nil){
         NSLog(@"not find dic");
@@ -116,4 +119,30 @@
     }
     return ani;
 }
+
+-(void)update:(ccTime)dt{
+    if(destination_reached){
+        [self changeState:1];
+        return;
+    }
+    
+    if([gameLayer circle:self.position withRadius:1 collisionWithCirle:spawnpoint.myPosition collisionCircleRadius:1]){
+        //if there is a next point then move there
+        if(spawnpoint.nextWaypoint){
+            spawnpoint = spawnpoint.nextWaypoint;
+            
+        }
+        else{
+            destination_reached = true;
+        }
+    }
+    CGPoint targetPoint = spawnpoint.myPosition;
+    float movingspeed = speed;
+    
+    CGPoint normalized = ccpNormalize(ccp(targetPoint.x-self.position.x, targetPoint.y-self.position.y));
+    
+    self.position =ccp(self.position.x+normalized.x *movingspeed, self.position.y+normalized.y *movingspeed);
+}
+
+
 @end

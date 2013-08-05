@@ -21,6 +21,7 @@
 #import "Waypoint.h"
 #import "mgsoldier.h"
 #import "mWave.h"
+#import "snipersoldier.h"
 #pragma mark - HelloWorldLayer
 
 // HelloWorldLayer implementation
@@ -67,7 +68,7 @@ static HelloWorldLayer* level;
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"mlist.plist"];
         
         [[CCSpriteFrameCache sharedSpriteFrameCache]
-         addSpriteFramesWithFile:@"scene1atlasiPhone.plist"];         // 1
+         addSpriteFramesWithFile:@"scene1atlasiPhone.plist"];         
         //sceneSpriteBatchNode =
         //[CCSpriteBatchNode batchNodeWithFile:@"scene1atlasiPhone.png"];
         
@@ -79,9 +80,7 @@ static HelloWorldLayer* level;
         bodyCache = [[NSMutableArray alloc] init];
         monsterCache = [[NSMutableArray alloc] init];
         wave = [[mWave alloc] init];
-        
-        
-        
+
         [self addChild:cache z:2];
         [self addChild:wave z:3];
 		[self initUI];
@@ -278,7 +277,7 @@ static HelloWorldLayer* level;
     NSArray *currentArmyData =[NSArray arrayWithArray:[armyData objectAtIndex:army_count]];
     
     for (NSDictionary *soldierData in currentArmyData) {
-        mgsoldier *mgsolider;
+        soldier *mgsolider;
         if ([[soldierData objectForKey:@"type"]floatValue] == 1) {
             mgsolider = [mgsoldier makeMg:self waypoint:waypoints];
         }
@@ -287,11 +286,11 @@ static HelloWorldLayer* level;
         }
 
         else{
-           mgsolider = [mgsoldier makeMg:self waypoint:waypoints3];
+           mgsolider = [snipersoldier makeSniper:self waypoint:waypoints3];
         }
         
         [soldiers addObject:mgsolider];
-        [mgsolider schedule:@selector(activateSoldier) interval:[[soldierData objectForKey:@"spawnTime"]floatValue]];
+        //[mgsolider schedule:@selector(activateSoldier) interval:[[soldierData objectForKey:@"spawnTime"]floatValue]];
     }
     army_count++;
 

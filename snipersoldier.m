@@ -9,26 +9,35 @@
 #import "snipersoldier.h"
 
 @implementation snipersoldier
-@synthesize mySprite;
 
-+(id) makeSniper{
-    return [[self alloc] initSniper];
++(id) makeSniper:(HelloWorldLayer*)_gameLayer waypoint:(NSMutableArray*)mywaypoints{
+    return [[self alloc] initSniper:_gameLayer waypoint:mywaypoints];
 }
 
--(id) initSniper{
-    if(self = [super init] ){
+-(id) initSniper:(HelloWorldLayer*)_gameLayer waypoint:(NSMutableArray*)mywaypoints{
+    if(self = [super initWithSpriteFrameName:@"an1_anim1.png"] ){
         health = 6;
         damage = 7;
         range = 10;
         freq = 2;
         speed = 3;
-        mySprite = [CCSprite spriteWithFile:@"soldier2.png"];
-        mySprite.scaleX = 75/mySprite.contentSize.width;
-        mySprite.scaleY = 75/mySprite.contentSize.height;
-		[self addChild:mySprite];
+        NSLog(@"load sinper");
+        gameLayer = _gameLayer;
+        waypoints = mywaypoints;
+        walkAni = [self loadAnimation:@"robotWalkingAnim" fileName:@"EnemyRobot"];
+        if(walkAni == nil){
+            NSLog(@"wrong!");
+        }else {
+            [self changeState:2];
+
+        }
+        [gameLayer addChild:self z:3];
+        [self scheduleUpdate];
     }
     return self;
 }
+
+
 
 
 @end
