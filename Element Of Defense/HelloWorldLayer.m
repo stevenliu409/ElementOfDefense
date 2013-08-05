@@ -87,7 +87,9 @@ static HelloWorldLayer* level;
         [self addWaypoints];
         
         //soldiers = [[NSMutableArray alloc] init];
-    
+        //snipersoldier* sp = [snipersoldier makeSniper:self];
+        //sp.position = ccp(200,200);
+        
         [self loadArmy];
         
         //[self initBody];
@@ -290,7 +292,7 @@ static HelloWorldLayer* level;
         }
         
         [soldiers addObject:mgsolider];
-        //[mgsolider schedule:@selector(activateSoldier) interval:[[soldierData objectForKey:@"spawnTime"]floatValue]];
+        [mgsolider schedule:@selector(activateSoldier) interval:[[soldierData objectForKey:@"spawnTime"]floatValue]];
     }
     army_count++;
 

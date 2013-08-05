@@ -144,5 +144,9 @@
     self.position =ccp(self.position.x+normalized.x *movingspeed, self.position.y+normalized.y *movingspeed);
 }
 
+-(void)activateSoldier{
+    active = YES;
+}
+
 
 @end

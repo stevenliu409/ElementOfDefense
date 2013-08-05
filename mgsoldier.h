@@ -15,5 +15,4 @@
 
 +(id) makeMg:(HelloWorldLayer*)_gameLayer waypoint:(NSMutableArray*)mywaypoints;
 -(id) initMg:(HelloWorldLayer*)_gameLayer waypoint:(NSMutableArray*)mywaypoints;
-
 @end

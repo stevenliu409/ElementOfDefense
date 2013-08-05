@@ -50,9 +50,6 @@
 }
 
 
--(void)activateSoldier{
-    active = YES;
-}
 
 
 
