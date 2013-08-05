@@ -161,9 +161,16 @@
 		7F160E281734A08300B99759 /* bullet.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F160E271734A08300B99759 /* bullet.png */; };
 		7F160E301734AC9100B99759 /* BulletCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F160E2F1734AC9100B99759 /* BulletCache.m */; };
 		7F160E3E17357ABC00B99759 /* bodycache.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F160E3D17357ABC00B99759 /* bodycache.m */; };
+		7FC2AD3617AE8B8400FDEA98 /* Viking.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FC2AD3517AE8B8400FDEA98 /* Viking.plist */; };
+		7FC2AD4417AE99DD00FDEA98 /* sv_anim_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FC2AD4317AE99DD00FDEA98 /* sv_anim_1.png */; };
+		7FC2AD4B17AE9C9400FDEA98 /* scene1atlas.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FC2AD4517AE9C9300FDEA98 /* scene1atlas.plist */; };
+		7FC2AD4C17AE9C9400FDEA98 /* scene1atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FC2AD4617AE9C9300FDEA98 /* scene1atlas.png */; };
+		7FC2AD4D17AE9C9400FDEA98 /* scene1atlasiPhone-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FC2AD4717AE9C9300FDEA98 /* scene1atlasiPhone-hd.plist */; };
+		7FC2AD4E17AE9C9400FDEA98 /* scene1atlasiPhone-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FC2AD4817AE9C9300FDEA98 /* scene1atlasiPhone-hd.png */; };
+		7FC2AD4F17AE9C9400FDEA98 /* scene1atlasiPhone.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FC2AD4917AE9C9300FDEA98 /* scene1atlasiPhone.plist */; };
+		7FC2AD5017AE9C9400FDEA98 /* scene1atlasiPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FC2AD4A17AE9C9400FDEA98 /* scene1atlasiPhone.png */; };
 		7FD65EF11778E6FA001F909F /* mWave.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD65EF01778E6FA001F909F /* mWave.m */; };
 		7FD65F01177F2B39001F909F /* mlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FD65EFF177F2B39001F909F /* mlist.plist */; };
-		7FD65F05177F32AA001F909F /* mlist.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FD65F04177F32AA001F909F /* mlist.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -472,10 +479,17 @@
 		7F160E2F1734AC9100B99759 /* BulletCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletCache.m; sourceTree = "<group>"; };
 		7F160E3C17357ABC00B99759 /* bodycache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bodycache.h; sourceTree = "<group>"; };
 		7F160E3D17357ABC00B99759 /* bodycache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bodycache.m; sourceTree = "<group>"; };
+		7FC2AD3517AE8B8400FDEA98 /* Viking.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Viking.plist; sourceTree = "<group>"; };
+		7FC2AD4317AE99DD00FDEA98 /* sv_anim_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sv_anim_1.png; path = Resources/sv_anim_1.png; sourceTree = "<group>"; };
+		7FC2AD4517AE9C9300FDEA98 /* scene1atlas.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = scene1atlas.plist; path = Resources/scene1atlas.plist; sourceTree = "<group>"; };
+		7FC2AD4617AE9C9300FDEA98 /* scene1atlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scene1atlas.png; path = Resources/scene1atlas.png; sourceTree = "<group>"; };
+		7FC2AD4717AE9C9300FDEA98 /* scene1atlasiPhone-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "scene1atlasiPhone-hd.plist"; path = "Resources/scene1atlasiPhone-hd.plist"; sourceTree = "<group>"; };
+		7FC2AD4817AE9C9300FDEA98 /* scene1atlasiPhone-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "scene1atlasiPhone-hd.png"; path = "Resources/scene1atlasiPhone-hd.png"; sourceTree = "<group>"; };
+		7FC2AD4917AE9C9300FDEA98 /* scene1atlasiPhone.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = scene1atlasiPhone.plist; path = Resources/scene1atlasiPhone.plist; sourceTree = "<group>"; };
+		7FC2AD4A17AE9C9400FDEA98 /* scene1atlasiPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scene1atlasiPhone.png; path = Resources/scene1atlasiPhone.png; sourceTree = "<group>"; };
 		7FD65EEF1778E6FA001F909F /* mWave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mWave.h; sourceTree = "<group>"; };
 		7FD65EF01778E6FA001F909F /* mWave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mWave.m; sourceTree = "<group>"; };
 		7FD65EFF177F2B39001F909F /* mlist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = mlist.plist; path = Resources/mlist.plist; sourceTree = "<group>"; };
-		7FD65F04177F32AA001F909F /* mlist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mlist.png; path = Resources/mlist.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -571,10 +585,17 @@
 			isa = PBXGroup;
 			children = (
 				267DEBAF178C10D200740DB3 /* Waves.plist */,
+				7FC2AD4317AE99DD00FDEA98 /* sv_anim_1.png */,
 				7FD65EFF177F2B39001F909F /* mlist.plist */,
+				7FC2AD3517AE8B8400FDEA98 /* Viking.plist */,
 				7F160DFB17341CAD00B99759 /* openbg.jpg */,
+				7FC2AD4517AE9C9300FDEA98 /* scene1atlas.plist */,
+				7FC2AD4617AE9C9300FDEA98 /* scene1atlas.png */,
+				7FC2AD4717AE9C9300FDEA98 /* scene1atlasiPhone-hd.plist */,
+				7FC2AD4817AE9C9300FDEA98 /* scene1atlasiPhone-hd.png */,
+				7FC2AD4917AE9C9300FDEA98 /* scene1atlasiPhone.plist */,
+				7FC2AD4A17AE9C9400FDEA98 /* scene1atlasiPhone.png */,
 				7F160E0D17345BB300B99759 /* soldier3.png */,
-				7FD65F04177F32AA001F909F /* mlist.png */,
 				266FF8701774102900561D48 /* circle.png */,
 				2663FD021733078A0003C377 /* soldier2.png */,
 				7F160E271734A08300B99759 /* bullet.png */,
@@ -1114,8 +1135,15 @@
 				7F160E281734A08300B99759 /* bullet.png in Resources */,
 				266FF8711774102900561D48 /* circle.png in Resources */,
 				7FD65F01177F2B39001F909F /* mlist.plist in Resources */,
-				7FD65F05177F32AA001F909F /* mlist.png in Resources */,
 				267DEBB0178C10D200740DB3 /* Waves.plist in Resources */,
+				7FC2AD3617AE8B8400FDEA98 /* Viking.plist in Resources */,
+				7FC2AD4417AE99DD00FDEA98 /* sv_anim_1.png in Resources */,
+				7FC2AD4B17AE9C9400FDEA98 /* scene1atlas.plist in Resources */,
+				7FC2AD4C17AE9C9400FDEA98 /* scene1atlas.png in Resources */,
+				7FC2AD4D17AE9C9400FDEA98 /* scene1atlasiPhone-hd.plist in Resources */,
+				7FC2AD4E17AE9C9400FDEA98 /* scene1atlasiPhone-hd.png in Resources */,
+				7FC2AD4F17AE9C9400FDEA98 /* scene1atlasiPhone.plist in Resources */,
+				7FC2AD5017AE9C9400FDEA98 /* scene1atlasiPhone.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

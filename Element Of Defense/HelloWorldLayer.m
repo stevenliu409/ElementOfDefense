@@ -65,19 +65,30 @@ static HelloWorldLayer* level;
 	// Apple recommends to re-assign "self" with the "super's" return value
 	if( (self=[super init]) ) {
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"mlist.plist"];
+        
+        [[CCSpriteFrameCache sharedSpriteFrameCache]
+         addSpriteFramesWithFile:@"scene1atlasiPhone.plist"];         // 1
+        //sceneSpriteBatchNode =
+        //[CCSpriteBatchNode batchNodeWithFile:@"scene1atlasiPhone.png"];
+        
+        //[self addChild:sceneSpriteBatchNode z:0];
+        
         level = self;
 		prefs = [NSUserDefaults standardUserDefaults];
         cache = [[BulletCache alloc] init];
         bodyCache = [[NSMutableArray alloc] init];
         monsterCache = [[NSMutableArray alloc] init];
         wave = [[mWave alloc] init];
+        
+        
+        
         [self addChild:cache z:2];
         [self addChild:wave z:3];
 		[self initUI];
         [self addWaypoints];
         
-        soldiers = [[NSMutableArray alloc] init];
-        
+        //soldiers = [[NSMutableArray alloc] init];
+    
         [self loadArmy];
         
         //[self initBody];
@@ -85,6 +96,7 @@ static HelloWorldLayer* level;
         self.isTouchEnabled = YES;
 //        [mgsoldier makeMg:self waypoint:waypoints];
 //        [mgsoldier makeMg:self waypoint:waypoints2];
+        
         
     }
 	return self;
@@ -256,9 +268,9 @@ static HelloWorldLayer* level;
 -(BOOL)loadArmy{
     
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"Waves" ofType:@"plist"];
+    NSLog(@"%@",plistPath);
     NSArray *armyData = [NSArray arrayWithContentsOfFile:plistPath];
-    
-    NSLog(@"armyData count = %d", [armyData count]);
+    //NSLog(@"armyData count = %d", [armyData count]);
     if(army_count >= [armyData count]){
         return NO;
     }
@@ -277,11 +289,12 @@ static HelloWorldLayer* level;
         else{
            mgsolider = [mgsoldier makeMg:self waypoint:waypoints3];
         }
-       
+        
         [soldiers addObject:mgsolider];
         [mgsolider schedule:@selector(activateSoldier) interval:[[soldierData objectForKey:@"spawnTime"]floatValue]];
     }
     army_count++;
+
     return YES;
 
 }

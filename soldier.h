@@ -15,8 +15,11 @@
     double freq;
     double currentTime;
     Waypoint *spawnpoint;
-    CGPoint myPosition;
     BOOL active;
+    CCAnimation* walkAni;
+    CCAnimation* shotAni;
+    CCAnimation* standAni;
+    NSString* fileName;
 }
 
 @property (readonly) BOOL dead;
@@ -24,6 +27,10 @@
 @property (readonly) int range;
 @property (readonly) int damage;
 @property (assign) double freq;
+@property (nonatomic,retain) CCAnimation* walkAni;
+@property (nonatomic,retain) CCAnimation* shotAni;
+@property (nonatomic,retain) CCAnimation* standAni;
+
 
 +(id) makeSoldier:(int) type;
 -(id) initSoldier:(int) type;
@@ -31,4 +38,7 @@
 -(void)activateSoldier;
 //-(void) getAttacked:(monster*) m;
 -(void) fire:(ccTime) dt;
+-(CCAnimation*) loadAnimation:(NSString*) aniName;
+-(void) changeState:(int) state;
+
 @end
