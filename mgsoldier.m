@@ -52,13 +52,14 @@
 
 
 
-
-//the attack range 
+/*  DO NOT DELETE
+ DEBUGGER: the attack range
 -(void)draw{
 
     ccDrawColor4B(255, 0, 0, 0);
     ccDrawCircle(mySprite.position, range, 360, 30, false);
     [super draw];
 }
+*/
 
 @end

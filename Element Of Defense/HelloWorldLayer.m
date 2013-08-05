@@ -95,9 +95,7 @@ static HelloWorldLayer* level;
         //[self initBody];
         [self scheduleUpdate];
         self.isTouchEnabled = YES;
-//        [mgsoldier makeMg:self waypoint:waypoints];
-//        [mgsoldier makeMg:self waypoint:waypoints2];
-        
+        [snipersoldier makeSniper:self waypoint:waypoints2];
         
     }
 	return self;
@@ -269,9 +267,7 @@ static HelloWorldLayer* level;
 -(BOOL)loadArmy{
     
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"Waves" ofType:@"plist"];
-    NSLog(@"%@",plistPath);
     NSArray *armyData = [NSArray arrayWithContentsOfFile:plistPath];
-    //NSLog(@"armyData count = %d", [armyData count]);
     if(army_count >= [armyData count]){
         return NO;
     }
