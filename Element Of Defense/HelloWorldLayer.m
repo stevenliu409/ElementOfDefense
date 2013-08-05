@@ -86,16 +86,14 @@ static HelloWorldLayer* level;
 		[self initUI];
         [self addWaypoints];
         
-        //soldiers = [[NSMutableArray alloc] init];
+        soldiers = [[NSMutableArray alloc] init];
     
         [self loadArmy];
         
         //[self initBody];
         [self scheduleUpdate];
         self.isTouchEnabled = YES;
-//        [mgsoldier makeMg:self waypoint:waypoints];
-//        [mgsoldier makeMg:self waypoint:waypoints2];
-        
+        [snipersoldier makeSniper:self waypoint:waypoints2];
         
     }
 	return self;
@@ -267,9 +265,7 @@ static HelloWorldLayer* level;
 -(BOOL)loadArmy{
     
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"Waves" ofType:@"plist"];
-    NSLog(@"%@",plistPath);
     NSArray *armyData = [NSArray arrayWithContentsOfFile:plistPath];
-    //NSLog(@"armyData count = %d", [armyData count]);
     if(army_count >= [armyData count]){
         return NO;
     }
@@ -290,7 +286,7 @@ static HelloWorldLayer* level;
         }
         
         [soldiers addObject:mgsolider];
-        //[mgsolider schedule:@selector(activateSoldier) interval:[[soldierData objectForKey:@"spawnTime"]floatValue]];
+        [mgsolider schedule:@selector(activateSoldier) interval:[[soldierData objectForKey:@"spawnTime"]floatValue]];
     }
     army_count++;
 
