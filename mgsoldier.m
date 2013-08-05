@@ -27,7 +27,7 @@
         speed =1;
         active = NO;
         gameLayer = _gamelayer;
-        walkAni = [self loadAnimation:@"walkingAnim" fileName:@"solders"];
+        walkAni = [self loadAnimation:@"walkingAnim" fileName:@"Viking"];
         
         if(walkAni == nil){
             NSLog(@"wrong!");

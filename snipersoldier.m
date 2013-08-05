@@ -21,15 +21,14 @@
         range = 10;
         freq = 2;
         speed = 3;
-        NSLog(@"load sinper");
         gameLayer = _gameLayer;
         waypoints = mywaypoints;
         walkAni = [self loadAnimation:@"robotWalkingAnim" fileName:@"EnemyRobot"];
         if(walkAni == nil){
             NSLog(@"wrong!");
         }else {
-            [self changeState:2];
-
+            NSLog(@"load animation");
+           [self runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:walkAni]]];
         }
         [gameLayer addChild:self z:3];
         [self scheduleUpdate];
