@@ -90,6 +90,8 @@ static HelloWorldLayer* level;
         //snipersoldier* sp = [snipersoldier makeSniper:self];
         //sp.position = ccp(200,200);
         
+        soldiers = [[NSMutableArray alloc] init];
+    
         [self loadArmy];
         
         //[self initBody];
@@ -261,6 +263,7 @@ static HelloWorldLayer* level;
     }
     return NO;
 
+    
 }
 
 
