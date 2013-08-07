@@ -13,7 +13,7 @@
 
 @implementation soldier
 @synthesize dead,speed,range,damage,freq;
-@synthesize walkAni, shotAni, standAni;
+//@synthesize walkAni, shotAni, standAni;
 
 +(id) makeSoldier{
     return [[self alloc] initSoldier];
@@ -63,8 +63,11 @@
 }
 
 -(void) changeState:(int)state{
-    [self stopAllActions];
-    CCAnimate* ani = nil;
+
+    //[action release];
+    /*
+    id ani = nil;
+    NSLog(@"stopAction");
     switch (state) {
         case 1:
             [self setDisplayFrame:[[CCSpriteFrameCache
@@ -72,19 +75,44 @@
                                    spriteFrameByName:@"sv_anim_1.png"]];
             break;
         case 2:
+            NSLog(@"in Case 2");
             ani = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:walkAni]];
+            NSLog(@"create Ani");
             break;
         case 3:
-            
+            ani = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:shotAni]];
             break;
         default:
             break;
+    }
+    if(action != nil){
+        NSLog(@"run Action");
+        [self runAction:action];
+    }
+    */
+    [self stopAllActions];
+    id ani;
+    if(state == 1){
+        [self setDisplayFrame:[[CCSpriteFrameCache
+                                sharedSpriteFrameCache]
+                               spriteFrameByName:@"sv_anim_1.png"]];
+    }else if(state == 2){
+        walkAni = [self loadAnimation:@"walkingAnim" fileName:@"Viking"];
+        
+        ani = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:walkAni]];
+    }else if(state == 3){
+        shotAni = [self loadAnimation:@"malletPunchAnim" fileName:@"Viking"];
+        
+        ani = [CCAnimate actionWithAnimation:shotAni];
+    }else if(state == 4){
+        deadAni = [self loadAnimation:@"vikingDeathAnim" fileName:@"Viking"];
+        ani = [CCAnimate actionWithAnimation:deadAni];
     }
     
     if(ani != nil){
         [self runAction:ani];
     }
-    
+
     
 }
 
@@ -122,10 +150,9 @@
 
 -(void)update:(ccTime)dt{
     if(destination_reached){
-        [self changeState:1];
+        [self changeState:4];
         return;
     }
-    
     if([gameLayer circle:self.position withRadius:1 collisionWithCirle:spawnpoint.myPosition collisionCircleRadius:1]){
         //if there is a next point then move there
         if(spawnpoint.nextWaypoint){

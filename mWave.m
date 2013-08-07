@@ -42,6 +42,10 @@
     return [batch children];
 }
 
+-(void) removeMonster:(monster *)m{
+    
+}
+
 
 
 /*

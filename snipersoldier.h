@@ -11,7 +11,13 @@
 @interface snipersoldier : soldier{
 
 }
+
 +(id) makeSniper:(HelloWorldLayer*)_gameLayer waypoint:(NSMutableArray*)mywaypoints;
 -(id) initSniper:(HelloWorldLayer*)_gameLayer waypoint:(NSMutableArray*)mywaypoints;
+/*
++(id) makeSniper:(CCLayer*)_gameLayer;
+-(id) initSniper:(CCLayer*)_gameLayer;*/
+
+
 
 @end

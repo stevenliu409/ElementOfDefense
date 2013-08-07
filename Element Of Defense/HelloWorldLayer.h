@@ -27,7 +27,6 @@
     vampireHead* v2;
     CCSpriteBatchNode *sceneSpriteBatchNode;
     
-    
 }
 
 @property(nonatomic,retain) BulletCache* cache;

@@ -69,10 +69,6 @@ static HelloWorldLayer* level;
         
         [[CCSpriteFrameCache sharedSpriteFrameCache]
          addSpriteFramesWithFile:@"scene1atlasiPhone.plist"];         
-        //sceneSpriteBatchNode =
-        //[CCSpriteBatchNode batchNodeWithFile:@"scene1atlasiPhone.png"];
-        
-        //[self addChild:sceneSpriteBatchNode z:0];
         
         level = self;
 		prefs = [NSUserDefaults standardUserDefaults];
@@ -86,18 +82,19 @@ static HelloWorldLayer* level;
 		[self initUI];
         [self addWaypoints];
         
-        //soldiers = [[NSMutableArray alloc] init];
-        //snipersoldier* sp = [snipersoldier makeSniper:self];
-        //sp.position = ccp(200,200);
-        
         soldiers = [[NSMutableArray alloc] init];
-    
+        soldier* m = [snipersoldier makeSniper:self waypoint:waypoints3];
         [self loadArmy];
         
         //[self initBody];
-        [self scheduleUpdate];
+        //[m runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:m.shotAni]]];
+        //[m changeState:2];
+        //s = [snipersoldier makeSniper];
+
+        //[self scheduleUpdate];
+                
         self.isTouchEnabled = YES;
-        [snipersoldier makeSniper:self waypoint:waypoints2];
+        //[snipersoldier makeSniper:self waypoint:waypoints2];
         
     }
 	return self;
@@ -203,6 +200,7 @@ static HelloWorldLayer* level;
 
 
 -(void) update:(ccTime) dt{
+    /*
     CCArray* bs = [cache getCache];
     CCArray* ms = [wave getMonsters];
     for(int n = 0; n < [bs count]; n++ ){
@@ -218,14 +216,14 @@ static HelloWorldLayer* level;
         }
     }
     for(int n = 0; n < [ms count]; n++){
-        monster* m = [ms objectAtIndex:n];
+        //monster* m = [ms objectAtIndex:n];
         
-    }
-    
+    }*/
 }
 
 
 -(void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    /*
     UITouch *touch = [touches anyObject];
 	CGPoint point = [touch locationInView: [touch view]];
     point = [[CCDirector sharedDirector] convertToGL: point];
@@ -247,6 +245,7 @@ static HelloWorldLayer* level;
             break;
         }
     }
+     */
 }
 
 -(void) ccTouchEnded:(NSSet *) touches withEvent:(UIEvent *)event{
@@ -287,14 +286,16 @@ static HelloWorldLayer* level;
         }
 
         else{
+            NSLog(@"here");
            mgsolider = [snipersoldier makeSniper:self waypoint:waypoints3];
+             
         }
         
         [soldiers addObject:mgsolider];
         [mgsolider schedule:@selector(activateSoldier) interval:[[soldierData objectForKey:@"spawnTime"]floatValue]];
     }
     army_count++;
-
+  
     return YES;
 
 }

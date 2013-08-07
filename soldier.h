@@ -19,9 +19,12 @@
     CCAnimation* walkAni;
     CCAnimation* shotAni;
     CCAnimation* standAni;
+    CCAnimation* deadAni;
     NSString* fileName;
     NSMutableArray* waypoints;
     CCLayer* gameLayer;
+    CCAnimate* action;
+    BOOL sChange;
 }
 
 @property (readonly) BOOL dead;
@@ -29,9 +32,10 @@
 @property (readonly) int range;
 @property (readonly) int damage;
 @property (assign) double freq;
+/*
 @property (nonatomic,retain) CCAnimation* walkAni;
 @property (nonatomic,retain) CCAnimation* shotAni;
-@property (nonatomic,retain) CCAnimation* standAni;
+@property (nonatomic,retain) CCAnimation* standAni;*/
 
 
 +(id) makeSoldier;
