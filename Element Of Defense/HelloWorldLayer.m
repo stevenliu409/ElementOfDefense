@@ -83,7 +83,7 @@ static HelloWorldLayer* level;
         [self addWaypoints];
         
         soldiers = [[NSMutableArray alloc] init];
-        soldier* m = [snipersoldier makeSniper:self waypoint:waypoints3];
+        //soldier* m = [snipersoldier makeSniper:self waypoint:waypoints3];
         [self loadArmy];
         
         //[self initBody];
