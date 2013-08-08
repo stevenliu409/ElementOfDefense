@@ -30,7 +30,7 @@
     CCNode* node = [bullets objectAtIndex:nextBullet];
     Bullet* b = (Bullet*) node;
     if(!b.shoted){
-        [b shootBulletFrom:s timer:dt];
+        [b bulletAnimation:s timer:dt];
         nextBullet++;
         if(nextBullet > 999){
             nextBullet = 0;

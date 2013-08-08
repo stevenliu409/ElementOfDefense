@@ -42,7 +42,7 @@
     return NO;
 }
 
--(void) shootBulletFrom:(soldier *)s timer:(ccTime) dt{
+-(void) bulletAnimation:(soldier *)s timer:(ccTime) dt{
     damage = s.damage;
     range = s.range;
     freq = s.freq;

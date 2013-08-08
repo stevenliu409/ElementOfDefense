@@ -23,7 +23,7 @@
 @property(assign) CGPoint lastpos;
 +(id)makeBullet;
 -(id)initBullet;
--(void) shootBulletFrom:(soldier*) s timer:(ccTime)ct;
+-(void) bulletAnimation:(soldier*) s timer:(ccTime)ct;
 -(BOOL) hitMonster:(monster*) m;
 
 @end
