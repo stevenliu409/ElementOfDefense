@@ -93,7 +93,9 @@
 
 -(void) attack:(soldier *)s{
     s.health -= 1;
-    NSLog(@"attack soldier, solider HP is %d",s.health);
+    if(s.health > 0){
+        [s changeState:5];
+    }
 }
 
 -(int) getMSpeed{

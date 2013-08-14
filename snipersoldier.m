@@ -93,7 +93,10 @@
         [self runAction:ani];
 
     }else if(state == 5){
-        
+        hurtAni = [self loadAnimation:@"headHitAnim" fileName:@"EnemyRobot"];
+        CCAnimate* ani = [CCAnimate actionWithAnimation:hurtAni];
+        ani.duration = 10.0;
+        [self runAction:ani];
     }
     /*
     if(ani != nil){

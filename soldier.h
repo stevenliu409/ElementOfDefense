@@ -20,12 +20,14 @@
     CCAnimation* shotAni;
     CCAnimation* standAni;
     CCAnimation* deadAni;
+    CCAnimation* hurtAni;
     NSString* fileName;
     NSMutableArray* waypoints;
     CCLayer* gameLayer;
     CCAnimate* action;
     BOOL sChange;
     int sstate;
+    id ani1;
 }
 
 @property (readonly) BOOL dead;

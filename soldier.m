@@ -62,7 +62,6 @@
 -(void) changeState:(int)state{
     sstate = state;
     [self stopAllActions];
-    id ani;
     if(state == 1){
         [self setDisplayFrame:[[CCSpriteFrameCache
                                 sharedSpriteFrameCache]
@@ -70,18 +69,18 @@
     }else if(state == 2){
         walkAni = [self loadAnimation:@"walkingAnim" fileName:@"Viking"];
         
-        ani = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:walkAni]];
+        ani1 = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:walkAni]];
     }else if(state == 3){
         shotAni = [self loadAnimation:@"malletPunchAnim" fileName:@"Viking"];
         
-        ani = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:shotAni]];
+        ani1 = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:shotAni]];
     }else if(state == 4){
         deadAni = [self loadAnimation:@"vikingDeathAnim" fileName:@"Viking"];
-        ani = [CCAnimate actionWithAnimation:deadAni];
+        ani1 = [CCAnimate actionWithAnimation:deadAni];
     }
     
-    if(ani != nil){
-        [self runAction:ani];
+    if(ani1 != nil){
+        [self runAction:ani1];
     }
 
     
@@ -124,13 +123,23 @@
 }
 
 -(void)update:(ccTime)dt{
-    
-    
+    NSLog(@"state is %d",sstate);
     if(health <= 0){
         [self changeState:4];
         return;
     }
     
+    if(sstate == 5){
+            if(self.health <= 0){
+                [self changeState:4];
+            }else{
+                [self changeState:3];
+            }
+            return;
+            NSLog(@"here");
+    }
+
+    /*
     if(destination_reached && sstate != 3){
         [self changeState:3];
         return;
@@ -144,7 +153,8 @@
         }
         return;
     }
-    
+    */
+        
     if([gameLayer circle:self.position withRadius:1 collisionWithCirle:spawnpoint.myPosition collisionCircleRadius:1]){
         //if there is a next point then move there
         if(spawnpoint.nextWaypoint){
