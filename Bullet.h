@@ -24,6 +24,7 @@
 +(id)makeBullet;
 -(id)initBullet;
 -(void) bulletAnimation:(soldier*) s timer:(ccTime)ct;
--(BOOL) hitMonster:(monster*) m;
+-(void) hitMonster:(monster*) m;
+-(void) refresh;
 
 @end

@@ -17,6 +17,7 @@
 @synthesize mbody;
 @synthesize mhead;
 @synthesize attFreq;
+@synthesize dead,health;
 +(id) makeMonster:(body *)b mhead:(body *)h{
     return [[self alloc] initMonster:b mhead:h];
 }
@@ -25,10 +26,14 @@
     if(self = [super init]){
         mhead = h;
         mbody = b;
-        mbody.position = CGPointMake(0, 0);
-        mhead.position = CGPointMake(0,25);
         [self addChild:mhead];
         [self addChild:mbody];
+        mbody.position = CGPointMake(200, 100);
+        mhead.position = CGPointMake(200,125);
+        
+        dead = NO;
+        health = mhead.health;
+        //self.boundingBox = CGRectMake
     }
     return self;
 }
@@ -109,6 +114,13 @@
     }
 }
 
+-(void) killed{
+    //[mhead release];
+    //[mbody release];
+    //[self removeChild:mhead cleanup:YES];
+    //[self removeChild:mbody cleanup:YES];
+    //mbody = NULL;
+}
 
 
 @end

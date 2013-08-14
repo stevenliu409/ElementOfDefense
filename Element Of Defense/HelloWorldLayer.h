@@ -14,6 +14,7 @@
 #import "BulletCache.h"
 #import "vampireHead.h"
 #import "mWave.h"
+#import "monster.h"
 // HelloWorldLayer
 @interface HelloWorldLayer : CCLayer <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate>
 {

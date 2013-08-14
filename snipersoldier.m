@@ -70,6 +70,7 @@
 
 */
 -(void) changeState:(int)state{
+    sstate = state;
     [self stopAllActions];
     if(state == 1){
         [self setDisplayFrame:[[CCSpriteFrameCache
@@ -94,7 +95,7 @@
     
     
 }
-
+/*
 -(void)update:(ccTime)dt{
 
     if(destination_reached){
@@ -117,13 +118,13 @@
      CGPoint normalized = ccpNormalize(ccp(targetPoint.x-self.position.x, targetPoint.y-self.position.y));
      
      self.position =ccp(self.position.x+normalized.x *movingspeed, self.position.y+normalized.y *movingspeed);
-    /*
     if(sChange == NO){
         [self changeState:1];
         NSLog(@"Changed");
         sChange = YES;
         //return;
-    }*/
+    }
 }
+*/
 
 @end

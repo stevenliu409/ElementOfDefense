@@ -28,18 +28,28 @@
         self.scaleX = 50/self.contentSize.width;
         self.scaleY = 25/self.contentSize.height;
         shoted = NO;
+        [self stopAllActions];
+        self.visible = NO;
+        shoted = NO;
+        self.position = CGPointMake(0,self.position.y);
         
     }
     return self;
 }
 
 
--(BOOL) hitMonster:(monster *)m{
-    if(CGRectIntersectsRect(self.boundingBox, m.boundingBox)){
-        NSLog(@"hit Monster");
-        return YES;
+-(void) hitMonster:(monster *)m{
+    //NSLog(@"mbody x: %f y: %f bullet x: %f y: %f",m.mbody.boundingBox.origin.x,m.mbody.boundingBox.origin.y,self.boundingBox.origin.x,self.boundingBox.origin.y);
+    if(CGRectIntersectsRect(self.boundingBox, m.mhead.boundingBox) || CGRectIntersectsRect(self.boundingBox,m.mbody.boundingBox)){
+        NSLog(@"hit monster");
+        [self refresh];
+        m.health -= damage;
+        if(m.health <= 0){
+            m.dead = YES;
+        }
+        return;
     }
-    return NO;
+    //sNSLog(@"here");
 }
 
 -(void) bulletAnimation:(soldier *)s timer:(ccTime) dt{
@@ -58,14 +68,15 @@
     CGPoint pos = self.position;
     pos.x = pos.x + speed;
     self.position = CGPointMake(pos.x,pos.y);
-    if(self.position.x>(lastpos.x+(range*100))){
-        [self stopAllActions];
-        self.visible = NO;
-        shoted = NO;
-        self.position = CGPointMake(0,self.position.y);
+    if(self.position.x>(lastpos.x+(range*100)) || self.position.x > 480){
+        [self refresh];
     }
 }
 
-
-
+-(void) refresh{
+    [self stopAllActions];
+    self.visible = NO;
+    shoted = NO;
+    self.position = CGPointMake(0,self.position.y);
+}
 @end

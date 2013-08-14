@@ -24,9 +24,9 @@
 
 -(void) geneMonsters{
     int pos = 480;
-    for(int n = 0; n < 10; n++){
+    for(int n = 0; n < 1; n++){
         monster* m = [monster makeMonster:[zombieHead makeZhead] mhead:[vampireHead makevampireHead]];
-        m.position = ccp(pos,100);
+        //m.position = ccp(200,100);
         [m setTexture:batch.texture];
         [batch addChild:m];
         pos += 50;
@@ -43,7 +43,7 @@
 }
 
 -(void) removeMonster:(monster *)m{
-    
+    [batch removeChild:m cleanup:YES];
 }
 
 

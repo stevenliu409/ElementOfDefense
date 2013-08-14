@@ -25,6 +25,7 @@
     CCLayer* gameLayer;
     CCAnimate* action;
     BOOL sChange;
+    int sstate;
 }
 
 @property (readonly) BOOL dead;

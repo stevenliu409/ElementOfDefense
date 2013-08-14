@@ -33,9 +33,6 @@
 
 -(id) init{
     if(self = [super init]){
-        //fileName = [[NSBundle mainBundle] pathForResource:@"solders" ofType:@"plist"];
-        //NSLog(@"%@",fileName);
-        //[self loadAnimation:@"breathingAnim"];
         
         
     }
@@ -50,7 +47,7 @@
     [cache shootBulletFrom:self timer:ct];
 }
 
-
+/*
 -(void) updateSoldier:(ccTime)ct{
      
     currentTime+=ct;
@@ -61,35 +58,9 @@
     }
 
 }
-
+*/
 -(void) changeState:(int)state{
-
-    //[action release];
-    /*
-    id ani = nil;
-    NSLog(@"stopAction");
-    switch (state) {
-        case 1:
-            [self setDisplayFrame:[[CCSpriteFrameCache
-                                    sharedSpriteFrameCache]
-                                   spriteFrameByName:@"sv_anim_1.png"]];
-            break;
-        case 2:
-            NSLog(@"in Case 2");
-            ani = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:walkAni]];
-            NSLog(@"create Ani");
-            break;
-        case 3:
-            ani = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:shotAni]];
-            break;
-        default:
-            break;
-    }
-    if(action != nil){
-        NSLog(@"run Action");
-        [self runAction:action];
-    }
-    */
+    sstate = state;
     [self stopAllActions];
     id ani;
     if(state == 1){
@@ -103,7 +74,7 @@
     }else if(state == 3){
         shotAni = [self loadAnimation:@"malletPunchAnim" fileName:@"Viking"];
         
-        ani = [CCAnimate actionWithAnimation:shotAni];
+        ani = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:shotAni]];
     }else if(state == 4){
         deadAni = [self loadAnimation:@"vikingDeathAnim" fileName:@"Viking"];
         ani = [CCAnimate actionWithAnimation:deadAni];
@@ -148,11 +119,25 @@
     return ani;
 }
 
+-(int) getState{
+    return sstate;
+}
+
 -(void)update:(ccTime)dt{
-    if(destination_reached){
-        [self changeState:4];
+    if(destination_reached && sstate != 3){
+        [self changeState:3];
         return;
     }
+    
+    if(sstate == 3){
+        currentTime+=dt;
+        if(currentTime > freq){
+            [self fire:dt];
+            currentTime = 0;
+        }
+        return;
+    }
+    
     if([gameLayer circle:self.position withRadius:1 collisionWithCirle:spawnpoint.myPosition collisionCircleRadius:1]){
         //if there is a next point then move there
         if(spawnpoint.nextWaypoint){

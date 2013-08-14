@@ -91,7 +91,7 @@ static HelloWorldLayer* level;
         //[m changeState:2];
         //s = [snipersoldier makeSniper];
 
-        //[self scheduleUpdate];
+        [self scheduleUpdate];
                 
         self.isTouchEnabled = YES;
         //[snipersoldier makeSniper:self waypoint:waypoints2];
@@ -133,14 +133,14 @@ static HelloWorldLayer* level;
 {
     waypoints = [[NSMutableArray alloc] init];
     
-    Waypoint * waypoint1 = [Waypoint nodeWithTheGame:self location:ccp(350,35)];
+    Waypoint * waypoint1 = [Waypoint nodeWithTheGame:self location:ccp(35,35)];
     [waypoints addObject:waypoint1];
     
-    Waypoint * waypoint2 = [Waypoint nodeWithTheGame:self location:ccp(-35,35)];
+    Waypoint * waypoint2 = [Waypoint nodeWithTheGame:self location:ccp(-3,35)];
     [waypoints addObject:waypoint2];
     waypoint2.nextWaypoint =waypoint1;
     
-    Waypoint * waypoint3 = [Waypoint nodeWithTheGame:self location:ccp(-35,100)];
+    Waypoint * waypoint3 = [Waypoint nodeWithTheGame:self location:ccp(-3,100)];
     [waypoints addObject:waypoint3];
     waypoint3.nextWaypoint =waypoint2;
     
@@ -148,28 +148,28 @@ static HelloWorldLayer* level;
     
     waypoints2 = [[NSMutableArray alloc] init];
     
-    Waypoint * waypoint4 = [Waypoint nodeWithTheGame:self location:ccp(350,200)];
+    Waypoint * waypoint4 = [Waypoint nodeWithTheGame:self location:ccp(35,200)];
     [waypoints2 addObject:waypoint4];
     
-    Waypoint * waypoint5 = [Waypoint nodeWithTheGame:self location:ccp(-35,200)];
+    Waypoint * waypoint5 = [Waypoint nodeWithTheGame:self location:ccp(-3,200)];
     [waypoints2 addObject:waypoint5];
     waypoint5.nextWaypoint =waypoint4;
     
-    Waypoint * waypoint6 = [Waypoint nodeWithTheGame:self location:ccp(-35,100)];
+    Waypoint * waypoint6 = [Waypoint nodeWithTheGame:self location:ccp(-3,100)];
     [waypoints2 addObject:waypoint6];
     waypoint6.nextWaypoint =waypoint5;
     
     
     waypoints3 = [[NSMutableArray alloc] init];
     
-    Waypoint * waypoint7 = [Waypoint nodeWithTheGame:self location:ccp(350,100)];
+    Waypoint * waypoint7 = [Waypoint nodeWithTheGame:self location:ccp(35,100)];
     [waypoints3 addObject:waypoint7];
     
-    Waypoint * waypoint8 = [Waypoint nodeWithTheGame:self location:ccp(-35,100)];
+    Waypoint * waypoint8 = [Waypoint nodeWithTheGame:self location:ccp(-3,100)];
     [waypoints3 addObject:waypoint8];
     waypoint8.nextWaypoint =waypoint7;
     
-    Waypoint * waypoint9 = [Waypoint nodeWithTheGame:self location:ccp(-35,100)];
+    Waypoint * waypoint9 = [Waypoint nodeWithTheGame:self location:ccp(-3,100)];
     [waypoints3 addObject:waypoint9];
     waypoint9.nextWaypoint =waypoint8;
 
@@ -219,6 +219,36 @@ static HelloWorldLayer* level;
         //monster* m = [ms objectAtIndex:n];
         
     }*/
+    CCArray* bs = [cache getCache];
+    CCArray* ms = [wave getMonsters];
+    for(int n = 0; n< [ms count]; n++){
+        
+        monster* m = [ms objectAtIndex:n];
+        if(!m.dead){
+            
+            for(int x = 0; x < [bs count]; x++){
+                Bullet* b = [bs objectAtIndex:x];
+                if(b.shoted){
+                    
+                    [b hitMonster:m];
+                }
+            }
+        }else{
+            //[self removeChild:m cleanup:YES];
+            /*[self removeChild:m.mbody cleanup:YES];
+            [self removeChild:m.mhead cleanup:YES];
+            [self removeChild:m cleanup:YES];*/
+            //[m release];
+            //
+            //[wave removeMonster:m];
+            //m.mbody.visible = NO;
+            //m.mhead.visible = NO;
+            /*if(m.mbody.parent == NULL){
+                NSLog(@"good");
+            }*/
+            [wave removeMonster:m];
+        }
+    }
 }
 
 
@@ -267,13 +297,13 @@ static HelloWorldLayer* level;
 
 
 -(BOOL)loadArmy{
-    
+    /*
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"Waves" ofType:@"plist"];
     NSArray *armyData = [NSArray arrayWithContentsOfFile:plistPath];
     if(army_count >= [armyData count]){
         return NO;
     }
-
+    NSLog(@"here");
     NSArray *currentArmyData =[NSArray arrayWithArray:[armyData objectAtIndex:army_count]];
     
     for (NSDictionary *soldierData in currentArmyData) {
@@ -286,14 +316,20 @@ static HelloWorldLayer* level;
         }
 
         else{
-            NSLog(@"here");
+            
            mgsolider = [snipersoldier makeSniper:self waypoint:waypoints3];
-             
         }
-        
+        if(mgsolider == NULL){
+            NSLog(@"wrong");
+        }
         [soldiers addObject:mgsolider];
+        
         [mgsolider schedule:@selector(activateSoldier) interval:[[soldierData objectForKey:@"spawnTime"]floatValue]];
-    }
+           }
+    army_count++;*/
+    
+    soldier* s = [snipersoldier makeSniper:self waypoint:waypoints3];
+    [soldiers addObject:s];
     army_count++;
   
     return YES;

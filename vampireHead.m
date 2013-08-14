@@ -17,8 +17,12 @@
 
 -(id) initvampireHead{
     if(self = [super initBody:@"vhead.png"]){
-        self.scaleX = 25/self.contentSize.width;
-        self.scaleY = 25/self.contentSize.height;
+        self.scaleX = 20/self.contentSize.width;
+        self.scaleY = 10/self.contentSize.height;
+        
+        //self.boundingBox = CGRectMake(self.boundingBox.origin.x,self.boundingBox.origin.y, 10,10);
+        
+        
     }
     return self;
 }

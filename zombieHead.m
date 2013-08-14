@@ -19,8 +19,8 @@
 -(id) initZhead{
     if(self = [super initBody:@"zhead.png"]){
         self.health = 5;
-        self.scaleX = 25/self.contentSize.width;
-        self.scaleY = 25/self.contentSize.height;
+        self.scaleX = 20/self.contentSize.width;
+        self.scaleY = 10/self.contentSize.height;
     }
     return self;
 }

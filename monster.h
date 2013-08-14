@@ -9,6 +9,7 @@
 #import "CCSprite.h"
 #import "body.h"
 #import "soldier.h"
+//#import "Bullet.h"
 @interface monster : CCSprite{
     int currentTime;
     double totalTime;
@@ -18,6 +19,8 @@
 @property(nonatomic, retain) body* mbody;
 @property(nonatomic, retain) body* mhead;
 @property(readonly) double attFreq;
+@property(assign) BOOL dead;
+@property(assign) int health;
 
 +(id) makeMonster:(body*) b mhead:(body*) h;
 -(id) initMonster:(body*) b mhead:(body*) h;
@@ -30,4 +33,5 @@
 -(void) attack:(soldier*) s;
 -(int) getMSpeed;
 -(void) updateMonster:(ccTime) ct soilders:(soldier*) s;
+-(void) killed;
 @end
