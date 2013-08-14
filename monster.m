@@ -17,7 +17,7 @@
 @synthesize mbody;
 @synthesize mhead;
 @synthesize attFreq;
-@synthesize dead,health;
+@synthesize dead,health,damage;
 +(id) makeMonster:(body *)b mhead:(body *)h{
     return [[self alloc] initMonster:b mhead:h];
 }
@@ -77,7 +77,8 @@
 }
 
 -(void) moveMonster:(ccTime)ct{
-    
+    mhead.position = ccp(mhead.position.x - 1,mhead.position.y);
+    mbody.position = ccp(mbody.position.x - 1,mbody.position.y);
 }
 
 -(void) monsterAttack:(soldier* )s timer:(ccTime)ct{
@@ -91,7 +92,8 @@
 }
 
 -(void) attack:(soldier *)s{
-    
+    s.health -= 1;
+    NSLog(@"attack soldier, solider HP is %d",s.health);
 }
 
 -(int) getMSpeed{
@@ -107,7 +109,8 @@
 
 
 -(void) updateMonster:(ccTime)ct soilders:(soldier *)s{
-    if([self hitSoldier:s]){
+    
+    if((CGRectIntersectsRect(self.mbody.boundingBox, s.boundingBox)|| CGRectIntersectsRect(self.mhead.boundingBox, s.boundingBox))&& s.sstate != 4){
         [self monsterAttack:s timer:ct];
     }else{
         [self moveMonster:ct];

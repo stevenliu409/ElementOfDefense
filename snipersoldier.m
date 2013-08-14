@@ -17,7 +17,7 @@
 -(id) initSniper:(HelloWorldLayer*)_gameLayer waypoint:(NSMutableArray*)mywaypoints{
     if(self = [super initWithSpriteFrameName:@"an1_anim1.png"] ){
         health = 6;
-        damage = 7;
+        damage = 0;
         range = 10;
         freq = 2;
         speed = 3;
@@ -30,6 +30,7 @@
         [self changeState:2];
         [gameLayer addChild:self z:3];
         [self scheduleUpdate];
+        self.health = 10;
         //[self schedule: @selector(updateSolder:) interval:1.0];
     }
     return self;
@@ -86,6 +87,13 @@
         
         CCAnimate* ani = [CCAnimate actionWithAnimation:shotAni];
         [self runAction:ani];
+    }else if(state == 4){
+        deadAni = [self loadAnimation:@"robotDeathAnim" fileName:@"EnemyRobot"];
+        CCAnimate* ani = [CCAnimate actionWithAnimation:deadAni];
+        [self runAction:ani];
+
+    }else if(state == 5){
+        
     }
     /*
     if(ani != nil){

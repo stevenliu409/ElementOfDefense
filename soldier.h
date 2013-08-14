@@ -33,6 +33,8 @@
 @property (readonly) int range;
 @property (readonly) int damage;
 @property (assign) double freq;
+@property (assign) int health;
+@property (assign) int sstate;
 /*
 @property (nonatomic,retain) CCAnimation* walkAni;
 @property (nonatomic,retain) CCAnimation* shotAni;

@@ -19,7 +19,7 @@
     if(self = [super initBody:@"vhead.png"]){
         self.scaleX = 20/self.contentSize.width;
         self.scaleY = 10/self.contentSize.height;
-        
+        self.health = 10;
         //self.boundingBox = CGRectMake(self.boundingBox.origin.x,self.boundingBox.origin.y, 10,10);
         
         

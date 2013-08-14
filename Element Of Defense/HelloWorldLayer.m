@@ -233,6 +233,10 @@ static HelloWorldLayer* level;
                     [b hitMonster:m];
                 }
             }
+            for(int s = 0; s<[soldiers count];s++){
+                soldier* s1 = [soldiers objectAtIndex:s];
+                [m updateMonster:dt soilders:s1];
+            }
         }else{
             //[self removeChild:m cleanup:YES];
             /*[self removeChild:m.mbody cleanup:YES];

@@ -12,7 +12,7 @@
 
 
 @implementation soldier
-@synthesize dead,speed,range,damage,freq;
+@synthesize dead,speed,range,damage,freq,health,sstate;
 //@synthesize walkAni, shotAni, standAni;
 
 +(id) makeSoldier{
@@ -33,7 +33,7 @@
 
 -(id) init{
     if(self = [super init]){
-        
+        dead = NO;
         
     }
     return self;
@@ -124,6 +124,13 @@
 }
 
 -(void)update:(ccTime)dt{
+    
+    
+    if(health <= 0){
+        [self changeState:4];
+        return;
+    }
+    
     if(destination_reached && sstate != 3){
         [self changeState:3];
         return;

@@ -21,6 +21,7 @@
 @property(readonly) double attFreq;
 @property(assign) BOOL dead;
 @property(assign) int health;
+@property(assign) int damage;
 
 +(id) makeMonster:(body*) b mhead:(body*) h;
 -(id) initMonster:(body*) b mhead:(body*) h;
