@@ -40,4 +40,5 @@
 +(CCScene *) scene;
 +(HelloWorldLayer*) getLevel;
 -(BOOL)circle:(CGPoint)circlePoint withRadius:(float)radius collisionWithCirle:(CGPoint)circlePointTwo collisionCircleRadius:(float)radiusTwo;
+-(void) genBodyPart:(monster* )m;
 @end

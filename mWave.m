@@ -10,6 +10,7 @@
 #import "monster.h"
 #import "zombieHead.h"
 #import "vampireHead.h"
+#import "body.h"
 @implementation mWave
 
 -(id) init{
@@ -35,6 +36,13 @@
 }
 
 -(void) addMonster:(monster *)m{
+    [m setTexture:batch.texture];
+    [batch addChild:m];
+}
+
+-(void) addMonster:(body*)head mbody:(body*) b{
+    monster* m = [monster makeMonster:b mhead:head];
+    [m setTexture:batch.texture];
     [batch addChild:m];
 }
 

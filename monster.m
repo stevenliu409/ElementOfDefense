@@ -33,7 +33,7 @@
         
         dead = NO;
         health = mhead.health;
-        //self.boundingBox = CGRectMake
+        self.damage = 1;
     }
     return self;
 }
@@ -57,6 +57,12 @@
         self.mhead = [decoder decodeObjectForKey:@"head"];
     }
     return self;
+}
+
+
+-(void) setUpPos:(int)x yPos:(int)y{
+    mbody.position = ccp(x,y);
+    mhead.position = ccp(x,y+25);
 }
 
 - (void)encodeWithCoder:(NSCoder *)encoder {
@@ -92,7 +98,7 @@
 }
 
 -(void) attack:(soldier *)s{
-    s.health -= 1;
+    s.health -= self.damage;
     if(s.health > 0){
         [s changeState:5];
     }

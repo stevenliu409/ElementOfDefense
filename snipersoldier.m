@@ -17,7 +17,7 @@
 -(id) initSniper:(HelloWorldLayer*)_gameLayer waypoint:(NSMutableArray*)mywaypoints{
     if(self = [super initWithSpriteFrameName:@"an1_anim1.png"] ){
         health = 6;
-        damage = 0;
+        damage = 10;
         range = 10;
         freq = 2;
         speed = 3;
@@ -31,7 +31,6 @@
         [gameLayer addChild:self z:3];
         [self scheduleUpdate];
         self.health = 10;
-        //[self schedule: @selector(updateSolder:) interval:1.0];
     }
     return self;
 }

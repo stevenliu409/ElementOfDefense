@@ -35,4 +35,5 @@
 -(int) getMSpeed;
 -(void) updateMonster:(ccTime) ct soilders:(soldier*) s;
 -(void) killed;
+-(void) setUpPos:(int) x yPos:(int) y;
 @end

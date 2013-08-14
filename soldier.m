@@ -123,7 +123,6 @@
 }
 
 -(void)update:(ccTime)dt{
-    NSLog(@"state is %d",sstate);
     if(health <= 0){
         [self changeState:4];
         return;
@@ -136,10 +135,9 @@
                 [self changeState:3];
             }
             return;
-            NSLog(@"here");
     }
 
-    /*
+    
     if(destination_reached && sstate != 3){
         [self changeState:3];
         return;
@@ -153,7 +151,7 @@
         }
         return;
     }
-    */
+    
         
     if([gameLayer circle:self.position withRadius:1 collisionWithCirle:spawnpoint.myPosition collisionCircleRadius:1]){
         //if there is a next point then move there

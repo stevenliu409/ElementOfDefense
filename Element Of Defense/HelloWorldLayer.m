@@ -200,25 +200,6 @@ static HelloWorldLayer* level;
 
 
 -(void) update:(ccTime) dt{
-    /*
-    CCArray* bs = [cache getCache];
-    CCArray* ms = [wave getMonsters];
-    for(int n = 0; n < [bs count]; n++ ){
-        Bullet* b = [bs objectAtIndex:n];
-        if(b.visible == YES){
-            for(int x= 0; x < [ms count]; x++){
-                if([b hitMonster:[ms objectAtIndex:n]]){
-                    b.visible = NO;
-                    b.shoted = NO;
-                    b.position = ccp(0,b.self.position.y);
-                }
-            }
-        }
-    }
-    for(int n = 0; n < [ms count]; n++){
-        //monster* m = [ms objectAtIndex:n];
-        
-    }*/
     CCArray* bs = [cache getCache];
     CCArray* ms = [wave getMonsters];
     for(int n = 0; n< [ms count]; n++){
@@ -238,18 +219,7 @@ static HelloWorldLayer* level;
                 [m updateMonster:dt soilders:s1];
             }
         }else{
-            //[self removeChild:m cleanup:YES];
-            /*[self removeChild:m.mbody cleanup:YES];
-            [self removeChild:m.mhead cleanup:YES];
-            [self removeChild:m cleanup:YES];*/
-            //[m release];
-            //
-            //[wave removeMonster:m];
-            //m.mbody.visible = NO;
-            //m.mhead.visible = NO;
-            /*if(m.mbody.parent == NULL){
-                NSLog(@"good");
-            }*/
+            [self genBodyPart:m];
             [wave removeMonster:m];
         }
     }
@@ -257,15 +227,16 @@ static HelloWorldLayer* level;
 
 
 -(void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    /*
+    NSLog(@"touch");
     UITouch *touch = [touches anyObject];
 	CGPoint point = [touch locationInView: [touch view]];
     point = [[CCDirector sharedDirector] convertToGL: point];
     
     if([monsterCache count] == 2){
         monster* m = [monster makeMonster:[monsterCache objectAtIndex:0] mhead:[monsterCache objectAtIndex:1]];
-        m.position = CGPointMake(point.x,point.y);
-        [self addChild:m z:2];
+        //m.position = CGPointMake(point.x,point.y);
+        [m setUpPos:point.x yPos:point.y];
+        //[self addChild:m z:3];
         [wave addMonster:m];
         [monsterCache removeAllObjects];
     }
@@ -279,7 +250,6 @@ static HelloWorldLayer* level;
             break;
         }
     }
-     */
 }
 
 -(void) ccTouchEnded:(NSSet *) touches withEvent:(UIEvent *)event{
@@ -340,6 +310,17 @@ static HelloWorldLayer* level;
 
 }
 
+-(void) genBodyPart:(monster* )m{
+    zombieHead* zh = [zombieHead makeZhead];
+    zh.position = ccp(m.mhead.position.x+100,m.mhead.position.y+75);
+    [self addChild:zh z:3];
+    [bodyCache addObject:zh];
+    vampireHead* vh = [vampireHead makevampireHead];
+    vh.position = ccp(m.mhead.position.x+100,m.mhead.position.y-75);
+    [self addChild:vh z:3];
+    [bodyCache addObject:vh];
+    
+}
 
 
 
