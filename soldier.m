@@ -118,9 +118,6 @@
     return ani;
 }
 
--(int) getState{
-    return sstate;
-}
 
 -(void)update:(ccTime)dt{
     if(health <= 0){
@@ -169,11 +166,19 @@
     CGPoint normalized = ccpNormalize(ccp(targetPoint.x-self.position.x, targetPoint.y-self.position.y));
     
     self.position =ccp(self.position.x+normalized.x *movingspeed, self.position.y+normalized.y *movingspeed);
+    
 }
 
 -(void)activateSoldier{
     active = YES;
 }
 
+-(void) reset{
+    destination_reached = NO;
+    Waypoint *waypoint = (Waypoint*)[waypoints objectAtIndex:([waypoints count]-1)];
+    spawnpoint = waypoint.nextWaypoint;
+    self.position = waypoint.myPosition;
+    [self scheduleUpdate];
+}
 
 @end

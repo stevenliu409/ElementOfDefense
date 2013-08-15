@@ -88,11 +88,6 @@ static HelloWorldLayer* level;
         //soldier* m = [snipersoldier makeSniper:self waypoint:waypoints3];
         [self loadArmy];
         
-        //[self initBody];
-        //[m runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:m.shotAni]]];
-        //[m changeState:2];
-        //s = [snipersoldier makeSniper];
-        
         self.isTouchEnabled = YES;
         [self scheduleUpdate];
                 
@@ -115,7 +110,18 @@ static HelloWorldLayer* level;
     bg.scaleX = size.width/bg.contentSize.width;
     bg.scaleY = size.height/bg.contentSize.height;
     
-    [self addChild:bg z:1];
+    [self addChild:bg z:1 tag:1];
+    
+    CCSprite* bg2 = [CCSprite spriteWithFile:l.bgdir2];
+    bg2.anchorPoint = CGPointMake(0,0);
+    bg2.scaleX = size.width/bg2.contentSize.width;
+    bg2.scaleY = size.height/bg2.contentSize.height;
+    
+    [self addChild:bg2 z:1 tag:2];
+    bg2.visible = NO;
+
+    
+    
 }
 
 
@@ -220,19 +226,25 @@ static HelloWorldLayer* level;
             }
             for(int s = 0; s<[soldiers count];s++){
                 soldier* s1 = [soldiers objectAtIndex:s];
-                [m updateMonster:dt soilders:s1];
+                if([m updateMonster:dt soilders:s1]){
+                    break;
+                }
             }
         }else{
             
             double r = [self genRandom];
-                if(m.prect > r){
+            if(m.prect > r){
                 
                 [self genBodyPart:m];
-                
             }
             [wave removeMonster:m];
         }
     }
+    if(([monsterCache count]==0 && [bodyCache count] == 0 && [ms count] == 0) || ([soldiers count] == 0)){
+        [self stopGame];
+        return;
+    }
+
 }
 
 
@@ -279,6 +291,7 @@ static HelloWorldLayer* level;
             [self removeChild:b cleanup:YES];
             [monsterCache addObject:b];
             [bodyCache removeObject:b];
+            //NSLog(@"%d",n);
             break;
         }
     }
@@ -325,25 +338,31 @@ static HelloWorldLayer* level;
             
            mgsolider = [snipersoldier makeSniper:self waypoint:waypoints3];
         }
-        if(mgsolider == NULL){
-            NSLog(@"wrong");
-        }
         [soldiers addObject:mgsolider];
         
         [mgsolider schedule:@selector(activateSoldier) interval:[[soldierData objectForKey:@"spawnTime"]floatValue]];
-           }
-    army_count++;*/
-    
-    
+    }
+    army_count++;
+    */
     soldier* s = [snipersoldier makeSniper:self waypoint:waypoints3];
     [soldiers addObject:s];
+    
+    soldier* s1 = [mgsoldier makeMg:self waypoint:waypoints];
+    [soldiers addObject:s1];
     army_count++;
     
     armyLine* line1 = [[armyLine alloc] init];
     line1.alive = YES;
-    line1.ypos = 100;
+    line1.ypos = 200;
     line1.xpos = 35;
     [linesDic setObject:line1 forKey:@"lines1"];
+    
+    armyLine* line2 = [[armyLine alloc]init];
+    line2.alive = YES;
+    line2.ypos = 35;
+    line2.xpos = 35;
+    [linesDic setObject:line2 forKey:@"lines2"];
+    
     return YES;
 
 }
@@ -366,6 +385,67 @@ static HelloWorldLayer* level;
     return n/10;
 }
 
+-(void) stopGame{
+    NSLog(@"Game stop!");
+    self.isTouchEnabled = NO;
+    [self unscheduleUpdate];
+    if([soldiers count] == 0){
+        [self moveLeft];
+    }else if([[wave getMonsters] count] == 0){
+        [self moveRight];
+    }else{
+        
+    }
+}
+
+
+-(void) moveLeft{
+    NSLog(@"move left");
+    //[self schedule:<#(SEL)#>]
+}
+-(void) moveRight{
+    //NSLog(@"move right");
+    [self schedule:@selector(changeToRight:)];
+}
+
+-(void) changeToLeft:(ccTime)dt{
+    
+}
+
+-(void) changeToRight:(ccTime)dt{
+    //NSLog(@"changing to right");
+    BOOL moveOut = NO;
+    for(int n = 0; n < [soldiers count]; n++){
+        soldier* s = [soldiers objectAtIndex:n];
+        [s unscheduleUpdate];
+        if(s.sstate != 2){
+            [s changeState:2];
+        }
+        if(s.position.x > 550){
+            moveOut = YES;
+        }else{
+           s.position = ccp(s.position.x + s.speed, s.position.y);
+           moveOut = NO;
+        }
+    }
+    
+    if(moveOut){
+        NSLog(@"all move out");
+        CCSprite* bg1 =(CCSprite*) [self getChildByTag:1];
+        bg1.visible = NO;
+        CCSprite* b2 = (CCSprite*) [self getChildByTag:2];
+        b2.visible = YES;
+        
+        for(int n = 0; n < [soldiers count]; n++){
+            soldier* s = [soldiers objectAtIndex:n];
+            [s reset];
+        }
+        //[self scheduleUpdate];
+        [self unschedule:@selector(changeToRight:)];
+    }
+    
+
+}
 
 #pragma mark GameKit delegate
 

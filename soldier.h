@@ -51,5 +51,5 @@
 -(void) fire:(ccTime) dt;
 -(CCAnimation*) loadAnimation:(NSString*) aniName fileName:(NSString*)fn;
 -(void) changeState:(int) state;
-
+-(void) reset;
 @end

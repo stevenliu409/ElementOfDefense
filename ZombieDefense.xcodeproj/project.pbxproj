@@ -171,6 +171,7 @@
 		7FC2AD4F17AE9C9400FDEA98 /* scene1atlasiPhone.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FC2AD4917AE9C9300FDEA98 /* scene1atlasiPhone.plist */; };
 		7FC2AD5017AE9C9400FDEA98 /* scene1atlasiPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FC2AD4A17AE9C9400FDEA98 /* scene1atlasiPhone.png */; };
 		7FC62BBF17BD598D001A01B4 /* armyLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC62BBE17BD598D001A01B4 /* armyLine.m */; };
+		7FC62BC217BD8575001A01B4 /* bg2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 7FC62BC117BD8575001A01B4 /* bg2.jpeg */; };
 		7FD65EF11778E6FA001F909F /* mWave.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD65EF01778E6FA001F909F /* mWave.m */; };
 		7FD65F01177F2B39001F909F /* mlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FD65EFF177F2B39001F909F /* mlist.plist */; };
 /* End PBXBuildFile section */
@@ -492,6 +493,7 @@
 		7FC2AD4A17AE9C9400FDEA98 /* scene1atlasiPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scene1atlasiPhone.png; path = Resources/scene1atlasiPhone.png; sourceTree = "<group>"; };
 		7FC62BBD17BD598D001A01B4 /* armyLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = armyLine.h; sourceTree = "<group>"; };
 		7FC62BBE17BD598D001A01B4 /* armyLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = armyLine.m; sourceTree = "<group>"; };
+		7FC62BC117BD8575001A01B4 /* bg2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bg2.jpeg; path = Resources/bg2.jpeg; sourceTree = "<group>"; };
 		7FD65EEF1778E6FA001F909F /* mWave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mWave.h; sourceTree = "<group>"; };
 		7FD65EF01778E6FA001F909F /* mWave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mWave.m; sourceTree = "<group>"; };
 		7FD65EFF177F2B39001F909F /* mlist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = mlist.plist; path = Resources/mlist.plist; sourceTree = "<group>"; };
@@ -591,6 +593,7 @@
 			children = (
 				267DEBAF178C10D200740DB3 /* Waves.plist */,
 				7FC2AD4317AE99DD00FDEA98 /* sv_anim_1.png */,
+				7FC62BC117BD8575001A01B4 /* bg2.jpeg */,
 				7FD65EFF177F2B39001F909F /* mlist.plist */,
 				7FC2AD3517AE8B8400FDEA98 /* Viking.plist */,
 				7FB7FF2B17B02F55001C627E /* EnemyRobot.plist */,
@@ -1153,6 +1156,7 @@
 				7FC2AD4F17AE9C9400FDEA98 /* scene1atlasiPhone.plist in Resources */,
 				7FC2AD5017AE9C9400FDEA98 /* scene1atlasiPhone.png in Resources */,
 				7FB7FF2C17B02F55001C627E /* EnemyRobot.plist in Resources */,
+				7FC62BC217BD8575001A01B4 /* bg2.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

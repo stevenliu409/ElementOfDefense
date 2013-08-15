@@ -28,6 +28,7 @@
     vampireHead* v2;
     CCSpriteBatchNode *sceneSpriteBatchNode;
     NSMutableDictionary* linesDic;
+    //BOOL split;
     
 }
 
@@ -43,4 +44,11 @@
 -(BOOL)circle:(CGPoint)circlePoint withRadius:(float)radius collisionWithCirle:(CGPoint)circlePointTwo collisionCircleRadius:(float)radiusTwo;
 -(void) genBodyPart:(monster* )m;
 -(double) genRandom;
+-(void) stopGame;
+-(void) moveRight;
+-(void) moveLeft;
+-(void) changeToLeft:(ccTime) dt;
+-(void) changeToRight:(ccTime) dt;
+-(void) changeSenceTo:(CCSprite*) bg;
+-(void) resetSoldiers;
 @end

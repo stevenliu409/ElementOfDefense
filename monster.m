@@ -117,12 +117,15 @@
 }
 
 
--(void) updateMonster:(ccTime)ct soilders:(soldier *)s{
+-(BOOL) updateMonster:(ccTime)ct soilders:(soldier *)s{
     
     if((CGRectIntersectsRect(self.mbody.boundingBox, s.boundingBox)|| CGRectIntersectsRect(self.mhead.boundingBox, s.boundingBox))&& s.sstate != 4){
+        
         [self monsterAttack:s timer:ct];
+        return YES;
     }else{
         [self moveMonster:ct];
+        return NO;
     }
 }
 

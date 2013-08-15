@@ -34,7 +34,7 @@
 -(BOOL) hitSoldier:(soldier*) s;
 -(void) attack:(soldier*) s;
 -(int) getMSpeed;
--(void) updateMonster:(ccTime) ct soilders:(soldier*) s;
+-(BOOL) updateMonster:(ccTime) ct soilders:(soldier*) s;
 -(void) killed;
 -(void) setUpPos:(int) x yPos:(int) y;
 @end
