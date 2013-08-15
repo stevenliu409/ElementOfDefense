@@ -225,10 +225,8 @@ static HelloWorldLayer* level;
         }else{
             
             double r = [self genRandom];
-            NSLog(@"%f, m.pref %f",r,m.prect);
-            if(m.prect > r){
+                if(m.prect > r){
                 
-                NSLog(@"gene body");
                 [self genBodyPart:m];
                 
             }
