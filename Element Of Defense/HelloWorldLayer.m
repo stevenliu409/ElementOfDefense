@@ -440,7 +440,9 @@ static HelloWorldLayer* level;
             soldier* s = [soldiers objectAtIndex:n];
             [s reset];
         }
-        //[self scheduleUpdate];
+        [wave geneMonsters];
+        [self scheduleUpdate];
+        self.isTouchEnabled = YES;
         [self unschedule:@selector(changeToRight:)];
     }
     
