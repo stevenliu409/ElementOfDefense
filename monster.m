@@ -17,7 +17,7 @@
 @synthesize mbody;
 @synthesize mhead;
 @synthesize attFreq;
-@synthesize dead,health,damage;
+@synthesize dead,health,damage,prect;
 +(id) makeMonster:(body *)b mhead:(body *)h{
     return [[self alloc] initMonster:b mhead:h];
 }
@@ -32,6 +32,7 @@
         mhead.position = CGPointMake(200,125);
         
         dead = NO;
+        prect = 0.5;
         health = mhead.health;
         self.damage = 1;
     }

@@ -223,7 +223,15 @@ static HelloWorldLayer* level;
                 [m updateMonster:dt soilders:s1];
             }
         }else{
-            [self genBodyPart:m];
+            
+            double r = [self genRandom];
+            NSLog(@"%f, m.pref %f",r,m.prect);
+            if(m.prect > r){
+                
+                NSLog(@"gene body");
+                [self genBodyPart:m];
+                
+            }
             [wave removeMonster:m];
         }
     }
@@ -337,12 +345,7 @@ static HelloWorldLayer* level;
     line1.alive = YES;
     line1.ypos = 100;
     line1.xpos = 35;
-    if(linesDic == NULL){
-        NSLog(@"what?");
-    }
     [linesDic setObject:line1 forKey:@"lines1"];
-    NSArray* array = [linesDic allKeys];
-    NSLog(@"%d",[array count]);
     return YES;
 
 }
@@ -359,6 +362,11 @@ static HelloWorldLayer* level;
     
 }
 
+
+-(double) genRandom{
+    double n = arc4random()%10;
+    return n/10;
+}
 
 
 #pragma mark GameKit delegate
