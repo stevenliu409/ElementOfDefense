@@ -227,7 +227,6 @@ static HelloWorldLayer* level;
 
 
 -(void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    NSLog(@"touch");
     UITouch *touch = [touches anyObject];
 	CGPoint point = [touch locationInView: [touch view]];
     point = [[CCDirector sharedDirector] convertToGL: point];
@@ -312,11 +311,11 @@ static HelloWorldLayer* level;
 
 -(void) genBodyPart:(monster* )m{
     zombieHead* zh = [zombieHead makeZhead];
-    zh.position = ccp(m.mhead.position.x+100,m.mhead.position.y+75);
+    zh.position = ccp(m.mhead.position.x+50,m.mhead.position.y+50);
     [self addChild:zh z:3];
     [bodyCache addObject:zh];
     vampireHead* vh = [vampireHead makevampireHead];
-    vh.position = ccp(m.mhead.position.x+100,m.mhead.position.y-75);
+    vh.position = ccp(m.mhead.position.x+50,m.mhead.position.y-50);
     [self addChild:vh z:3];
     [bodyCache addObject:vh];
     
