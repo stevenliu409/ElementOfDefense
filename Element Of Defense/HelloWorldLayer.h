@@ -27,6 +27,7 @@
     vampireHead* v1;
     vampireHead* v2;
     CCSpriteBatchNode *sceneSpriteBatchNode;
+    NSMutableDictionary* linesDic;
     
 }
 

@@ -22,6 +22,7 @@
 #import "mgsoldier.h"
 #import "mWave.h"
 #import "snipersoldier.h"
+#import "armyLine.h"
 #pragma mark - HelloWorldLayer
 
 // HelloWorldLayer implementation
@@ -83,6 +84,7 @@ static HelloWorldLayer* level;
         [self addWaypoints];
         
         soldiers = [[NSMutableArray alloc] init];
+        linesDic = [[NSMutableDictionary alloc] init];
         //soldier* m = [snipersoldier makeSniper:self waypoint:waypoints3];
         [self loadArmy];
         
@@ -90,11 +92,13 @@ static HelloWorldLayer* level;
         //[m runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:m.shotAni]]];
         //[m changeState:2];
         //s = [snipersoldier makeSniper];
-
+        
+        self.isTouchEnabled = YES;
         [self scheduleUpdate];
                 
-        self.isTouchEnabled = YES;
+      
         //[snipersoldier makeSniper:self waypoint:waypoints2];
+        
         
     }
 	return self;
@@ -227,14 +231,39 @@ static HelloWorldLayer* level;
 
 
 -(void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    NSLog(@"touch");
     UITouch *touch = [touches anyObject];
 	CGPoint point = [touch locationInView: [touch view]];
     point = [[CCDirector sharedDirector] convertToGL: point];
-    
     if([monsterCache count] == 2){
+        NSArray* lines = [linesDic allKeys];
         monster* m = [monster makeMonster:[monsterCache objectAtIndex:0] mhead:[monsterCache objectAtIndex:1]];
         //m.position = CGPointMake(point.x,point.y);
-        [m setUpPos:point.x yPos:point.y];
+        int xpos = -1;
+        int ypos = -1;
+        int yDiff = 999;
+        int lineIndex = -1;
+        for(int n = 0; n < [lines count]; n++){
+            armyLine* l = [linesDic objectForKey:[lines objectAtIndex:n]];
+            if(l.alive){
+                int diff = abs(point.y - l.ypos);
+                if(diff <= yDiff){
+                    yDiff = diff;
+                    ypos = l.ypos;
+                    lineIndex = n;
+                }
+            }
+        }
+        
+        armyLine* l = [linesDic objectForKey:[lines objectAtIndex:lineIndex]];
+        if(point.x < l.xpos+75){
+            xpos = l.xpos+75;
+        }else{
+            xpos = point.x;
+        }
+        NSLog(@"xpos: %d ypos: %d", xpos,ypos);
+        
+        [m setUpPos:xpos yPos:ypos];
         //[self addChild:m z:3];
         [wave addMonster:m];
         [monsterCache removeAllObjects];
@@ -301,10 +330,21 @@ static HelloWorldLayer* level;
            }
     army_count++;*/
     
+    
     soldier* s = [snipersoldier makeSniper:self waypoint:waypoints3];
     [soldiers addObject:s];
     army_count++;
-  
+    
+    armyLine* line1 = [[armyLine alloc] init];
+    line1.alive = YES;
+    line1.ypos = 100;
+    line1.xpos = 35;
+    if(linesDic == NULL){
+        NSLog(@"what?");
+    }
+    [linesDic setObject:line1 forKey:@"lines1"];
+    NSArray* array = [linesDic allKeys];
+    NSLog(@"%d",[array count]);
     return YES;
 
 }

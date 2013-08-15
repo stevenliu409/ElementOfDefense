@@ -170,6 +170,7 @@
 		7FC2AD4E17AE9C9400FDEA98 /* scene1atlasiPhone-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FC2AD4817AE9C9300FDEA98 /* scene1atlasiPhone-hd.png */; };
 		7FC2AD4F17AE9C9400FDEA98 /* scene1atlasiPhone.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FC2AD4917AE9C9300FDEA98 /* scene1atlasiPhone.plist */; };
 		7FC2AD5017AE9C9400FDEA98 /* scene1atlasiPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FC2AD4A17AE9C9400FDEA98 /* scene1atlasiPhone.png */; };
+		7FC62BBF17BD598D001A01B4 /* armyLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC62BBE17BD598D001A01B4 /* armyLine.m */; };
 		7FD65EF11778E6FA001F909F /* mWave.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD65EF01778E6FA001F909F /* mWave.m */; };
 		7FD65F01177F2B39001F909F /* mlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FD65EFF177F2B39001F909F /* mlist.plist */; };
 /* End PBXBuildFile section */
@@ -489,6 +490,8 @@
 		7FC2AD4817AE9C9300FDEA98 /* scene1atlasiPhone-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "scene1atlasiPhone-hd.png"; path = "Resources/scene1atlasiPhone-hd.png"; sourceTree = "<group>"; };
 		7FC2AD4917AE9C9300FDEA98 /* scene1atlasiPhone.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = scene1atlasiPhone.plist; path = Resources/scene1atlasiPhone.plist; sourceTree = "<group>"; };
 		7FC2AD4A17AE9C9400FDEA98 /* scene1atlasiPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scene1atlasiPhone.png; path = Resources/scene1atlasiPhone.png; sourceTree = "<group>"; };
+		7FC62BBD17BD598D001A01B4 /* armyLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = armyLine.h; sourceTree = "<group>"; };
+		7FC62BBE17BD598D001A01B4 /* armyLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = armyLine.m; sourceTree = "<group>"; };
 		7FD65EEF1778E6FA001F909F /* mWave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mWave.h; sourceTree = "<group>"; };
 		7FD65EF01778E6FA001F909F /* mWave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mWave.m; sourceTree = "<group>"; };
 		7FD65EFF177F2B39001F909F /* mlist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = mlist.plist; path = Resources/mlist.plist; sourceTree = "<group>"; };
@@ -967,6 +970,8 @@
 		2663FD0617330A190003C377 /* Game Objects */ = {
 			isa = PBXGroup;
 			children = (
+				7FC62BBD17BD598D001A01B4 /* armyLine.h */,
+				7FC62BBE17BD598D001A01B4 /* armyLine.m */,
 			);
 			name = "Game Objects";
 			sourceTree = "<group>";
@@ -1302,6 +1307,7 @@
 				7F160E3E17357ABC00B99759 /* bodycache.m in Sources */,
 				266FF86F1773EE8A00561D48 /* Waypoint.m in Sources */,
 				7FD65EF11778E6FA001F909F /* mWave.m in Sources */,
+				7FC62BBF17BD598D001A01B4 /* armyLine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
