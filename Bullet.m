@@ -41,7 +41,6 @@
 -(void) hitMonster:(monster *)m{
     //NSLog(@"mbody x: %f y: %f bullet x: %f y: %f",m.mbody.boundingBox.origin.x,m.mbody.boundingBox.origin.y,self.boundingBox.origin.x,self.boundingBox.origin.y);
     if(CGRectIntersectsRect(self.boundingBox, m.mhead.boundingBox) || CGRectIntersectsRect(self.boundingBox,m.mbody.boundingBox)){
-        NSLog(@"hit monster");
         [self refresh];
         m.health -= damage;
         if(m.health <= 0){
@@ -49,7 +48,6 @@
         }
         return;
     }
-    //sNSLog(@"here");
 }
 
 -(void) bulletAnimation:(soldier *)s timer:(ccTime) dt{

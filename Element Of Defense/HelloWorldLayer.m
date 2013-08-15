@@ -261,10 +261,8 @@ static HelloWorldLayer* level;
         }else{
             xpos = point.x;
         }
-        NSLog(@"xpos: %d ypos: %d", xpos,ypos);
         
         [m setUpPos:xpos yPos:ypos];
-        //[self addChild:m z:3];
         [wave addMonster:m];
         [monsterCache removeAllObjects];
     }
