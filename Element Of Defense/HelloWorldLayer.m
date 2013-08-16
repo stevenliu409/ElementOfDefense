@@ -240,7 +240,7 @@ static HelloWorldLayer* level;
 
 -(void) update:(ccTime) dt{
     if(base.dead){
-        if([base.ani isDone] ){
+        //if([base.ani isDone] ){
             //[self stopGame];
             conLabel.visible = YES;
             for(int n = 0; n< [soldiers count]; n++){
@@ -250,7 +250,7 @@ static HelloWorldLayer* level;
             [self unscheduleUpdate];
                 //NSLog(@"here");
             return;
-        }
+        //}
     }
     CCArray* bs = [cache getCache];
     CCArray* ms = [wave getMonsters];
