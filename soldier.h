@@ -8,10 +8,10 @@
 
 #import "CCSprite.h"
 #import "Waypoint.h"
-
-@interface soldier : CCSprite{
-    int health,range, damage, speed;
-    BOOL dead, destination_reached;
+#import "GameObj.h"
+@interface soldier : GameObj{
+    int range, damage, speed;
+    BOOL destination_reached;
     double freq;
     double currentTime;
     Waypoint *spawnpoint;
@@ -21,22 +21,18 @@
     CCAnimation* standAni;
     CCAnimation* deadAni;
     CCAnimation* hurtAni;
-    NSString* fileName;
+    //NSString* fileName;
     NSMutableArray* waypoints;
     CCLayer* gameLayer;
     CCAnimate* action;
     BOOL sChange;
-    int sstate;
     id ani1;
 }
 
-@property (assign) BOOL dead;
 @property (readonly) int speed;
 @property (readonly) int range;
 @property (readonly) int damage;
 @property (assign) double freq;
-@property (assign) int health;
-@property (assign) int sstate;
 /*
 @property (nonatomic,retain) CCAnimation* walkAni;
 @property (nonatomic,retain) CCAnimation* shotAni;
@@ -45,11 +41,9 @@
 
 +(id) makeSoldier;
 -(id) initSoldier;
--(void) updateSoldier:(ccTime) ct;
 -(void)activateSoldier;
 //-(void) getAttacked:(monster*) m;
 -(void) fire:(ccTime) dt;
--(CCAnimation*) loadAnimation:(NSString*) aniName fileName:(NSString*)fn;
--(void) changeState:(int) state;
+//-(CCAnimation*) loadAnimation:(NSString*) aniName fileName:(NSString*)fn;
 -(void) reset;
 @end

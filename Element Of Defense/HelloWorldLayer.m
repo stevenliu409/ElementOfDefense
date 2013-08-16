@@ -23,6 +23,7 @@
 #import "mWave.h"
 #import "snipersoldier.h"
 #import "armyLine.h"
+#import "soldierBase.h"
 #pragma mark - HelloWorldLayer
 
 // HelloWorldLayer implementation
@@ -236,6 +237,14 @@ static HelloWorldLayer* level;
                     [b hitMonster:m];
                 }
             }
+            if(base.visible && (!m.dead)){
+                //[m:dt soilders:base];
+                if([m updateMonster:dt soilders:base]){
+                    break;
+                }
+            }
+            
+            
             for(int s = 0; s<[soldiers count];s++){
                 soldier* s1 = [soldiers objectAtIndex:s];
                 if([m updateMonster:dt soilders:s1]){
@@ -246,6 +255,7 @@ static HelloWorldLayer* level;
                     break;
                 }
             }
+            
         }else{
             
             double r = [self genRandom];
@@ -379,6 +389,12 @@ static HelloWorldLayer* level;
     line2.xpos = 35;
     [linesDic setObject:line2 forKey:@"lines2"];*/
     
+    base = [soldierBase makeBase];
+    base.position = ccp(50,100);
+    base.flipX = YES;
+    [self addChild:base z:3 tag:999];
+    base.visible = NO;
+    
     return YES;
 
 }
@@ -456,9 +472,14 @@ static HelloWorldLayer* level;
         }
         CCSprite* b3 = (CCSprite*) [self getChildByTag:3];
         b3.visible = YES;
+        soldierBase* base =(soldierBase*) [self getChildByTag:999];
+        base.visible = YES;
+        [base scheduleUpdate];
         [self scheduleUpdate];
-        [self loadArmy];
+        //[self loadArmy];
+        [soldiers addObject:[snipersoldier makeSniper:self waypoint:waypoints]];
         self.isTouchEnabled = YES;
+        
         [self unschedule:@selector(changeToLeft:)];
     }
      
@@ -516,4 +537,5 @@ static HelloWorldLayer* level;
 	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
 	[[app navController] dismissModalViewControllerAnimated:YES];
 }
+
 @end

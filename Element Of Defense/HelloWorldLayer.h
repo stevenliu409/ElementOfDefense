@@ -30,6 +30,7 @@
     CCSpriteBatchNode *sceneSpriteBatchNode;
     NSMutableDictionary* linesDic;
     //BOOL split;
+    soldierBase* base;
     
 }
 
@@ -50,6 +51,5 @@
 -(void) moveLeft;
 -(void) changeToLeft:(ccTime) dt;
 -(void) changeToRight:(ccTime) dt;
--(void) changeSenceTo:(CCSprite*) bg;
 -(void) resetSoldiers;
 @end

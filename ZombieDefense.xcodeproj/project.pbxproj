@@ -173,6 +173,9 @@
 		7FC62BBF17BD598D001A01B4 /* armyLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC62BBE17BD598D001A01B4 /* armyLine.m */; };
 		7FC62BC217BD8575001A01B4 /* bg2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 7FC62BC117BD8575001A01B4 /* bg2.jpeg */; };
 		7FC62BCC17BE5C44001A01B4 /* bg3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7FC62BCB17BE5C44001A01B4 /* bg3.jpg */; };
+		7FC62BD017BE779B001A01B4 /* soldierBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC62BCF17BE779B001A01B4 /* soldierBase.m */; };
+		7FC62BD317BE7BB4001A01B4 /* GameObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC62BD217BE7BB4001A01B4 /* GameObj.m */; };
+		7FC62BD517BE83B2001A01B4 /* RadarDish.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FC62BD417BE83B2001A01B4 /* RadarDish.plist */; };
 		7FD65EF11778E6FA001F909F /* mWave.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD65EF01778E6FA001F909F /* mWave.m */; };
 		7FD65F01177F2B39001F909F /* mlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FD65EFF177F2B39001F909F /* mlist.plist */; };
 /* End PBXBuildFile section */
@@ -496,6 +499,11 @@
 		7FC62BBE17BD598D001A01B4 /* armyLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = armyLine.m; sourceTree = "<group>"; };
 		7FC62BC117BD8575001A01B4 /* bg2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bg2.jpeg; path = Resources/bg2.jpeg; sourceTree = "<group>"; };
 		7FC62BCB17BE5C44001A01B4 /* bg3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bg3.jpg; path = Resources/bg3.jpg; sourceTree = "<group>"; };
+		7FC62BCE17BE779B001A01B4 /* soldierBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soldierBase.h; sourceTree = "<group>"; };
+		7FC62BCF17BE779B001A01B4 /* soldierBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = soldierBase.m; sourceTree = "<group>"; };
+		7FC62BD117BE7BB4001A01B4 /* GameObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObj.h; sourceTree = "<group>"; };
+		7FC62BD217BE7BB4001A01B4 /* GameObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObj.m; sourceTree = "<group>"; };
+		7FC62BD417BE83B2001A01B4 /* RadarDish.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = RadarDish.plist; path = Resources/RadarDish.plist; sourceTree = "<group>"; };
 		7FD65EEF1778E6FA001F909F /* mWave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mWave.h; sourceTree = "<group>"; };
 		7FD65EF01778E6FA001F909F /* mWave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mWave.m; sourceTree = "<group>"; };
 		7FD65EFF177F2B39001F909F /* mlist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = mlist.plist; path = Resources/mlist.plist; sourceTree = "<group>"; };
@@ -608,6 +616,7 @@
 				7FC2AD4A17AE9C9400FDEA98 /* scene1atlasiPhone.png */,
 				7F160E0D17345BB300B99759 /* soldier3.png */,
 				7FC62BCB17BE5C44001A01B4 /* bg3.jpg */,
+				7FC62BD417BE83B2001A01B4 /* RadarDish.plist */,
 				266FF8701774102900561D48 /* circle.png */,
 				2663FD021733078A0003C377 /* soldier2.png */,
 				7F160E271734A08300B99759 /* bullet.png */,
@@ -978,6 +987,8 @@
 			children = (
 				7FC62BBD17BD598D001A01B4 /* armyLine.h */,
 				7FC62BBE17BD598D001A01B4 /* armyLine.m */,
+				7FC62BD117BE7BB4001A01B4 /* GameObj.h */,
+				7FC62BD217BE7BB4001A01B4 /* GameObj.m */,
 			);
 			name = "Game Objects";
 			sourceTree = "<group>";
@@ -1017,6 +1028,8 @@
 				2663FD1117331C010003C377 /* sArmy.m */,
 				26B32E551734486900CE397D /* tanksoldier.h */,
 				26B32E561734486900CE397D /* tanksoldier.m */,
+				7FC62BCE17BE779B001A01B4 /* soldierBase.h */,
+				7FC62BCF17BE779B001A01B4 /* soldierBase.m */,
 			);
 			name = Soldier;
 			sourceTree = "<group>";
@@ -1161,6 +1174,7 @@
 				7FB7FF2C17B02F55001C627E /* EnemyRobot.plist in Resources */,
 				7FC62BC217BD8575001A01B4 /* bg2.jpeg in Resources */,
 				7FC62BCC17BE5C44001A01B4 /* bg3.jpg in Resources */,
+				7FC62BD517BE83B2001A01B4 /* RadarDish.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1316,6 +1330,8 @@
 				266FF86F1773EE8A00561D48 /* Waypoint.m in Sources */,
 				7FD65EF11778E6FA001F909F /* mWave.m in Sources */,
 				7FC62BBF17BD598D001A01B4 /* armyLine.m in Sources */,
+				7FC62BD017BE779B001A01B4 /* soldierBase.m in Sources */,
+				7FC62BD317BE7BB4001A01B4 /* GameObj.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

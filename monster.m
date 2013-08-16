@@ -17,7 +17,7 @@
 @synthesize mbody;
 @synthesize mhead;
 @synthesize attFreq;
-@synthesize dead,health,damage,prect;
+@synthesize damage,prect;
 +(id) makeMonster:(body *)b mhead:(body *)h{
     return [[self alloc] initMonster:b mhead:h];
 }
@@ -34,7 +34,7 @@
         dead = NO;
         prect = 0.5;
         health = mhead.health;
-        self.damage = 1;
+        self.damage = 10000;
     }
     return self;
 }
@@ -88,7 +88,7 @@
     mbody.position = ccp(mbody.position.x - 1,mbody.position.y);
 }
 
--(void) monsterAttack:(soldier* )s timer:(ccTime)ct{
+-(void) monsterAttack:(GameObj* )s timer:(ccTime)ct{
     totalTime += ct;
     currentTime = totalTime;
     if(currentTime >attFreq){
@@ -98,7 +98,7 @@
     }
 }
 
--(void) attack:(soldier *)s{
+-(void) attack:(GameObj *)s{
     s.health -= self.damage;
     if(s.health > 0){
         [s changeState:5];
@@ -119,7 +119,7 @@
 }
 
 
--(BOOL) updateMonster:(ccTime)ct soilders:(soldier *)s{
+-(BOOL) updateMonster:(ccTime)ct soilders:(GameObj *)s{
     
     if((CGRectIntersectsRect(self.mbody.boundingBox, s.boundingBox)|| CGRectIntersectsRect(self.mhead.boundingBox, s.boundingBox))&& s.sstate != 4){
         
@@ -130,6 +130,7 @@
         return NO;
     }
 }
+
 
 -(void) killed{
     //[mhead release];

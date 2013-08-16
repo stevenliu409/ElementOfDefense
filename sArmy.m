@@ -14,7 +14,7 @@
 
 @implementation sArmy
 
-
+/*
 
 +(id) makeArmy:(int)numMGsoldier sniper:(int)s tank:(int)t{
     
@@ -84,4 +84,5 @@
         [TankSoldier_array removeObject:temp_soldier];
     }
 }
+ */
 @end

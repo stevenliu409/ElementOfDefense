@@ -14,11 +14,13 @@
 
 @interface sArmy : CCNode
 {
+    /*
     NSMutableArray* mgSoldier_array;
     NSMutableArray* Sniper_array;
-    NSMutableArray* TankSoldier_array;
+    NSMutableArray* TankSoldier_array;*/
 
 }
+/*
 +(id) makeArmy:(int) numMGsoldier sniper:(int) s tank:(int)t;
 +(id) makeMGArmy:(int)numMGsoldier;
 +(id) makeSniperArmy:(int)numSniper;
@@ -28,7 +30,7 @@
 -(id) initTankArmy:(int)numTankSoldier;
 -(void) call_MG_reinforcements:(int)numMGsoldier layer:(CCLayer*) l;
 -(void) call_Sniper_reinforcements:(int)numSniper layer:(CCLayer *)l;
--(void) call_Tank_reinforcements:(int)numTanksoldier layer:(CCLayer *)l;
+-(void) call_Tank_reinforcements:(int)numTanksoldier layer:(CCLayer *)l;*/
 
 
 
