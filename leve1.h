@@ -13,5 +13,6 @@
 }
 @property (copy,nonatomic) NSString* bgdir;
 @property (copy,nonatomic) NSString* bgdir2;
+@property (copy,nonatomic) NSString* bgdir3;
 
 @end

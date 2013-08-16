@@ -30,7 +30,7 @@
     id ani1;
 }
 
-@property (readonly) BOOL dead;
+@property (assign) BOOL dead;
 @property (readonly) int speed;
 @property (readonly) int range;
 @property (readonly) int damage;

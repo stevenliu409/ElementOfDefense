@@ -172,6 +172,7 @@
 		7FC2AD5017AE9C9400FDEA98 /* scene1atlasiPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FC2AD4A17AE9C9400FDEA98 /* scene1atlasiPhone.png */; };
 		7FC62BBF17BD598D001A01B4 /* armyLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC62BBE17BD598D001A01B4 /* armyLine.m */; };
 		7FC62BC217BD8575001A01B4 /* bg2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 7FC62BC117BD8575001A01B4 /* bg2.jpeg */; };
+		7FC62BCC17BE5C44001A01B4 /* bg3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7FC62BCB17BE5C44001A01B4 /* bg3.jpg */; };
 		7FD65EF11778E6FA001F909F /* mWave.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD65EF01778E6FA001F909F /* mWave.m */; };
 		7FD65F01177F2B39001F909F /* mlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FD65EFF177F2B39001F909F /* mlist.plist */; };
 /* End PBXBuildFile section */
@@ -494,6 +495,7 @@
 		7FC62BBD17BD598D001A01B4 /* armyLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = armyLine.h; sourceTree = "<group>"; };
 		7FC62BBE17BD598D001A01B4 /* armyLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = armyLine.m; sourceTree = "<group>"; };
 		7FC62BC117BD8575001A01B4 /* bg2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bg2.jpeg; path = Resources/bg2.jpeg; sourceTree = "<group>"; };
+		7FC62BCB17BE5C44001A01B4 /* bg3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bg3.jpg; path = Resources/bg3.jpg; sourceTree = "<group>"; };
 		7FD65EEF1778E6FA001F909F /* mWave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mWave.h; sourceTree = "<group>"; };
 		7FD65EF01778E6FA001F909F /* mWave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mWave.m; sourceTree = "<group>"; };
 		7FD65EFF177F2B39001F909F /* mlist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = mlist.plist; path = Resources/mlist.plist; sourceTree = "<group>"; };
@@ -605,6 +607,7 @@
 				7FC2AD4917AE9C9300FDEA98 /* scene1atlasiPhone.plist */,
 				7FC2AD4A17AE9C9400FDEA98 /* scene1atlasiPhone.png */,
 				7F160E0D17345BB300B99759 /* soldier3.png */,
+				7FC62BCB17BE5C44001A01B4 /* bg3.jpg */,
 				266FF8701774102900561D48 /* circle.png */,
 				2663FD021733078A0003C377 /* soldier2.png */,
 				7F160E271734A08300B99759 /* bullet.png */,
@@ -1157,6 +1160,7 @@
 				7FC2AD5017AE9C9400FDEA98 /* scene1atlasiPhone.png in Resources */,
 				7FB7FF2C17B02F55001C627E /* EnemyRobot.plist in Resources */,
 				7FC62BC217BD8575001A01B4 /* bg2.jpeg in Resources */,
+				7FC62BCC17BE5C44001A01B4 /* bg3.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

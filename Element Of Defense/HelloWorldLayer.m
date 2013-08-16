@@ -76,6 +76,7 @@ static HelloWorldLayer* level;
         cache = [[BulletCache alloc] init];
         bodyCache = [[NSMutableArray alloc] init];
         monsterCache = [[NSMutableArray alloc] init];
+        deadSoldiers = [[NSMutableArray alloc] init];
         wave = [[mWave alloc] init];
 
         [self addChild:cache z:2];
@@ -119,6 +120,16 @@ static HelloWorldLayer* level;
     
     [self addChild:bg2 z:1 tag:2];
     bg2.visible = NO;
+    
+    CCSprite* bg3 = [CCSprite spriteWithFile:l.bgdir3];
+    bg3.anchorPoint = CGPointMake(0,0);
+    bg3.scaleX = size.width/bg3.contentSize.width;
+    bg3.scaleY = size.height/bg3.contentSize.height;
+    
+    [self addChild:bg3 z:1 tag:3];
+    bg3.visible = NO;
+
+    
 
     
     
@@ -205,6 +216,7 @@ static HelloWorldLayer* level;
     [waypoints2 release];
     [cache release];
     [playerMonster release];
+    [deadSoldiers release];
 	[super dealloc];
 }
 
@@ -227,6 +239,10 @@ static HelloWorldLayer* level;
             for(int s = 0; s<[soldiers count];s++){
                 soldier* s1 = [soldiers objectAtIndex:s];
                 if([m updateMonster:dt soilders:s1]){
+                    if(s1.dead){
+                        [soldiers removeObject:s1];
+                        [deadSoldiers addObject:s1];
+                    }
                     break;
                 }
             }
@@ -346,22 +362,22 @@ static HelloWorldLayer* level;
     */
     soldier* s = [snipersoldier makeSniper:self waypoint:waypoints3];
     [soldiers addObject:s];
-    
+    /*
     soldier* s1 = [mgsoldier makeMg:self waypoint:waypoints];
     [soldiers addObject:s1];
-    army_count++;
+    army_count++;*/
     
     armyLine* line1 = [[armyLine alloc] init];
     line1.alive = YES;
     line1.ypos = 200;
     line1.xpos = 35;
     [linesDic setObject:line1 forKey:@"lines1"];
-    
+    /*
     armyLine* line2 = [[armyLine alloc]init];
     line2.alive = YES;
     line2.ypos = 35;
     line2.xpos = 35;
-    [linesDic setObject:line2 forKey:@"lines2"];
+    [linesDic setObject:line2 forKey:@"lines2"];*/
     
     return YES;
 
@@ -386,9 +402,9 @@ static HelloWorldLayer* level;
 }
 
 -(void) stopGame{
-    NSLog(@"Game stop!");
-    self.isTouchEnabled = NO;
+    //NSLog(@"Game stop!");
     [self unscheduleUpdate];
+    self.isTouchEnabled = NO;
     if([soldiers count] == 0){
         [self moveLeft];
     }else if([[wave getMonsters] count] == 0){
@@ -400,8 +416,8 @@ static HelloWorldLayer* level;
 
 
 -(void) moveLeft{
-    NSLog(@"move left");
-    //[self schedule:<#(SEL)#>]
+    //NSLog(@"move left");
+    [self schedule:@selector(changeToLeft:)];
 }
 -(void) moveRight{
     //NSLog(@"move right");
@@ -409,6 +425,44 @@ static HelloWorldLayer* level;
 }
 
 -(void) changeToLeft:(ccTime)dt{
+    BOOL moveOut = NO;
+    CCArray* array = [wave getMonsters];
+    for(int n = 0; n < [array count]; n++){
+        monster* m = [array objectAtIndex:n];
+        [m moveMonster:dt];
+        //NSLog(@"%f,%f",m.mbody.position.x,m.mhead.position.x);
+        if(m.mbody.position.x < -10 && m.mhead.position.x < -10){
+
+            moveOut = YES;
+        }else{
+            moveOut = NO;
+        }
+    }
+    
+    if(moveOut){
+        //NSLog(@"move out to left");
+        CCSprite* bg1 =(CCSprite*) [self getChildByTag:1];
+        bg1.visible = NO;
+        for(int n = 0; n< [deadSoldiers count]; n++){
+            soldier* s = [deadSoldiers objectAtIndex:n];
+            [self removeChild:s cleanup:YES];
+        }
+        
+        for(int n = 0; n< [[wave getMonsters] count]; n++){
+            monster* m = [[wave getMonsters] objectAtIndex:n];
+            //NSLog(@"%f",m.mbody.position.y);
+            [m setUpPos:500 yPos:m.mbody.position.y];
+            //NSLog(@"%f",m.mbody.position.x);
+        }
+        CCSprite* b3 = (CCSprite*) [self getChildByTag:3];
+        b3.visible = YES;
+        [self scheduleUpdate];
+        [self loadArmy];
+        self.isTouchEnabled = YES;
+        [self unschedule:@selector(changeToLeft:)];
+    }
+     
+    
     
 }
 
@@ -430,7 +484,7 @@ static HelloWorldLayer* level;
     }
     
     if(moveOut){
-        NSLog(@"all move out");
+        //NSLog(@"all move out");
         CCSprite* bg1 =(CCSprite*) [self getChildByTag:1];
         bg1.visible = NO;
         CCSprite* b2 = (CCSprite*) [self getChildByTag:2];

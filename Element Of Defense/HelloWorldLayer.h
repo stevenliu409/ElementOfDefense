@@ -23,6 +23,7 @@
     NSMutableArray* bodyCache;
     NSMutableArray* monsterCache;
     NSMutableArray* playerMonster;
+    NSMutableArray* deadSoldiers;
     NSUserDefaults* prefs;
     vampireHead* v1;
     vampireHead* v2;

@@ -102,6 +102,8 @@
     s.health -= self.damage;
     if(s.health > 0){
         [s changeState:5];
+    }else{
+        s.dead = YES;
     }
 }
 
