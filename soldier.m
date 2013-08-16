@@ -58,18 +58,18 @@
     }else if(state == 2){
         walkAni = [self loadAnimation:@"walkingAnim" fileName:@"Viking"];
         
-        ani1 = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:walkAni]];
+        ani = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:walkAni]];
     }else if(state == 3){
         shotAni = [self loadAnimation:@"malletPunchAnim" fileName:@"Viking"];
         
-        ani1 = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:shotAni]];
+        ani = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:shotAni]];
     }else if(state == 4){
         deadAni = [self loadAnimation:@"vikingDeathAnim" fileName:@"Viking"];
-        ani1 = [CCAnimate actionWithAnimation:deadAni];
+        ani = [CCAnimate actionWithAnimation:deadAni];
     }
     
-    if(ani1 != nil){
-        [self runAction:ani1];
+    if(ani != nil){
+        [self runAction:ani];
     }
 
     

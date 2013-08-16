@@ -35,7 +35,7 @@
                                spriteFrameByName:@"radar_1.png"]];
     }else if(state == 2){
         deadAni = [self loadAnimation:@"blowingUpAnim" fileName:@"RadarDish"];
-        id ani = [CCAnimate actionWithAnimation:deadAni];
+        ani = [CCAnimate actionWithAnimation:deadAni];
         [self runAction:ani];
     }
 }

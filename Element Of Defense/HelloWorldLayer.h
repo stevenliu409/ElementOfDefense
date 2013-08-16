@@ -31,6 +31,7 @@
     NSMutableDictionary* linesDic;
     //BOOL split;
     soldierBase* base;
+    CCLabelTTF* conLabel;
     
 }
 

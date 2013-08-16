@@ -26,7 +26,7 @@
     CCLayer* gameLayer;
     CCAnimate* action;
     BOOL sChange;
-    id ani1;
+    //id ani1;
 }
 
 @property (readonly) int speed;

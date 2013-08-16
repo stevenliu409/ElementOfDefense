@@ -79,62 +79,23 @@
     }else if(state == 2){
         walkAni = [self loadAnimation:@"robotWalkingAnim" fileName:@"EnemyRobot"];
 
-        CCAnimate* ani = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:walkAni]];
+        ani = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:walkAni]];
         [self runAction:ani];
     }else if(state == 3){
         shotAni = [self loadAnimation:@"shootPhaserAnim" fileName:@"EnemyRobot"];
         
-        CCAnimate* ani = [CCAnimate actionWithAnimation:shotAni];
+        ani = [CCAnimate actionWithAnimation:shotAni];
         [self runAction:ani];
     }else if(state == 4){
         deadAni = [self loadAnimation:@"robotDeathAnim" fileName:@"EnemyRobot"];
-        CCAnimate* ani = [CCAnimate actionWithAnimation:deadAni];
+        ani = [CCAnimate actionWithAnimation:deadAni];
         [self runAction:ani];
 
     }else if(state == 5){
         hurtAni = [self loadAnimation:@"headHitAnim" fileName:@"EnemyRobot"];
-        CCAnimate* ani = [CCAnimate actionWithAnimation:hurtAni];
-        ani.duration = 10.0;
+        ani = [CCAnimate actionWithAnimation:hurtAni];
+        //ani.duration = 10.0;
         [self runAction:ani];
     }
-    /*
-    if(ani != nil){
-        [self runAction:ani];
-    }*/
-    
-    
-    
 }
-/*
--(void)update:(ccTime)dt{
-
-    if(destination_reached){
-        [self changeState:3];
-        return;
-    }
-    if([gameLayer circle:self.position withRadius:1 collisionWithCirle:spawnpoint.myPosition collisionCircleRadius:1]){
-     //if there is a next point then move there
-        if(spawnpoint.nextWaypoint){
-            spawnpoint = spawnpoint.nextWaypoint;
-     
-        }
-        else{
-            destination_reached = true;
-        }
-     }
-     CGPoint targetPoint = spawnpoint.myPosition;
-     float movingspeed = speed;
-     
-     CGPoint normalized = ccpNormalize(ccp(targetPoint.x-self.position.x, targetPoint.y-self.position.y));
-     
-     self.position =ccp(self.position.x+normalized.x *movingspeed, self.position.y+normalized.y *movingspeed);
-    if(sChange == NO){
-        [self changeState:1];
-        NSLog(@"Changed");
-        sChange = YES;
-        //return;
-    }
-}
-*/
-
 @end

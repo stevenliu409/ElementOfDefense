@@ -10,7 +10,7 @@
 #import "cocos2d.h"
 
 @implementation GameObj
-@synthesize health,dead,sstate;
+@synthesize health,dead,sstate,ani;
 
 -(void) changeState:(int)state{
     
@@ -29,9 +29,9 @@
         NSLog(@"not find aniSubDic");
         return nil;
     }
-    CCAnimation* ani = [CCAnimation animation];
+    CCAnimation* ani1 = [CCAnimation animation];
     float d = [[aniSubDic objectForKey:@"delay"]floatValue];
-    [ani setDelayPerUnit:d];
+    [ani1 setDelayPerUnit:d];
     NSString* frameNums = [aniSubDic objectForKey:@"animationFrames"];
     NSArray *animationFrameNumbers =
     [frameNums componentsSeparatedByString:@","];
@@ -43,9 +43,9 @@
         NSString *frameName =
         [NSString stringWithFormat:@"%@%@.png",
          animationFramePrefix,frameNumber];
-        [ani addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:frameName]];
+        [ani1 addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:frameName]];
     }
-    return ani;
+    return ani1;
 }
 
 

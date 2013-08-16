@@ -71,9 +71,13 @@ static HelloWorldLayer* level;
         
         [[CCSpriteFrameCache sharedSpriteFrameCache]
          addSpriteFramesWithFile:@"scene1atlasiPhone.plist"];         
-        
+        conLabel = [CCLabelTTF labelWithString:@"You Win" fontName:@"Marker Felt" fontSize:35];
+        conLabel.position = ccp(240,160);
+        conLabel.visible = NO;
+        [self addChild:conLabel z:3];
         level = self;
 		prefs = [NSUserDefaults standardUserDefaults];
+        
         cache = [[BulletCache alloc] init];
         bodyCache = [[NSMutableArray alloc] init];
         monsterCache = [[NSMutableArray alloc] init];
@@ -221,8 +225,32 @@ static HelloWorldLayer* level;
 	[super dealloc];
 }
 
+-(void) stopGame{
+    if(base.dead){
+        conLabel.visible = YES;
+        for(int n = 0; n< [soldiers count]; n++){
+            soldier* s = [soldiers objectAtIndex:n];
+            s.health = 0;
+        }
+        
+    }else if([soldiers count] == 0){
+        [self moveLeft];
+    }else if([[wave getMonsters] count] == 0){
+        [self moveRight];
+    }else{
+        NSLog(@"wrong");
+    }
+    self.isTouchEnabled = NO;
+    [self unscheduleUpdate];
+}
 
 -(void) update:(ccTime) dt{
+    if(base.dead){
+        if([base.ani isDone] ){
+            [self stopGame];
+            return;
+        }
+    }
     CCArray* bs = [cache getCache];
     CCArray* ms = [wave getMonsters];
     for(int n = 0; n< [ms count]; n++){
@@ -275,7 +303,6 @@ static HelloWorldLayer* level;
 
 
 -(void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    NSLog(@"touch");
     UITouch *touch = [touches anyObject];
 	CGPoint point = [touch locationInView: [touch view]];
     point = [[CCDirector sharedDirector] convertToGL: point];
@@ -417,19 +444,6 @@ static HelloWorldLayer* level;
     return n/10;
 }
 
--(void) stopGame{
-    //NSLog(@"Game stop!");
-    [self unscheduleUpdate];
-    self.isTouchEnabled = NO;
-    if([soldiers count] == 0){
-        [self moveLeft];
-    }else if([[wave getMonsters] count] == 0){
-        [self moveRight];
-    }else{
-        
-    }
-}
-
 
 -(void) moveLeft{
     //NSLog(@"move left");
@@ -472,7 +486,6 @@ static HelloWorldLayer* level;
         }
         CCSprite* b3 = (CCSprite*) [self getChildByTag:3];
         b3.visible = YES;
-        soldierBase* base =(soldierBase*) [self getChildByTag:999];
         base.visible = YES;
         [base scheduleUpdate];
         [self scheduleUpdate];
