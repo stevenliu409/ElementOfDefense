@@ -12,7 +12,7 @@
 //#import "CCA"
 #import "cocos2d.h"
 @implementation soldierBase
-
+@synthesize finishAni;
 +(id) makeBase{
     return [[self alloc] initBase];
 }
@@ -45,9 +45,20 @@
     //NSLog(@"%d",self.health);
     if(self.health <= 0){
         [self changeState:2];
-        self.dead = YES;
         [self unscheduleUpdate];
+        [self schedule:@selector(checkAniFinsh:)];
+        self.dead = YES;
+        
     }
+}
+
+-(void) checkAniFinsh:(ccTime)dt{
+    NSLog(@"%d",[self numberOfRunningActions]);
+    if([self numberOfRunningActions]== 0){
+        finishAni = YES;
+        [self unschedule:@selector(checkAniFinsh:)];
+    }
+
 }
 
 @end

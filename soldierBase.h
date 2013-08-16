@@ -13,9 +13,10 @@
     CCAnimation* deadAni;
 }
 
+@property (assign) BOOL finishAni;
 
 
 +(id) makeBase;
 -(id) initBase;
-
+-(void) checkAniFinsh:(ccTime) dt;
 @end
