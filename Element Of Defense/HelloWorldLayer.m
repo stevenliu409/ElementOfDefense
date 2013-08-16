@@ -226,14 +226,8 @@ static HelloWorldLayer* level;
 }
 
 -(void) stopGame{
-    if(base.dead){
-        conLabel.visible = YES;
-        for(int n = 0; n< [soldiers count]; n++){
-            soldier* s = [soldiers objectAtIndex:n];
-            s.health = 0;
-        }
-        
-    }else if([soldiers count] == 0){
+    
+    if([soldiers count] == 0){
         [self moveLeft];
     }else if([[wave getMonsters] count] == 0){
         [self moveRight];
@@ -247,7 +241,14 @@ static HelloWorldLayer* level;
 -(void) update:(ccTime) dt{
     if(base.dead){
         if([base.ani isDone] ){
-            [self stopGame];
+            //[self stopGame];
+            conLabel.visible = YES;
+            for(int n = 0; n< [soldiers count]; n++){
+                soldier* s = [soldiers objectAtIndex:n];
+                s.health = 0;
+            }
+            [self unscheduleUpdate];
+                //NSLog(@"here");
             return;
         }
     }
