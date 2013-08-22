@@ -69,6 +69,7 @@ static HelloWorldLayer* level;
 	// always call "super" init
 	// Apple recommends to re-assign "self" with the "super's" return value
 	if( (self=[super init]) ) {
+        levelIndex = 1;
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"mlist.plist"];
         
         [[CCSpriteFrameCache sharedSpriteFrameCache]
@@ -253,22 +254,43 @@ static HelloWorldLayer* level;
 	[super dealloc];
 }
 
+-(void) stopSoilder{
+    for(int n = 0; n < [soldiers count]; n++){
+        soldier* s = [soldiers objectAtIndex:n];
+        [s changeState:1];
+    }
+}
+
+-(void) checkLosing{
+    NSLog(@"you win");
+    [self stopSoilder];
+    [conLabel setString:@"You Lose"];
+    conLabel.visible = YES;
+    gameMenu.visible = YES;
+}
+
 -(void) stopGame{
     
     if([soldiers count] == 0){
         [self moveLeft];
     }else if([[wave getMonsters] count] == 0){
-        [self moveRight];
+        if(levelIndex == 2){
+            [self checkLosing];
+            
+        }else{
+            [self moveRight];
+        }
     }else{
-        NSLog(@"wrong");
+        
     }
     self.isTouchEnabled = NO;
     [self unscheduleUpdate];
 }
 
--(void) update:(ccTime) dt{
+-(void) checkWinning{
     if(base.dead){
         if(base.finishAni ){
+            [conLabel setString:@"You Win"];
             conLabel.visible = YES;
             for(int n = 0; n< [soldiers count]; n++){
                 soldier* s = [soldiers objectAtIndex:n];
@@ -281,6 +303,10 @@ static HelloWorldLayer* level;
             return;
         }
     }
+}
+
+-(void) update:(ccTime) dt{
+    [self checkWinning];
     CCArray* bs = [cache getCache];
     CCArray* ms = [wave getMonsters];
     for(int n = 0; n< [ms count]; n++){
@@ -348,7 +374,6 @@ static HelloWorldLayer* level;
                 }
             }
         }
-        
         armyLine* l = [linesDic objectForKey:[lines objectAtIndex:lineIndex]];
         if(point.x < l.xpos+75){
             xpos = l.xpos+75;
@@ -429,7 +454,7 @@ static HelloWorldLayer* level;
     
     armyLine* line1 = [[armyLine alloc] init];
     line1.alive = YES;
-    line1.ypos = 200;
+    line1.ypos = 100;
     line1.xpos = 35;
     [linesDic setObject:line1 forKey:@"lines1"];
     /*
@@ -507,6 +532,7 @@ static HelloWorldLayer* level;
             [m setUpPos:500 yPos:m.mbody.position.y];
             //NSLog(@"%f",m.mbody.position.x);
         }
+        levelIndex = 3;
         CCSprite* b3 = (CCSprite*) [self getChildByTag:3];
         b3.visible = YES;
         currentBg = b3;
@@ -525,7 +551,6 @@ static HelloWorldLayer* level;
 }
 
 -(void) changeToRight:(ccTime)dt{
-    //NSLog(@"changing to right");
     BOOL moveOut = NO;
     for(int n = 0; n < [soldiers count]; n++){
         soldier* s = [soldiers objectAtIndex:n];
@@ -547,15 +572,13 @@ static HelloWorldLayer* level;
         bg1.visible = NO;
         CCSprite* b2 = (CCSprite*) [self getChildByTag:2];
         b2.visible = YES;
+        levelIndex = 2;
         currentBg = b2;
         for(int n = 0; n < [soldiers count]; n++){
             soldier* s = [soldiers objectAtIndex:n];
             [s reset];
         }
-        [wave release];
-        wave = [[mWave alloc] init];
-        [self addChild:wave z:3];
-        [self addChild:cache z:2];
+        [wave geneMonsters];
         [self scheduleUpdate];
         self.isTouchEnabled = YES;
         [self unschedule:@selector(changeToRight:)];

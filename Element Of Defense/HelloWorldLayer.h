@@ -34,6 +34,7 @@
     CCLabelTTF* conLabel;
     CCMenu* gameMenu;
     CCSprite* currentBg;
+    int levelIndex;
     
 }
 

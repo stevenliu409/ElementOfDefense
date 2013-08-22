@@ -34,7 +34,7 @@
         dead = NO;
         prect = 0.5;
         health = mhead.health;
-        self.damage = 10000;
+        self.damage = 0;
     }
     return self;
 }
