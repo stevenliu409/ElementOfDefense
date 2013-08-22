@@ -55,6 +55,9 @@
 }
 
 
+-(void) cleanMonster{
+    [batch removeAllChildrenWithCleanup:YES];
+}
 
 /*
 -(void) update:(ccTime) dt{

@@ -32,6 +32,8 @@
     //BOOL split;
     soldierBase* base;
     CCLabelTTF* conLabel;
+    CCMenu* gameMenu;
+    CCSprite* currentBg;
     
 }
 
@@ -53,4 +55,7 @@
 -(void) changeToLeft:(ccTime) dt;
 -(void) changeToRight:(ccTime) dt;
 -(void) resetSoldiers;
+-(void) goMain:(id) sender;
+-(void) reLevel:(id) sender;
+-(void) initLabel;
 @end

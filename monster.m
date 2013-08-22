@@ -120,7 +120,6 @@
 
 
 -(BOOL) updateMonster:(ccTime)ct soilders:(GameObj *)s{
-    
     if((CGRectIntersectsRect(self.mbody.boundingBox, s.boundingBox)|| CGRectIntersectsRect(self.mhead.boundingBox, s.boundingBox))&& s.sstate != 4){
         
         [self monsterAttack:s timer:ct];
@@ -129,6 +128,7 @@
         [self moveMonster:ct];
         return NO;
     }
+   
 }
 
 

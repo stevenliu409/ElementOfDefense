@@ -9,6 +9,7 @@
 #import "openningLayer.h"
 #import "leve1.h"
 #import "HelloWorldLayer.h"
+#import "loadingLayer.h"
 @interface openningLayer(PrivateMethod)
 
 -(void) initBg;
@@ -68,7 +69,7 @@
     NSData* l = [prefs objectForKey:@"level1"];
     [prefs setValue:l forKey:@"currentLevel"];
     [prefs synchronize];
-    [[CCDirector sharedDirector] replaceScene:[HelloWorldLayer scene]];
+    [[CCDirector sharedDirector] replaceScene:[loadingLayer loadSence:@"openbg.jpg" from:1 to:1]];
     
 }
 

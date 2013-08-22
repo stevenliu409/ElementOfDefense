@@ -20,6 +20,6 @@
 -(CCArray*) getMonsters;
 -(void) removeMonster:(monster*)m;
 -(void) addMonster:(body*)head mbody:(body*) b;
-
+-(void) cleanMonster;
 
 @end

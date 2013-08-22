@@ -24,6 +24,8 @@
 #import "snipersoldier.h"
 #import "armyLine.h"
 #import "soldierBase.h"
+#import "openningLayer.h"
+#import "loadingLayer.h"
 #pragma mark - HelloWorldLayer
 
 // HelloWorldLayer implementation
@@ -71,13 +73,11 @@ static HelloWorldLayer* level;
         
         [[CCSpriteFrameCache sharedSpriteFrameCache]
          addSpriteFramesWithFile:@"scene1atlasiPhone.plist"];         
-        conLabel = [CCLabelTTF labelWithString:@"You Win" fontName:@"Marker Felt" fontSize:35];
-        conLabel.position = ccp(240,160);
-        conLabel.visible = NO;
-        [self addChild:conLabel z:3];
+        
         level = self;
 		prefs = [NSUserDefaults standardUserDefaults];
         
+        [self initUI];
         cache = [[BulletCache alloc] init];
         bodyCache = [[NSMutableArray alloc] init];
         monsterCache = [[NSMutableArray alloc] init];
@@ -86,7 +86,6 @@ static HelloWorldLayer* level;
 
         [self addChild:cache z:2];
         [self addChild:wave z:3];
-		[self initUI];
         [self addWaypoints];
         
         soldiers = [[NSMutableArray alloc] init];
@@ -108,6 +107,9 @@ static HelloWorldLayer* level;
 -(void) initBg{
     
     NSData* d = [prefs objectForKey:@"currentLevel"];
+    if(d== NULL){
+         NSLog(@"jere");
+    }
     leve1* l = [NSKeyedUnarchiver unarchiveObjectWithData:d];
     CCSprite* bg = [CCSprite spriteWithFile:l.bgdir];
     [bg setAnchorPoint:CGPointMake(0, 0)];
@@ -117,6 +119,8 @@ static HelloWorldLayer* level;
     bg.scaleY = size.height/bg.contentSize.height;
     
     [self addChild:bg z:1 tag:1];
+    
+    currentBg = bg;
     
     CCSprite* bg2 = [CCSprite spriteWithFile:l.bgdir2];
     bg2.anchorPoint = CGPointMake(0,0);
@@ -135,7 +139,6 @@ static HelloWorldLayer* level;
     bg3.visible = NO;
 
     
-
     
     
 }
@@ -205,7 +208,32 @@ static HelloWorldLayer* level;
 
 -(void) initUI{
     [self initBg];
+    [self initLabel];
 
+}
+-(void) initLabel{
+    conLabel = [CCLabelTTF labelWithString:@"You Win" fontName:@"Marker Felt" fontSize:35];
+    conLabel.position = ccp(240,160);
+    conLabel.visible = NO;
+    [self addChild:conLabel z:3];
+    
+    CCMenuItem* mMain = [CCMenuItemFont itemWithString:@"Go Main Menu" target:self selector:@selector(goMain:)];
+    CCMenuItem* mRedo = [CCMenuItemFont itemWithString:@"Retry the level" target:self selector:@selector(reLevel:)];
+    gameMenu = [CCMenu menuWithItems:mMain,mRedo ,nil];
+    gameMenu.position = ccp(240,100);
+    gameMenu.visible = NO;
+    [gameMenu alignItemsVertically];
+    [self addChild:gameMenu z:3];
+    
+    
+}
+
+-(void) goMain:(id)sender{
+    [[CCDirector sharedDirector] replaceScene:[openningLayer scene]];
+}
+
+-(void) reLevel:(id)sender{
+    [[CCDirector sharedDirector] replaceScene:[loadingLayer loadSence:@"bg3.jpg" from:1 to:1]];
 }
 
 // on "dealloc" you need to release all your retained objects
@@ -241,28 +269,27 @@ static HelloWorldLayer* level;
 -(void) update:(ccTime) dt{
     if(base.dead){
         if(base.finishAni ){
-            //[self stopGame];
             conLabel.visible = YES;
             for(int n = 0; n< [soldiers count]; n++){
                 soldier* s = [soldiers objectAtIndex:n];
                 s.health = 0;
             }
+            if(conLabel.visible){
+                gameMenu.visible = YES;
+            }
             [self unscheduleUpdate];
-                //NSLog(@"here");
             return;
         }
     }
     CCArray* bs = [cache getCache];
     CCArray* ms = [wave getMonsters];
     for(int n = 0; n< [ms count]; n++){
-        
         monster* m = [ms objectAtIndex:n];
         if(!m.dead){
             
             for(int x = 0; x < [bs count]; x++){
                 Bullet* b = [bs objectAtIndex:x];
                 if(b.shoted){
-                    
                     [b hitMonster:m];
                 }
             }
@@ -272,8 +299,6 @@ static HelloWorldLayer* level;
                     break;
                 }
             }
-            
-            
             for(int s = 0; s<[soldiers count];s++){
                 soldier* s1 = [soldiers objectAtIndex:s];
                 if([m updateMonster:dt soilders:s1]){
@@ -284,9 +309,7 @@ static HelloWorldLayer* level;
                     break;
                 }
             }
-            
         }else{
-            
             double r = [self genRandom];
             if(m.prect > r){
                 
@@ -299,7 +322,6 @@ static HelloWorldLayer* level;
         [self stopGame];
         return;
     }
-
 }
 
 
@@ -487,6 +509,7 @@ static HelloWorldLayer* level;
         }
         CCSprite* b3 = (CCSprite*) [self getChildByTag:3];
         b3.visible = YES;
+        currentBg = b3;
         base.visible = YES;
         [base scheduleUpdate];
         [self scheduleUpdate];
@@ -524,12 +547,15 @@ static HelloWorldLayer* level;
         bg1.visible = NO;
         CCSprite* b2 = (CCSprite*) [self getChildByTag:2];
         b2.visible = YES;
-        
+        currentBg = b2;
         for(int n = 0; n < [soldiers count]; n++){
             soldier* s = [soldiers objectAtIndex:n];
             [s reset];
         }
-        [wave geneMonsters];
+        [wave release];
+        wave = [[mWave alloc] init];
+        [self addChild:wave z:3];
+        [self addChild:cache z:2];
         [self scheduleUpdate];
         self.isTouchEnabled = YES;
         [self unschedule:@selector(changeToRight:)];
