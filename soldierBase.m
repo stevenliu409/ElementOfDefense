@@ -53,7 +53,6 @@
 }
 
 -(void) checkAniFinsh:(ccTime)dt{
-    NSLog(@"%d",[self numberOfRunningActions]);
     if([self numberOfRunningActions]== 0){
         finishAni = YES;
         [self unschedule:@selector(checkAniFinsh:)];
