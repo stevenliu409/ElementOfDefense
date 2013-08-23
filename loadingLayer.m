@@ -9,6 +9,9 @@
 #import "loadingLayer.h"
 #import "cocos2d.h"
 #import "HelloWorldLayer.h"
+#import "mainLayer.h"
+#import "openningLayer.h"
+#import "shopLayer.h"
 @implementation loadingLayer
 +(id) loadSence:(NSString *)dir from:(int)f to:(int)t{
     return [[[self alloc] initWithSence:dir from:f to:t]autorelease];
@@ -36,10 +39,24 @@
 
 -(void) update:(ccTime*) delta{
     [self unscheduleAllSelectors];
+    prefs = [NSUserDefaults standardUserDefaults];
+    NSData* l;
     CCTransitionFlipX* transition;
     switch (targetSence) {
         case 1:
+            l = [prefs objectForKey:@"level1"];
+            [prefs setValue:l forKey:@"currentLevel"];
+            [prefs synchronize];
             transition = [CCTransitionFade transitionWithDuration:2 scene:[HelloWorldLayer scene] withColor:ccWHITE];
+            break;
+        case 997:
+            transition = [CCTransitionFade transitionWithDuration:2 scene:[shopLayer scene] withColor:ccWHITE];
+            break;
+        case 998:
+            transition = [CCTransitionFade transitionWithDuration:2 scene:[openningLayer scene] withColor:ccWHITE];
+            break;
+        case 999:
+            transition = [CCTransitionFade transitionWithDuration:2 scene:[mainLayer sence] withColor:ccWHITE];
             break;
         default:
             break;

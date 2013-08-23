@@ -36,10 +36,16 @@
         NSLog(@"bg is %@",l1.bgdir);
         NSData *d = [NSKeyedArchiver archivedDataWithRootObject:l1];
         [prefs setValue:d forKey:@"level1"];
+        NSNumber* score = [prefs objectForKey:@"totalScore"];
+        if(score == NULL){
+            score = [NSNumber numberWithInt:0];
+            [prefs setValue:score forKey:@"totalScore"];
+        }
+
         [prefs synchronize];
         [self initBg];
         [self initMenu];
-        
+                
         
     }
     return self;
@@ -66,9 +72,6 @@
 
 
 -(void) goLevel1:(id) sender{
-    NSData* l = [prefs objectForKey:@"level1"];
-    [prefs setValue:l forKey:@"currentLevel"];
-    [prefs synchronize];
     [[CCDirector sharedDirector] replaceScene:[loadingLayer loadSence:@"openbg.jpg" from:1 to:1]];
     
 }

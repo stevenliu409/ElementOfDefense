@@ -35,7 +35,10 @@
     CCMenu* gameMenu;
     CCSprite* currentBg;
     int levelIndex;
-    
+    CCMenuItem* mCon;
+    double currentTime;
+    int totolTime;
+    int monsters;
 }
 
 @property(nonatomic,retain) BulletCache* cache;

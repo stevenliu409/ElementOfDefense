@@ -69,6 +69,7 @@ static HelloWorldLayer* level;
 	// always call "super" init
 	// Apple recommends to re-assign "self" with the "super's" return value
 	if( (self=[super init]) ) {
+        [self resetTimer];
         levelIndex = 1;
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"mlist.plist"];
         
@@ -144,6 +145,10 @@ static HelloWorldLayer* level;
     
 }
 
+-(void) resetTimer{
+    currentTime = 0;
+    totolTime = 0;
+}
 
 -(void) initBody{
     vampireHead* vhead = [vampireHead makevampireHead];
@@ -220,7 +225,9 @@ static HelloWorldLayer* level;
     
     CCMenuItem* mMain = [CCMenuItemFont itemWithString:@"Go Main Menu" target:self selector:@selector(goMain:)];
     CCMenuItem* mRedo = [CCMenuItemFont itemWithString:@"Retry the level" target:self selector:@selector(reLevel:)];
-    gameMenu = [CCMenu menuWithItems:mMain,mRedo ,nil];
+    mCon = [CCMenuItemFont itemWithString:@"Continous" target:self selector:@selector(conGame:)];
+    mCon.visible = NO;
+    gameMenu = [CCMenu menuWithItems:mMain,mRedo,mCon,nil];
     gameMenu.position = ccp(240,100);
     gameMenu.visible = NO;
     [gameMenu alignItemsVertically];
@@ -229,8 +236,18 @@ static HelloWorldLayer* level;
     
 }
 
+-(void) conGame:(id) sender{
+    NSNumber* tm = [NSNumber numberWithInt:totolTime];
+    
+    [prefs setValue:tm forKey:@"totalTime"];
+    NSNumber* tms = [NSNumber numberWithInt:monsters];
+    [prefs setValue:tms forKey:@"totalMonsters"];
+    [prefs synchronize];
+    [[CCDirector sharedDirector] replaceScene:[loadingLayer loadSence:@"bg3.jpg" from:1 to:999]];
+}
+
 -(void) goMain:(id)sender{
-    [[CCDirector sharedDirector] replaceScene:[openningLayer scene]];
+    [[CCDirector sharedDirector] replaceScene:[loadingLayer loadSence:@"bg3.jpg" from:1 to:998]];
 }
 
 -(void) reLevel:(id)sender{
@@ -262,11 +279,11 @@ static HelloWorldLayer* level;
 }
 
 -(void) checkLosing{
-    NSLog(@"you win");
     [self stopSoilder];
     [conLabel setString:@"You Lose"];
     conLabel.visible = YES;
     gameMenu.visible = YES;
+    
 }
 
 -(void) stopGame{
@@ -299,6 +316,7 @@ static HelloWorldLayer* level;
             if(conLabel.visible){
                 gameMenu.visible = YES;
             }
+            mCon.visible = YES;
             [self unscheduleUpdate];
             return;
         }
@@ -311,8 +329,7 @@ static HelloWorldLayer* level;
     CCArray* ms = [wave getMonsters];
     for(int n = 0; n< [ms count]; n++){
         monster* m = [ms objectAtIndex:n];
-        if(!m.dead){
-            
+        if(!m.dead){            
             for(int x = 0; x < [bs count]; x++){
                 Bullet* b = [bs objectAtIndex:x];
                 if(b.shoted){
@@ -336,6 +353,7 @@ static HelloWorldLayer* level;
                 }
             }
         }else{
+            monsters++;
             double r = [self genRandom];
             if(m.prect > r){
                 
@@ -348,6 +366,8 @@ static HelloWorldLayer* level;
         [self stopGame];
         return;
     }
+    currentTime += dt;
+    totolTime = currentTime;
 }
 
 

@@ -11,6 +11,7 @@
 @interface loadingLayer : CCScene{
     int targetSence;
     int fromSence;
+    NSUserDefaults* prefs;
 }
 
 +(id) loadSence:(NSString* )dir from:(int) f to:(int) t;
