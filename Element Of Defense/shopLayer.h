@@ -7,12 +7,19 @@
 //
 
 #import "CCLayer.h"
-#import "CCScene.h"
+#import "cocos2d.h"
 @interface shopLayer : CCLayer{
     CGSize size;
+    NSUserDefaults* prefs;
+    int upperBand,lowerBand,currentPage,pageNum;
+    CCMenu* itemMenu;
+    NSArray* itemList;
+    CCLabelTTF* lblAScore;
+    CCLabelTTF* lblPage;
 }
 
 +(CCScene*) scene;
 -(void) goBack:(id) sender;
+-(void) goPrev:(id) sender;
 
 @end

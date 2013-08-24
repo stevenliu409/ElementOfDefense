@@ -50,6 +50,7 @@
             transition = [CCTransitionFade transitionWithDuration:2 scene:[HelloWorldLayer scene] withColor:ccWHITE];
             break;
         case 997:
+            [self updateItemList];
             transition = [CCTransitionFade transitionWithDuration:2 scene:[shopLayer scene] withColor:ccWHITE];
             break;
         case 998:
@@ -63,6 +64,24 @@
     }
     [[CCDirector sharedDirector] replaceScene:transition];
 
+}
+
+-(void) updateItemList{
+    NSMutableArray* itemArray;
+    NSArray* itemArray1 = [prefs objectForKey:@"itemArray"];
+    if(itemArray1 == NULL){
+        itemArray = [[NSMutableArray alloc] init];
+    }else{
+        itemArray = [[NSMutableArray alloc] initWithArray:itemArray1];
+    }
+    NSMutableDictionary* d = [[NSMutableDictionary alloc] init];
+    [d setObject:@"Leo" forKey:@"itemName"];
+    [d setObject:@"increase monseter hp by 10" forKey:@"desc"];
+    [d setObject:[NSNumber numberWithInt:10] forKey:@"price"];
+    [d setObject:[NSNumber numberWithInt:1] forKey:@"type"];
+    [itemArray addObject:d];
+    [prefs setObject:itemArray forKey:@"itemArray"];
+    [prefs synchronize];
 }
 
 @end

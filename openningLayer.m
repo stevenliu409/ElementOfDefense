@@ -41,11 +41,11 @@
             score = [NSNumber numberWithInt:0];
             [prefs setValue:score forKey:@"totalScore"];
         }
-
+        //[prefs setObject:[NSMutableArray]  forKey:<#(NSString *)#>]
         [prefs synchronize];
         [self initBg];
         [self initMenu];
-                
+        [self initItems];
         
     }
     return self;
@@ -70,6 +70,8 @@
     [self addChild:m z:3];
 }
 
+-(void) initItems{
+}
 
 -(void) goLevel1:(id) sender{
     [[CCDirector sharedDirector] replaceScene:[loadingLayer loadSence:@"openbg.jpg" from:1 to:1]];

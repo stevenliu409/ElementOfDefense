@@ -16,6 +16,6 @@
 
 +(id) loadSence:(NSString* )dir from:(int) f to:(int) t;
 -(id) initWithSence:(NSString* )dir from:(int) f to:(int) t;
-
+-(void) updateItemList;
 
 @end
