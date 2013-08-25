@@ -52,6 +52,8 @@
     if([itemList count] == 0){
         UIAlertView* alter = [[UIAlertView alloc]initWithTitle:@"QS" message:@"NO Counpon avaliable now" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alter show];
+        currentPage = 0;
+        pageNum = 0;
     }else{
         pageNum = [itemList count]/6;
         if([itemList count] >6){
