@@ -11,7 +11,7 @@
 #import "IntroLayer.h"
 #import "HelloWorldLayer.h"
 #import "openningLayer.h"
-
+#import "logingLayer.h"
 #pragma mark - IntroLayer
 
 // HelloWorldLayer implementation
@@ -37,7 +37,16 @@
 -(void) onEnter
 {
 	[super onEnter];
-
+    prefs = [NSUserDefaults standardUserDefaults];
+    NSDictionary* users = [prefs objectForKey:@"users"];
+    if(users == NULL){
+        users = [[NSDictionary alloc] init];
+        [prefs setObject:users forKey:@"users"];
+        [prefs synchronize];
+        NSLog(@"shouldnt be here");
+    }
+    [prefs setObject:NULL forKey:@"currentUser"];
+    
 	// ask director for the window size
 	CGSize size = [[CCDirector sharedDirector] winSize];
 
@@ -60,6 +69,6 @@
 
 -(void) makeTransition:(ccTime)dt
 {
-	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[openningLayer scene] withColor:ccWHITE]];
+	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[logingLayer scene] withColor:ccWHITE]];
 }
 @end

@@ -13,6 +13,7 @@
 // HelloWorldLayer
 @interface IntroLayer : CCLayer
 {
+    NSUserDefaults* prefs;
     
 }
 

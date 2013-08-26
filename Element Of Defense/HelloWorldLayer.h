@@ -25,6 +25,7 @@
     NSMutableArray* playerMonster;
     NSMutableArray* deadSoldiers;
     NSUserDefaults* prefs;
+    NSMutableDictionary* user;
     vampireHead* v1;
     vampireHead* v2;
     CCSpriteBatchNode *sceneSpriteBatchNode;

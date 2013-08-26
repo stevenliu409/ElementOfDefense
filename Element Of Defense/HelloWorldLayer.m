@@ -223,10 +223,8 @@ static HelloWorldLayer* level;
     conLabel.visible = NO;
     [self addChild:conLabel z:3];
     
-    CCMenuItem* mMain = [CCMenuItemFont itemWithString:@"Go Main Menu" target:self selector:@selector(goMain:)];
+    CCMenuItem* mMain = [CCMenuItemFont itemWithString:@"Continous" target:self selector:@selector(conGame:)];
     CCMenuItem* mRedo = [CCMenuItemFont itemWithString:@"Retry the level" target:self selector:@selector(reLevel:)];
-    mCon = [CCMenuItemFont itemWithString:@"Continous" target:self selector:@selector(conGame:)];
-    mCon.visible = NO;
     gameMenu = [CCMenu menuWithItems:mMain,mRedo,mCon,nil];
     gameMenu.position = ccp(240,100);
     gameMenu.visible = NO;
@@ -237,18 +235,28 @@ static HelloWorldLayer* level;
 }
 
 -(void) conGame:(id) sender{
-    NSNumber* tm = [NSNumber numberWithInt:totolTime];
     
-    [prefs setValue:tm forKey:@"totalTime"];
+    NSNumber* tm = [NSNumber numberWithInt:totolTime];
+    NSDictionary* dic =  [prefs objectForKey:@"currentUser"];
+    user = [NSMutableDictionary dictionaryWithDictionary:dic];
+    [user setValue:tm forKey:@"totalTime"];
     NSNumber* tms = [NSNumber numberWithInt:monsters];
-    [prefs setValue:tms forKey:@"totalMonsters"];
+    [user setValue:tms forKey:@"totalMonsters"];
+    int ts = [self calScore];
+    [user setObject:[NSNumber numberWithInt:ts] forKey:@"tempScore"];
+    int s = [[user objectForKey:@"userScore"]intValue];
+    s+= ts;
+    [user setObject:[NSNumber numberWithInt:s] forKey:@"userScore"];
+    [prefs setObject:user forKey:@"currentUser"];
     [prefs synchronize];
+    
     [[CCDirector sharedDirector] replaceScene:[loadingLayer loadSence:@"bg3.jpg" from:1 to:999]];
 }
 
--(void) goMain:(id)sender{
-    [[CCDirector sharedDirector] replaceScene:[loadingLayer loadSence:@"bg3.jpg" from:1 to:998]];
+-(int) calScore{
+    return 1000;
 }
+
 
 -(void) reLevel:(id)sender{
     [[CCDirector sharedDirector] replaceScene:[loadingLayer loadSence:@"bg3.jpg" from:1 to:1]];

@@ -10,7 +10,6 @@
 
 #import "AppDelegate.h"
 #import "IntroLayer.h"
-
 @implementation AppController
 
 @synthesize window=window_, navController=navController_, director=director_;

@@ -161,9 +161,10 @@
 		7F160E281734A08300B99759 /* bullet.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F160E271734A08300B99759 /* bullet.png */; };
 		7F160E301734AC9100B99759 /* BulletCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F160E2F1734AC9100B99759 /* BulletCache.m */; };
 		7F160E3E17357ABC00B99759 /* bodycache.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F160E3D17357ABC00B99759 /* bodycache.m */; };
+		7F4DA0A017CA7EC100E3D258 /* logingLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4DA09F17CA7EC100E3D258 /* logingLayer.m */; };
+		7F4DA0A817CA878700E3D258 /* textFieldMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4DA0A717CA878700E3D258 /* textFieldMaker.m */; };
 		7F6900E017C7B7D100B54A3C /* shopLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6900DF17C7B7D100B54A3C /* shopLayer.m */; };
 		7F80FC8817C9191900F1E6B9 /* icon1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F80FC8717C9191900F1E6B9 /* icon1.png */; };
-		7FB5E8C417C785ED002D7099 /* mainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB5E8C317C785ED002D7099 /* mainLayer.m */; };
 		7FB5E8C717C79A66002D7099 /* shopbg.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 7FB5E8C617C79A66002D7099 /* shopbg.jpeg */; };
 		7FB5E8CB17C7A9C6002D7099 /* labelHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB5E8CA17C7A9C6002D7099 /* labelHelper.m */; };
 		7FB7FF2C17B02F55001C627E /* EnemyRobot.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FB7FF2B17B02F55001C627E /* EnemyRobot.plist */; };
@@ -491,11 +492,13 @@
 		7F160E2F1734AC9100B99759 /* BulletCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletCache.m; sourceTree = "<group>"; };
 		7F160E3C17357ABC00B99759 /* bodycache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bodycache.h; sourceTree = "<group>"; };
 		7F160E3D17357ABC00B99759 /* bodycache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bodycache.m; sourceTree = "<group>"; };
-		7F6900DE17C7B7D100B54A3C /* shopLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shopLayer.h; sourceTree = "<group>"; };
-		7F6900DF17C7B7D100B54A3C /* shopLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shopLayer.m; sourceTree = "<group>"; };
+		7F4DA09E17CA7EC100E3D258 /* logingLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = logingLayer.h; sourceTree = "<group>"; };
+		7F4DA09F17CA7EC100E3D258 /* logingLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = logingLayer.m; sourceTree = "<group>"; };
+		7F4DA0A617CA878700E3D258 /* textFieldMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = textFieldMaker.h; sourceTree = "<group>"; };
+		7F4DA0A717CA878700E3D258 /* textFieldMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = textFieldMaker.m; sourceTree = "<group>"; };
+		7F6900DE17C7B7D100B54A3C /* shopLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = shopLayer.h; path = "Element Of Defense/shopLayer.h"; sourceTree = "<group>"; };
+		7F6900DF17C7B7D100B54A3C /* shopLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = shopLayer.m; path = "Element Of Defense/shopLayer.m"; sourceTree = "<group>"; };
 		7F80FC8717C9191900F1E6B9 /* icon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon1.png; path = Resources/icon1.png; sourceTree = "<group>"; };
-		7FB5E8C217C785ED002D7099 /* mainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mainLayer.h; sourceTree = "<group>"; };
-		7FB5E8C317C785ED002D7099 /* mainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mainLayer.m; sourceTree = "<group>"; };
 		7FB5E8C617C79A66002D7099 /* shopbg.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = shopbg.jpeg; path = Resources/shopbg.jpeg; sourceTree = "<group>"; };
 		7FB5E8C917C7A9C6002D7099 /* labelHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = labelHelper.h; sourceTree = "<group>"; };
 		7FB5E8CA17C7A9C6002D7099 /* labelHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = labelHelper.m; sourceTree = "<group>"; };
@@ -598,10 +601,6 @@
 		2626B9D41724E1A7006702D9 /* ZombieDefense */ = {
 			isa = PBXGroup;
 			children = (
-				7F6900DE17C7B7D100B54A3C /* shopLayer.h */,
-				7F6900DF17C7B7D100B54A3C /* shopLayer.m */,
-				7FB5E8C217C785ED002D7099 /* mainLayer.h */,
-				7FB5E8C317C785ED002D7099 /* mainLayer.m */,
 				2626BB4C1724E1A9006702D9 /* AppDelegate.h */,
 				2626BB4D1724E1A9006702D9 /* AppDelegate.m */,
 				2626BB4F1724E1A9006702D9 /* HelloWorldLayer.h */,
@@ -1017,11 +1016,15 @@
 			isa = PBXGroup;
 			children = (
 				7F160DF517341BB300B99759 /* loadingLayer.h */,
+				7F6900DE17C7B7D100B54A3C /* shopLayer.h */,
+				7F6900DF17C7B7D100B54A3C /* shopLayer.m */,
 				7F160DF617341BB300B99759 /* loadingLayer.m */,
 				7F160DF817341C6D00B99759 /* openningLayer.h */,
 				7F160DF917341C6D00B99759 /* openningLayer.m */,
 				266FF86D1773EE8A00561D48 /* Waypoint.h */,
 				266FF86E1773EE8A00561D48 /* Waypoint.m */,
+				7F4DA09E17CA7EC100E3D258 /* logingLayer.h */,
+				7F4DA09F17CA7EC100E3D258 /* logingLayer.m */,
 			);
 			name = "Game Views";
 			sourceTree = "<group>";
@@ -1089,6 +1092,8 @@
 			children = (
 				7FB5E8C917C7A9C6002D7099 /* labelHelper.h */,
 				7FB5E8CA17C7A9C6002D7099 /* labelHelper.m */,
+				7F4DA0A617CA878700E3D258 /* textFieldMaker.h */,
+				7F4DA0A717CA878700E3D258 /* textFieldMaker.m */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -1363,9 +1368,10 @@
 				7FC62BBF17BD598D001A01B4 /* armyLine.m in Sources */,
 				7FC62BD017BE779B001A01B4 /* soldierBase.m in Sources */,
 				7FC62BD317BE7BB4001A01B4 /* GameObj.m in Sources */,
-				7FB5E8C417C785ED002D7099 /* mainLayer.m in Sources */,
 				7FB5E8CB17C7A9C6002D7099 /* labelHelper.m in Sources */,
 				7F6900E017C7B7D100B54A3C /* shopLayer.m in Sources */,
+				7F4DA0A017CA7EC100E3D258 /* logingLayer.m in Sources */,
+				7F4DA0A817CA878700E3D258 /* textFieldMaker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

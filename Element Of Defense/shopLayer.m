@@ -33,6 +33,7 @@
         [self initButtons];
         [self initData];
         [self initLabels];
+        user = [prefs objectForKey:@"currentUser"];
     }
     return self;
 }
@@ -50,12 +51,12 @@
     prefs = [NSUserDefaults standardUserDefaults];
     itemList = [prefs objectForKey:@"itemArray"];
     if([itemList count] == 0){
-        UIAlertView* alter = [[UIAlertView alloc]initWithTitle:@"QS" message:@"NO Counpon avaliable now" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        UIAlertView* alter = [[UIAlertView alloc]initWithTitle:@"No item" message:@"NO item avaliable now" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alter show];
         currentPage = 0;
         pageNum = 0;
     }else{
-        pageNum = [itemList count]/6;
+        pageNum = ceil([itemList count]/6.0);
         if([itemList count] >6){
             upperBand = 6;
         }else {
@@ -179,7 +180,7 @@
     [labelHelper makeLabel:@"Price" layer:self position:CGPointMake(425, 275) fontsize:25 zValue:3];
     CCLabelTTF* l = [labelHelper makeLabel:@"Available Score:" layer:self position:CGPointMake(100, 75) fontsize:25 zValue:3];
     l.color = ccBLUE;
-    int totalScore = [[prefs objectForKey:@"totalScore"] intValue];
+    int totalScore = [[user objectForKey:@"userScore"]intValue];
     CCLabelTTF* l1 = [labelHelper makeLabel:[NSString stringWithFormat:@"%d",totalScore] layer:self position:CGPointMake(200, 75) fontsize:25 zValue:3];
     l1.color = ccBLUE;
     lblPage = [labelHelper makeLabel:[NSString stringWithFormat:@"%d/%d",currentPage,pageNum] layer:self position:CGPointMake(400, 75) fontsize:25 zValue:3];

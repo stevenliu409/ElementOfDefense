@@ -16,6 +16,7 @@
     NSArray* itemList;
     CCLabelTTF* lblAScore;
     CCLabelTTF* lblPage;
+    NSDictionary* user;
 }
 
 +(CCScene*) scene;
