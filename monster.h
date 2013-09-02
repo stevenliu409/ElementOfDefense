@@ -33,7 +33,7 @@
 -(void) monsterAttack:(GameObj*) s timer:(ccTime)ct;
 -(void) attack:(GameObj*) s;
 -(int) getMSpeed;
--(BOOL) updateMonster:(ccTime) ct soilders:(GameObj*) s;
+-(BOOL) updateMonster:(ccTime) ct soilders:(GameObj*) s1;
 -(void) killed;
 -(void) setUpPos:(int) x yPos:(int) y;
 @end

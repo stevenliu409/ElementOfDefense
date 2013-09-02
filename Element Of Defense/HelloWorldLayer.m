@@ -197,7 +197,7 @@ static HelloWorldLayer* level;
     
     waypoints3 = [[NSMutableArray alloc] init];
     
-    Waypoint * waypoint7 = [Waypoint nodeWithTheGame:self location:ccp(35,100)];
+    Waypoint * waypoint7 = [Waypoint nodeWithTheGame:self location:ccp(200,100)];
     [waypoints3 addObject:waypoint7];
     
     Waypoint * waypoint8 = [Waypoint nodeWithTheGame:self location:ccp(-3,100)];
@@ -296,39 +296,44 @@ static HelloWorldLayer* level;
 
 -(void) stopGame{
     
-    if([soldiers count] == 0){
-        [self moveLeft];
+    //if([soldiers count] == 0){
+    if(base.dead){
+        //[self moveLeft];
+        [self checkWinning];
     }else if([[wave getMonsters] count] == 0){
+        /*
         if(levelIndex == 2){
             [self checkLosing];
             
         }else{
             [self moveRight];
         }
+         */
+        [self checkLosing];
     }else{
         
     }
     self.isTouchEnabled = NO;
-    [self unscheduleUpdate];
+    //[self unscheduleUpdate];
 }
 
 -(void) checkWinning{
-    if(base.dead){
-        if(base.finishAni ){
-            [conLabel setString:@"You Win"];
-            conLabel.visible = YES;
-            for(int n = 0; n< [soldiers count]; n++){
-                soldier* s = [soldiers objectAtIndex:n];
-                s.health = 0;
-            }
-            if(conLabel.visible){
-                gameMenu.visible = YES;
-            }
-            mCon.visible = YES;
-            [self unscheduleUpdate];
-            return;
+    //if(base.dead){
+    if(base.finishAni){
+        [conLabel setString:@"You Win"];
+        conLabel.visible = YES;
+        for(int n = 0; n< [soldiers count]; n++){
+            soldier* s = [soldiers objectAtIndex:n];
+            s.health = 0;
         }
+        if(conLabel.visible){
+            gameMenu.visible = YES;
+        }
+        mCon.visible = YES;
+        [self unscheduleUpdate];
+        return;
     }
+    //}
 }
 
 -(void) update:(ccTime) dt{
@@ -344,12 +349,7 @@ static HelloWorldLayer* level;
                     [b hitMonster:m];
                 }
             }
-            if(base.visible && (!m.dead)){
                 //[m:dt soilders:base];
-                if([m updateMonster:dt soilders:base]){
-                    break;
-                }
-            }
             for(int s = 0; s<[soldiers count];s++){
                 soldier* s1 = [soldiers objectAtIndex:s];
                 if([m updateMonster:dt soilders:s1]){
@@ -357,8 +357,13 @@ static HelloWorldLayer* level;
                         [soldiers removeObject:s1];
                         [deadSoldiers addObject:s1];
                     }
-                    break;
+                    
+                return;
                 }
+            }
+            if(!base.dead){
+                [m updateMonster:dt soilders:base];
+                return;
             }
         }else{
             monsters++;
@@ -370,7 +375,7 @@ static HelloWorldLayer* level;
             [wave removeMonster:m];
         }
     }
-    if(([monsterCache count]==0 && [bodyCache count] == 0 && [ms count] == 0) || ([soldiers count] == 0)){
+    if(([monsterCache count]==0 && [bodyCache count] == 0 && [ms count] == 0) || (base.dead)){
         [self stopGame];
         return;
     }
@@ -475,16 +480,16 @@ static HelloWorldLayer* level;
     */
     soldier* s = [snipersoldier makeSniper:self waypoint:waypoints3];
     [soldiers addObject:s];
-    /*
-    soldier* s1 = [mgsoldier makeMg:self waypoint:waypoints];
-    [soldiers addObject:s1];
-    army_count++;*/
+    //soldier* s1 = [mgsoldier makeMg:self waypoint:waypoints];
+    //[soldiers addObject:s1];
+    army_count++;
     
     armyLine* line1 = [[armyLine alloc] init];
     line1.alive = YES;
     line1.ypos = 100;
-    line1.xpos = 35;
+    line1.xpos = 100;
     [linesDic setObject:line1 forKey:@"lines1"];
+    
     /*
     armyLine* line2 = [[armyLine alloc]init];
     line2.alive = YES;
@@ -496,7 +501,8 @@ static HelloWorldLayer* level;
     base.position = ccp(50,100);
     base.flipX = YES;
     [self addChild:base z:3 tag:999];
-    base.visible = NO;
+    base.visible = YES;
+    base.dead = NO;
     
     return YES;
 
@@ -520,7 +526,7 @@ static HelloWorldLayer* level;
     return n/10;
 }
 
-
+/*
 -(void) moveLeft{
     //NSLog(@"move left");
     [self schedule:@selector(changeToLeft:)];
@@ -614,6 +620,7 @@ static HelloWorldLayer* level;
     
 
 }
+ */
 
 #pragma mark GameKit delegate
 

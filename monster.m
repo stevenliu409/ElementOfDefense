@@ -28,8 +28,8 @@
         mbody = b;
         [self addChild:mhead];
         [self addChild:mbody];
-        mbody.position = CGPointMake(200, 100);
-        mhead.position = CGPointMake(200,125);
+        mbody.position = CGPointMake(400, 100);
+        mhead.position = CGPointMake(400,125);
         
         dead = NO;
         prect = 0.5;
@@ -100,9 +100,11 @@
 
 -(void) attack:(GameObj *)s{
     s.health -= self.damage;
+    NSLog(@"health:%d",s.health);
     if(s.health > 0){
         [s changeState:5];
     }else{
+        NSLog(@"s dead");
         s.dead = YES;
     }
 }
@@ -119,10 +121,9 @@
 }
 
 
--(BOOL) updateMonster:(ccTime)ct soilders:(GameObj *)s{
-    if((CGRectIntersectsRect(self.mbody.boundingBox, s.boundingBox)|| CGRectIntersectsRect(self.mhead.boundingBox, s.boundingBox))&& s.sstate != 4){
-        
-        [self monsterAttack:s timer:ct];
+-(BOOL) updateMonster:(ccTime)ct soilders:(GameObj *)s1{
+    if((CGRectIntersectsRect(self.mbody.boundingBox, s1.boundingBox)|| CGRectIntersectsRect(self.mhead.boundingBox, s1.boundingBox))&& s1.sstate != 4){
+        [self monsterAttack:s1 timer:ct];
         return YES;
     }else{
         [self moveMonster:ct];

@@ -20,7 +20,7 @@
 -(id) initBase{
     if(self = [super initWithSpriteFrameName:@"radar_1.png"]){
         health = 10;
-        //[self scheduleUpdate];
+        [self scheduleUpdate];
     }
     return self;
 }
@@ -55,7 +55,10 @@
 -(void) checkAniFinsh:(ccTime)dt{
     if([self numberOfRunningActions]== 0){
         finishAni = YES;
-        [self unschedule:@selector(checkAniFinsh:)];
+        if(finishAni){
+            NSLog(@"finish Ani");
+            [self unschedule:@selector(checkAniFinsh:)];
+        }
     }
 
 }
