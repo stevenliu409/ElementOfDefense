@@ -7,18 +7,20 @@
 //
 
 #import "CCSprite.h"
-
-@interface body : CCSprite{
+#import "GameObj.h"
+@interface body : GameObj{
     
 }
 
 +(id) makeBody:(NSString*) dir;
 -(id) initBody:(NSString*) dir;
-
+-(id) initBodyWithFn:(NSString*) fname;
++(id) makeBodyWithFn:(NSString*) fname;
 @property(assign) int speed;
 @property(assign) int health;
 @property(assign) int attack;
 @property(assign) int shield;
+@property(nonatomic, retain) CCAnimation* currentAni;
 
 -(BOOL) checkTouch:(CGPoint) pt;
 

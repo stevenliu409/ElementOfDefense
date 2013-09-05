@@ -14,18 +14,26 @@
 @interface monster : GameObj{
     int currentTime;
     double totalTime;
+    CGPoint rlegPos;
+    CGPoint headPos;
+    CGPoint bodyPos;
+    CGPoint llegPos;
 }
 
 
 @property(nonatomic, retain) body* mbody;
 @property(nonatomic, retain) body* mhead;
+@property(nonatomic, retain) body* mleg;
+@property(nonatomic, retain) body* marm;
+@property(nonatomic, retain) body* mrleg;
+@property(nonatomic, retain) body* mrarm;
 @property(readonly) double attFreq;
 @property(assign) BOOL dead;
 @property(assign) int damage;
 @property(readonly) double prect;
 
-+(id) makeMonster:(body*) b mhead:(body*) h;
--(id) initMonster:(body*) b mhead:(body*) h;
++(id) makeMonster:(body*) b mhead:(body*) h mrleg:(body*) mr mlleg:(body*) lr;
+-(id) initMonster:(body*) b mhead:(body*) h mrleg:(body*) mr mlleg:(body*) lr;
 +(id) newMonster;
 -(BOOL) addBody:(body*) b;
 -(BOOL) checkMonster;

@@ -17,7 +17,7 @@
 -(id) initSniper:(HelloWorldLayer*)_gameLayer waypoint:(NSMutableArray*)mywaypoints{
     if(self = [super initWithSpriteFrameName:@"an1_anim1.png"] ){
         health = 6;
-        damage = 0;
+        damage = 200;
         range = 10;
         freq = 2;
         speed = 3;

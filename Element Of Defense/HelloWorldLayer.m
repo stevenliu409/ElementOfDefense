@@ -75,6 +75,7 @@ static HelloWorldLayer* level;
         
         [[CCSpriteFrameCache sharedSpriteFrameCache]
          addSpriteFramesWithFile:@"scene1atlasiPhone.plist"];         
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"testAltas_default.plist"];
         
         level = self;
 		prefs = [NSUserDefaults standardUserDefaults];

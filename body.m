@@ -10,17 +10,34 @@
 
 @implementation body
 @synthesize speed;
-@synthesize health;
 @synthesize shield;
 @synthesize attack;
-
+@synthesize currentAni;
 +(id) makeBody:(NSString *)dir{
     return [[self alloc] initBody:dir];
 }
 
++(id) makeBodyWithFn:(NSString *)fname{
+    return [[self alloc] initWithFile:fname];
+}
 -(id) initBody:(NSString *) fname{
     
     if((self = [super initWithSpriteFrameName:fname])){
+        speed = 0;
+        health = 0;
+        attack = 0;
+        shield = 0;
+        self.flipX = NO;
+    }
+    return self;
+}
+
+-(id) initBodyWithFn:(NSString*) fname{
+    if((self = [super initWithFile:fname])){
+        speed = 0;
+        health = 0;
+        attack = 0;
+        shield = 0;
     }
     return self;
 }
@@ -45,6 +62,11 @@
     [encoder encodeInt:health forKey:@"health"];
     [encoder encodeInt:shield forKey:@"shield"];
     [encoder encodeInt:attack forKey:@"attack"];
+}
+
+-(void) dealloc{
+    [currentAni release];
+    [super dealloc];
 }
 
 

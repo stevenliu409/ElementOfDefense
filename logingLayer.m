@@ -12,6 +12,9 @@
 #import "textFieldMaker.h"
 #import "shopLayer.h"
 #import "loadingLayer.h"
+#import "monster.h"
+#import "body.h"
+#import "testRLeg.h"
 @implementation logingLayer
 
 +(CCScene*) scene{
@@ -37,11 +40,23 @@
         if(user!=NULL){
             [self loginUser:user];
         }
+        
+        monster* m1 = [monster makeMonster:[body makeBody:@"body.png"] mhead:[body makeBody:@"head.png"] mrleg:[testRLeg makeTestRLeg:@"rleg_1.png" fromFile:@"walkRleg"] mlleg:[testRLeg makeTestRLeg:@"lleg_1.png" fromFile:@"walkLleg"]];
+        //[m1 setPosition:CGPointMake(200, 200)];
+        m1.mbody.flipX = YES;
+        m1.mhead.flipX = YES;
+        [m1 setUpPos:100 yPos:100];
+        [self addChild:m1 z:3];
     }
     return self;
 }
 
 -(void) initData{
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"mlist.plist"];
+    
+    [[CCSpriteFrameCache sharedSpriteFrameCache]
+     addSpriteFramesWithFile:@"scene1atlasiPhone.plist"];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"testAltas_default.plist"];
     prefs = [NSUserDefaults standardUserDefaults];
     user = [prefs objectForKey:@"currentUser"];
     if(user!= NULL){

@@ -21,4 +21,5 @@
 
 -(void) changeState:(int) state;
 -(CCAnimation*) loadAnimation :(NSString *)aniName fileName:(NSString*) fn;
+-(int)frameOfAnimation:(CCAnimation*)animation;
 @end

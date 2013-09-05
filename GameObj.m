@@ -19,6 +19,7 @@
 -(CCAnimation*) loadAnimation :(NSString *)aniName fileName:(NSString*) fn{
     //CCAnimation* ani;
     NSString* fileName = [[NSBundle mainBundle] pathForResource:fn ofType:@"plist"];
+    NSLog(@"%@",fileName);
     NSDictionary* aniDic = [NSDictionary dictionaryWithContentsOfFile:fileName];
     if(aniDic == nil){
         NSLog(@"not find dic");
@@ -46,6 +47,29 @@
         [ani1 addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache]spriteFrameByName:frameName]];
     }
     return ani1;
+}
+
+-(int)frameOfAnimation:(CCAnimation*)animation {
+    CCTexture2D *tex = [self displayFrame].texture;
+    CGRect rect = [self displayFrame].rect;
+    
+    int imageIndex = -1;
+    for (int i=0; i<[animation.frames count]; i++) {
+        CCAnimationFrame *frame = [[animation frames] objectAtIndex:i];
+        CCTexture2D *tex2 = frame.spriteFrame.texture;
+        CGRect rect2 = frame.spriteFrame.rect;
+        if ([tex isEqual:tex2] && CGRectEqualToRect(rect, rect2)) {
+            imageIndex = i;
+            break;
+        }
+    }
+    
+    return imageIndex;
+}
+
+-(void) dealloc{
+    [ani release];
+    [super dealloc];
 }
 
 
