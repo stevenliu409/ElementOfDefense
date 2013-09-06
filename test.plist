@@ -2,6 +2,24 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>walkLArm</key>
+	<dict>
+		<key>animationFrames</key>
+		<string>1,2,3,4</string>
+		<key>delay</key>
+		<real>0.5</real>
+		<key>filenamePrefix</key>
+		<string>larm_</string>
+	</dict>
+	<key>walkRArm</key>
+	<dict>
+		<key>animationFrames</key>
+		<string>1,2,3,4</string>
+		<key>delay</key>
+		<real>0.5</real>
+		<key>filenamePrefix</key>
+		<string>rarm_</string>
+	</dict>
 	<key>walkLleg</key>
 	<dict>
 		<key>delay</key>

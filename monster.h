@@ -18,6 +18,8 @@
     CGPoint headPos;
     CGPoint bodyPos;
     CGPoint llegPos;
+    CGPoint rarmPos;
+    CGPoint larmPos;
 }
 
 
@@ -32,8 +34,8 @@
 @property(assign) int damage;
 @property(readonly) double prect;
 
-+(id) makeMonster:(body*) b mhead:(body*) h mrleg:(body*) mr mlleg:(body*) lr;
--(id) initMonster:(body*) b mhead:(body*) h mrleg:(body*) mr mlleg:(body*) lr;
++(id) makeMonster:(body*) b mhead:(body*) h mrleg:(body*) mr mlleg:(body*) lr mrarm:(body*) ra mlarm:(body*) la;
+-(id) initMonster:(body*) b mhead:(body*) h mrleg:(body*) mr mlleg:(body*) lr mrarm:(body*) ra mlarm:(body*) la;
 +(id) newMonster;
 -(BOOL) addBody:(body*) b;
 -(BOOL) checkMonster;

@@ -28,6 +28,7 @@
     NSDictionary* aniSubDic = [aniDic objectForKey:aniName];
     if(aniSubDic == nil){
         NSLog(@"not find aniSubDic");
+        NSLog(@"aniName is %@",aniSubDic);
         return nil;
     }
     CCAnimation* ani1 = [CCAnimation animation];

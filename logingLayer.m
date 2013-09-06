@@ -15,6 +15,7 @@
 #import "monster.h"
 #import "body.h"
 #import "testRLeg.h"
+#import "testRArm.h"
 @implementation logingLayer
 
 +(CCScene*) scene{
@@ -41,7 +42,7 @@
             [self loginUser:user];
         }
         
-        monster* m1 = [monster makeMonster:[body makeBody:@"body.png"] mhead:[body makeBody:@"head.png"] mrleg:[testRLeg makeTestRLeg:@"rleg_1.png" fromFile:@"walkRleg"] mlleg:[testRLeg makeTestRLeg:@"lleg_1.png" fromFile:@"walkLleg"]];
+        monster* m1 = [monster makeMonster:[body makeBody:@"body.png"] mhead:[body makeBody:@"head.png"] mrleg:[testRLeg makeTestRLeg:@"rleg_1.png" fromFile:@"walkRleg"] mlleg:[testRLeg makeTestRLeg:@"lleg_1.png" fromFile:@"walkLleg"] mrarm:[testRArm makeTestRArm:@"rarm_1.png" fromFile:@"walkRArm" attackDir:NULL] mlarm:[testRArm makeTestRArm:@"larm_1.png" fromFile:@"walkLArm" attackDir:NULL]];
         //[m1 setPosition:CGPointMake(200, 200)];
         m1.mbody.flipX = YES;
         m1.mhead.flipX = YES;

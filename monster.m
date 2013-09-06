@@ -19,27 +19,33 @@
 @synthesize marm,mleg,mrarm,mrleg;
 @synthesize attFreq;
 @synthesize damage,prect;
-+(id) makeMonster:(body *)b mhead:(body *)h mrleg:(body *)mr mlleg:(body*) lr{
-    return [[self alloc] initMonster:b mhead:h mrleg:mr mlleg:lr];
++(id) makeMonster:(body *)b mhead:(body *)h mrleg:(body *)mr mlleg:(body*) lr mrarm:(body *)ra mlarm:(body *)la{
+    return [[self alloc] initMonster:b mhead:h mrleg:mr mlleg:lr mrarm:ra mlarm:la];
 }
 
--(id) initMonster:(body *)b mhead:(body *)h mrleg:(body *)mr mlleg:(body*) lr{
+-(id) initMonster:(body *)b mhead:(body *)h mrleg:(body *)mr mlleg:(body*) lr mrarm:(body *)ra mlarm:(body *)la{
     if(self = [super init]){
         mhead = h;
         mbody = b;
         mrleg = mr;
         mleg = lr;
-        [self addChild:mhead z:1];
-        [self addChild:mbody z:1];
-        [self addChild:mrleg z:2];
+        mrarm = ra;
+        marm = la;
+        [self addChild:mhead z:2];
+        [self addChild:mbody z:2];
+        [self addChild:mrleg z:3];
         [self addChild:mleg z:1];
+        [self addChild:mrarm z:3];
+        [self addChild:marm z:1];
         mbody.position = CGPointMake(400, 100);
         mhead.position = CGPointMake(400, 125);
         mrleg.position = CGPointMake(400, 50);
         mleg.position = CGPointMake(400,50);
+        mrarm.position = CGPointMake(400,75);
+        marm.position = CGPointMake(400,75);
         dead = NO;
         prect = 0.5;
-        sstate = 1;
+        sstate = 2;
         health = mhead.health;
         self.damage = 0;
         [self scheduleUpdate];
@@ -57,6 +63,8 @@
         mbody = NULL;
         mrleg = NULL;
         mleg = NULL;
+        marm = NULL;
+        mrarm = NULL;
     }
     return self;
 }
@@ -68,6 +76,8 @@
         self.mhead = [decoder decodeObjectForKey:@"head"];
         self.mrleg = [decoder decodeObjectForKey:@"mrleg"];
         self.mleg = [decoder decodeObjectForKey:@"mleg"];
+        self.mrarm = [decoder decodeObjectForKey:@"mrarm"];
+        self.marm = [decoder decodeObjectForKey:@"marm"];
     }
     return self;
 }
@@ -75,6 +85,8 @@
 
 -(void) setUpPos:(int)x yPos:(int)y{
     mbody.position = ccp(x+5,y);
+    mrarm.position = ccp(x+5,y-2);
+    marm.position = ccp(x+5,y-2);
     mhead.position = ccp(x,y+25);
     mrleg.position = ccp(x+5,y-28);
     mleg.position = ccp(x+5,y-28);
@@ -82,6 +94,8 @@
     headPos = mhead.position;
     bodyPos = mbody.position;
     llegPos = mleg.position;
+    rarmPos = mrarm.position;
+    larmPos = marm.position;
 }
 
 - (void)encodeWithCoder:(NSCoder *)encoder {
@@ -89,6 +103,8 @@
     [encoder encodeObject:mhead forKey:@"head"];
     [encoder encodeObject:mrleg forKey:@"mrleg"];
     [encoder encodeObject:mleg forKey:@"mleg"];
+    [encoder encodeObject:mrarm forKey:@"mrarm"];
+    [encoder encodeObject:marm forKey:@"marm"];
 }
 
 -(BOOL) addBody:(body *)b{
@@ -146,7 +162,7 @@
         [self monsterAttack:s1 timer:ct];
         return YES;
     }else{
-        sstate = 1;
+        sstate = 2;
         [self moveMonster:ct];
         return NO;
     }
@@ -157,14 +173,16 @@
 
 
 -(void) update:(ccTime) dt{
-    if(sstate == 1){
-        int fnumber = [mrleg frameOfAnimation:mrleg.currentAni];
+    if(sstate == 2){
+        int fnumber = [marm frameOfAnimation:marm.currentAni];
         NSLog(@"%d",fnumber);
         if(fnumber == 0){
             self.mrleg.position = ccp(rlegPos.x -6,rlegPos.y+2);
-            self.mleg.position = ccp(llegPos.x+1, llegPos.y + 2);
+            self.mleg.position = ccp(llegPos.x+1, llegPos.y+2);
             self.mbody.position = ccp(bodyPos.x,bodyPos.y);
             self.mhead.position = ccp(headPos.x,headPos.y);
+            self.mrarm.position = ccp(rarmPos.x+5,rarmPos.y);
+            self.marm.position = ccp(larmPos.x-9,larmPos.y);
             return;
         }
         if(fnumber == 1){
@@ -172,6 +190,8 @@
             self.mleg.position = ccp(llegPos.x+10,llegPos.y+5);
             self.mbody.position = ccp(bodyPos.x,bodyPos.y+1);
             self.mhead.position = ccp(headPos.x,headPos.y+1);
+            self.mrarm.position = ccp(rarmPos.x, rarmPos.y+1);
+            self.marm.position = ccp(larmPos.x-3,larmPos.y);
             return;
 
         }
@@ -180,6 +200,8 @@
             self.mleg.position = ccp(llegPos.x-5,llegPos.y+3);
             self.mbody.position = ccp(bodyPos.x,bodyPos.y+1);
             self.mhead.position = ccp(headPos.x,headPos.y+1);
+            self.mrarm.position = ccp(rarmPos.x-9, rarmPos.y+1);
+            self.marm.position = ccp(larmPos.x+6,larmPos.y+1);
             return;
         }
         if(fnumber == 3){
@@ -187,6 +209,8 @@
             self.mleg.position = ccp(llegPos.x-2,llegPos.y+2);
             self.mbody.position = ccp(bodyPos.x,bodyPos.y);
             self.mhead.position = ccp(headPos.x,headPos.y);
+            self.mrarm.position = ccp(rarmPos.x,rarmPos.y-1);
+            self.marm.position = ccp(larmPos.x,larmPos.y- 1);
             return;
         }
     
@@ -202,5 +226,15 @@
     //mbody = NULL;
 }
 
+
+-(void) dealloc{
+    [mhead release];
+    [mbody release];
+    [marm release];
+    [mrarm release];
+    [mrleg release];
+    [mleg release];
+    [super dealloc];
+}
 
 @end

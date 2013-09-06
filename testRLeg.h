@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "body.h"
-#import "monster.h"
 @interface testRLeg : body {
-    monster* m;
+    NSString* fdis;
+    NSString* ffn;
 }
 +(id) makeTestRLeg:(NSString*) dis fromFile:(NSString*) fn;
 -(id) initTestRleg:(NSString*) dis fromFile:(NSString*) fn;
