@@ -10,6 +10,8 @@
 #import "body.h"
 #import "soldier.h"
 #import "soldierBase.h"
+#import "testRArm.h"
+#import "testRLeg.h"
 //#import "Bullet.h"
 @interface monster : GameObj{
     int currentTime;
@@ -26,17 +28,17 @@
 
 @property(nonatomic, retain) body* mbody;
 @property(nonatomic, retain) body* mhead;
-@property(nonatomic, retain) body* mleg;
-@property(nonatomic, retain) body* marm;
-@property(nonatomic, retain) body* mrleg;
-@property(nonatomic, retain) body* mrarm;
+@property(nonatomic, retain) testRLeg* mleg;
+@property(nonatomic, retain) testRArm* marm;
+@property(nonatomic, retain) testRLeg* mrleg;
+@property(nonatomic, retain) testRArm* mrarm;
 @property(readonly) double attFreq;
 @property(assign) BOOL dead;
 @property(assign) int damage;
 @property(readonly) double prect;
 
-+(id) makeMonster:(body*) b mhead:(body*) h mrleg:(body*) mr mlleg:(body*) lr mrarm:(body*) ra mlarm:(body*) la;
--(id) initMonster:(body*) b mhead:(body*) h mrleg:(body*) mr mlleg:(body*) lr mrarm:(body*) ra mlarm:(body*) la;
++(id) makeMonster:(body*) b mhead:(body*) h mrleg:(testRLeg*) mr mlleg:(testRLeg*) lr mrarm:(testRArm*) ra mlarm:(testRArm*) la;
+-(id) initMonster:(body*) b mhead:(body*) h mrleg:(testRLeg*) mr mlleg:(testRLeg*) lr mrarm:(testRArm*) ra mlarm:(testRArm*) la;
 +(id) newMonster;
 -(BOOL) addBody:(body*) b;
 -(BOOL) checkMonster;

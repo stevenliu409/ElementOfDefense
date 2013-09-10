@@ -10,9 +10,11 @@
 #import "cocos2d.h"
 #import "body.h"
 @interface testRLeg : body {
-    NSString* fdis;
-    NSString* ffn;
+   
 }
 +(id) makeTestRLeg:(NSString*) dis fromFile:(NSString*) fn;
 -(id) initTestRleg:(NSString*) dis fromFile:(NSString*) fn;
++(id) makeTestRLegWithLeg:(testRLeg*) b;
+-(id) initTestRlegWithLeg:(testRLeg*) b;
+
 @end

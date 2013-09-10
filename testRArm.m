@@ -10,7 +10,7 @@
 
 
 @implementation testRArm
-
+@synthesize attackDir;
 
 +(id) makeTestRArm:(NSString *)dis fromFile:(NSString *)fn attackDir:(NSString *)adir{
     return [[self alloc] initTestRArm:dis fromFile:fn attackDir:adir];
@@ -19,14 +19,33 @@
 -(id) initTestRArm:(NSString *)dis fromFile:(NSString *)fn attackDir:(NSString *)adir{
     if(self = [super initTestRleg:dis fromFile:fn]){
         attackDir = adir;
-        self.currentAni = [self loadAnimation:fn fileName:@"test"];
+        /*self.currentAni = [self loadAnimation:fn fileName:@"test"];
+        if(self.currentAni == NULL){
+            NSLog(@"error");
+        }else{
+            //[self stopAllActions];
+            [self runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:self.currentAni]]];
+        }*/
+
+    }
+    return self;
+}
+
++(id) makeArmWithArm:(testRArm *)b{
+    return [[self alloc] initArmWithArm:b];
+}
+
+
+-(id) initArmWithArm:(testRArm *)b{
+    if(self = [super initTestRleg:b.fdis fromFile:b.ffn]){
+        attackDir = b.attackDir;
+        self.currentAni = [self loadAnimation:b.fdis fileName:@"test"];
         if(self.currentAni == NULL){
             NSLog(@"error");
         }else{
             //[self stopAllActions];
             [self runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:self.currentAni]]];
         }
-
     }
     return self;
 }

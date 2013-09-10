@@ -25,12 +25,36 @@
         if(self.currentAni == NULL){
             NSLog(@"error");
         }else{
-            [self runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:self.currentAni]]];
+            //ani = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:self.currentAni]];
+            //[self runAction:ani];
         }
         sstate = 2;
         
     }
     return self;
+}
+
+-(id) initTestRlegWithLeg:(testRLeg *)b{
+    if(self = [super initBody:b.fdis]){
+        fdis = b.fdis;
+        ffn = b.ffn;
+        self.flipX = YES;
+        self.currentAni = [self loadAnimation:ffn fileName:@"test"];
+        if(self.currentAni == NULL){
+            NSLog(@"error");
+        }else{
+            //ani = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:self.currentAni]];
+            //[self runAction:ani];
+        }
+        sstate = 2;
+        
+    }
+    return self;
+}
+
+
++(id) makeTestRLegWithLeg:(testRLeg *)b{
+    return [[self alloc] initTestRlegWithLeg:b];
 }
 
 

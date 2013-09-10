@@ -26,6 +26,7 @@
 #import "soldierBase.h"
 #import "openningLayer.h"
 #import "loadingLayer.h"
+#import "body.h"
 #pragma mark - HelloWorldLayer
 
 // HelloWorldLayer implementation
@@ -388,10 +389,11 @@ static HelloWorldLayer* level;
     UITouch *touch = [touches anyObject];
 	CGPoint point = [touch locationInView: [touch view]];
     point = [[CCDirector sharedDirector] convertToGL: point];
-    if([monsterCache count] == 2){
+    if([monsterCache count] == 6 && [bodyCache count] == 0){
         NSArray* lines = [linesDic allKeys];
-        monster* m = [monster makeMonster:[monsterCache objectAtIndex:0] mhead:[monsterCache objectAtIndex:1]];
+        //monster* m = [monster makeMonster:[monsterCache objectAtIndex:0] mhead:[monsterCache objectAtIndex:1]];
         //m.position = CGPointMake(point.x,point.y);
+        monster* m = [monster makeMonster:[monsterCache objectAtIndex:0] mhead:[monsterCache objectAtIndex:1] mrleg:[monsterCache objectAtIndex:2] mlleg:[monsterCache objectAtIndex:3] mrarm:[monsterCache objectAtIndex:4] mlarm:[monsterCache objectAtIndex:5]];
         int xpos = -1;
         int ypos = -1;
         int yDiff = 999;
@@ -417,18 +419,19 @@ static HelloWorldLayer* level;
         [m setUpPos:xpos yPos:ypos];
         [wave addMonster:m];
         [monsterCache removeAllObjects];
+        //[bodyCache removeAllObjects];
     }
     
     for(int n = 0; n < [bodyCache count];n++){
         body* b = [bodyCache objectAtIndex:n];
         if([b checkTouch:point]){
             [self removeChild:b cleanup:YES];
-            [monsterCache addObject:b];
+            //[monsterCache addObject:b];
             [bodyCache removeObject:b];
-            //NSLog(@"%d",n);
             break;
         }
     }
+     
 }
 
 -(void) ccTouchEnded:(NSSet *) touches withEvent:(UIEvent *)event{
@@ -509,15 +512,22 @@ static HelloWorldLayer* level;
 }
 
 -(void) genBodyPart:(monster* )m{
-    zombieHead* zh = [zombieHead makeZhead];
-    zh.position = ccp(m.mhead.position.x+50,m.mhead.position.y+50);
-    [self addChild:zh z:3];
-    [bodyCache addObject:zh];
-    vampireHead* vh = [vampireHead makevampireHead];
-    vh.position = ccp(m.mhead.position.x+50,m.mhead.position.y-50);
-    [self addChild:vh z:3];
-    [bodyCache addObject:vh];
+    [self makeBodyPart:[body makeBodyWithBody:m.mbody] atPos:CGPointMake(m.mbody.position.x + 50, m.mbody.position.y - 50)];
+    [self makeBodyPart:[body makeBodyWithBody:m.mhead] atPos:CGPointMake(m.mhead.position.x + 50, m.mhead.position.y + 50)];
+    [self makeBodyPart:[testRLeg makeTestRLegWithLeg:m.mrleg] atPos:CGPointMake(m.mrleg.position.x -15, m.mrleg.position.y -50)];
+    [self makeBodyPart:[testRLeg makeTestRLegWithLeg:m.mleg] atPos:CGPointMake(m.mleg.position.x - 50, m.mleg.position.y -50)];
+    [self makeBodyPart:[testRArm makeArmWithArm:m.mrarm] atPos:CGPointMake(m.mrarm.position.x-50, m.mrarm.position.y + 50)];
+    [self makeBodyPart:[testRArm makeArmWithArm:m.marm] atPos:CGPointMake(m.marm.position.x-50, m.marm.position.y)];
     
+    
+}
+
+-(void) makeBodyPart:(body*)b atPos:(CGPoint) pos{
+    b.position = pos;
+    b.flipX = YES;
+    [self addChild:b z:3];
+    [bodyCache addObject:b];
+    [monsterCache addObject:b];
 }
 
 

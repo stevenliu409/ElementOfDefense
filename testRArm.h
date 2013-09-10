@@ -14,7 +14,10 @@
     NSString* attackDir;
 }
 
+@property(nonatomic,copy) NSString* attackDir;
+
 +(id) makeTestRArm:(NSString*) dis fromFile:(NSString*) fn attackDir:(NSString*) adir;
 -(id) initTestRArm:(NSString*) dis fromFile:(NSString*) fn attackDir:(NSString*) adir;
-
++(id) makeArmWithArm:(testRArm*)b;
+-(id) initArmWithArm:(testRArm*)b;
 @end

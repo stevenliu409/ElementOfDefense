@@ -13,6 +13,9 @@
 @synthesize shield;
 @synthesize attack;
 @synthesize currentAni;
+@synthesize fdir;
+@synthesize fdis;
+@synthesize ffn;
 +(id) makeBody:(NSString *)dir{
     return [[self alloc] initBody:dir];
 }
@@ -27,6 +30,7 @@
         health = 0;
         attack = 0;
         shield = 0;
+        fdir = fname;
         self.flipX = NO;
     }
     return self;
@@ -38,8 +42,30 @@
         health = 0;
         attack = 0;
         shield = 0;
+        fdir = fname;
     }
     return self;
+}
+
+
++(id) makeBodyWithBody:(body *)b{
+    return [[self alloc] initBodyWithBody:b];
+}
+
+-(id) initBodyWithBody:(body *)b{
+    if(self = [super initWithSpriteFrameName:b.fdir]){
+        speed = b.speed;
+        health = b.health;
+        attack = b.attack;
+        shield = b.shield;
+        self.flipX = NO;
+        fdir = b.fdir;
+        currentAni = b.currentAni;
+        ani = b.ani;
+        
+    }
+    return self;
+    
 }
 
 -(BOOL) checkTouch:(CGPoint)pt{

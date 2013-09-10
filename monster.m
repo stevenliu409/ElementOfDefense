@@ -19,11 +19,11 @@
 @synthesize marm,mleg,mrarm,mrleg;
 @synthesize attFreq;
 @synthesize damage,prect;
-+(id) makeMonster:(body *)b mhead:(body *)h mrleg:(body *)mr mlleg:(body*) lr mrarm:(body *)ra mlarm:(body *)la{
++(id) makeMonster:(body*) b mhead:(body*) h mrleg:(testRLeg*) mr mlleg:(testRLeg*) lr mrarm:(testRArm*) ra mlarm:(testRArm*) la{
     return [[self alloc] initMonster:b mhead:h mrleg:mr mlleg:lr mrarm:ra mlarm:la];
 }
 
--(id) initMonster:(body *)b mhead:(body *)h mrleg:(body *)mr mlleg:(body*) lr mrarm:(body *)ra mlarm:(body *)la{
+-(id) initMonster:(body*) b mhead:(body*) h mrleg:(testRLeg*) mr mlleg:(testRLeg*) lr mrarm:(testRArm*) ra mlarm:(testRArm*) la{
     if(self = [super init]){
         mhead = h;
         mbody = b;
@@ -43,16 +43,23 @@
         mleg.position = CGPointMake(400,50);
         mrarm.position = CGPointMake(400,75);
         marm.position = CGPointMake(400,75);
+        [self runActions];
         dead = NO;
-        prect = 0.5;
+        prect = 1;
         sstate = 2;
         health = mhead.health;
         health = 10;
-        NSLog(@"monster health is %d",health);
         self.damage = 0;
         [self scheduleUpdate];
     }
     return self;
+}
+
+-(void) runActions{
+    [mrleg changeState:2];
+    [mleg changeState:2];
+    [mrarm changeState:2];
+    [marm changeState:2];
 }
 
 +(id) newMonster{
