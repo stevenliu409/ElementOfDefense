@@ -39,6 +39,7 @@
         self.currentAni = NULL;
         ani = NULL;
         if(sstate == 1){
+            
             [self setDisplayFrame:[[CCSpriteFrameCache
                                     sharedSpriteFrameCache]
                                    spriteFrameByName:fdis]];

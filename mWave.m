@@ -31,7 +31,7 @@
         //monster* m = [monster makeMonster:[zombieHead makeZhead] mhead:[vampireHead makevampireHead]];
         //m.position = ccp(200,100);
         
-        monster* m = [monster makeMonster:[body makeBody:@"body.png"] mhead:[body makeBody:@"head.png"] mrleg:[testRLeg makeTestRLeg:@"rleg_1.png" fromFile:@"walkRleg"] mlleg:[testRLeg makeTestRLeg:@"lleg_1.png" fromFile:@"walkLleg"] mrarm:[testRArm makeTestRArm:@"rarm_1.png" fromFile:@"walkRArm" attackDir:NULL] mlarm:[testRArm makeTestRArm:@"larm_1.png" fromFile:@"walkLArm" attackDir:NULL]];
+        monster* m = [monster makeMonster:[body makeBody:@"body.png"] mhead:[body makeBody:@"head.png"] mrleg:[testRLeg makeTestRLeg:@"rleg_1.png" fromFile:@"walkRleg"] mlleg:[testRLeg makeTestRLeg:@"lleg_1.png" fromFile:@"walkLleg"] mrarm:[testRArm makeTestRArm:@"rarm_1.png" fromFile:@"walkRArm" attackDir:@"attackArm"] mlarm:[testRArm makeTestRArm:@"larm_1.png" fromFile:@"walkLArm" attackDir:@"attackArm"]];
         m.mhead.flipX = YES;
         m.mbody.flipX = YES;
         [m setTexture:batch.texture];

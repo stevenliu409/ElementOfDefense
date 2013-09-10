@@ -138,7 +138,7 @@
     //[self setUpPos:mbody.position.x-1 yPos:mbody.position.y];
     
     [self setUpPos:xPos-0.1 yPos:yPos];
-    [self fixPos];
+    [self fixPos:2];
 }
 
 -(void) monsterAttack:(GameObj* )s timer:(ccTime)ct{
@@ -177,6 +177,7 @@
     
     if((CGRectIntersectsRect(self.mbody.boundingBox, s1.boundingBox)|| CGRectIntersectsRect(self.mhead.boundingBox, s1.boundingBox))&& s1.sstate != 4){
         [self monsterAttack:s1 timer:ct];
+        sstate = 1;
         return YES;
     }else{
         sstate = 2;
@@ -193,50 +194,69 @@
 -(void) update:(ccTime) dt{
     
     if(sstate == 2){
-        [self fixPos];
         //[self updatePos];
+       // [self fixPos:1];
+       // return;
+    }else if(sstate == 1){
+        [self stopBodyActons];
+        [mrarm setDisplayFrame:[[CCSpriteFrameCache
+                                sharedSpriteFrameCache]
+                               spriteFrameByName:@"rarm_3.png"]];
     }
+    [self fixPos:sstate];
+    return;
 
 }
 
--(void) fixPos{
-    int fnumber = [marm frameOfAnimation:marm.currentAni];
-    if(fnumber == 0){
-        self.mrleg.position = ccp(rlegPos.x -6,rlegPos.y+2);
-        self.mleg.position = ccp(llegPos.x+1, llegPos.y+2);
-        self.mbody.position = ccp(bodyPos.x,bodyPos.y);
-        self.mhead.position = ccp(headPos.x,headPos.y);
-        self.mrarm.position = ccp(rarmPos.x+5,rarmPos.y);
-        self.marm.position = ccp(larmPos.x-9,larmPos.y);
-        return;
-    }
-    if(fnumber == 1){
-        self.mrleg.position = ccp(rlegPos.x,rlegPos.y+1);
-        self.mleg.position = ccp(llegPos.x+10,llegPos.y+5);
-        self.mbody.position = ccp(bodyPos.x,bodyPos.y+1);
-        self.mhead.position = ccp(headPos.x,headPos.y+1);
-        self.mrarm.position = ccp(rarmPos.x, rarmPos.y+1);
-        self.marm.position = ccp(larmPos.x-3,larmPos.y);
-        return;
+-(void) stopBodyActons{
+    [marm stopAllActions];
+    [mleg stopAllActions];
+    [mrarm stopAllActions];
+    [mrleg stopAllActions];
+}
+
+-(void) fixPos:(int) s{
+    if(s == 2){
+        int fnumber = [marm frameOfAnimation:marm.currentAni];
+        if(fnumber == 0){
+            self.mrleg.position = ccp(rlegPos.x -6,rlegPos.y+2);
+            self.mleg.position = ccp(llegPos.x+1, llegPos.y+2);
+            self.mbody.position = ccp(bodyPos.x,bodyPos.y);
+            self.mhead.position = ccp(headPos.x,headPos.y);
+            self.mrarm.position = ccp(rarmPos.x+5,rarmPos.y);
+            self.marm.position = ccp(larmPos.x-9,larmPos.y);
+            return;
+        }
+        if(fnumber == 1){
+            self.mrleg.position = ccp(rlegPos.x,rlegPos.y+1);
+            self.mleg.position = ccp(llegPos.x+10,llegPos.y+5);
+            self.mbody.position = ccp(bodyPos.x,bodyPos.y+1);
+            self.mhead.position = ccp(headPos.x,headPos.y+1);
+            self.mrarm.position = ccp(rarmPos.x, rarmPos.y+1);
+            self.marm.position = ccp(larmPos.x-3,larmPos.y);
+            return;
         
-    }
-    if(fnumber == 2){
-        self.mrleg.position = ccp(rlegPos.x+2,rlegPos.y + 3);
-        self.mleg.position = ccp(llegPos.x-5,llegPos.y+3);
-        self.mbody.position = ccp(bodyPos.x,bodyPos.y+1);
-        self.mhead.position = ccp(headPos.x,headPos.y+1);
-        self.mrarm.position = ccp(rarmPos.x-9, rarmPos.y+1);
-        self.marm.position = ccp(larmPos.x+6,larmPos.y+1);
-        return;
-    }
-    if(fnumber == 3){
-        self.mrleg.position = ccp(rlegPos.x,rlegPos.y + 2);
-        self.mleg.position = ccp(llegPos.x-2,llegPos.y+2);
-        self.mbody.position = ccp(bodyPos.x,bodyPos.y);
-        self.mhead.position = ccp(headPos.x,headPos.y);
-        self.mrarm.position = ccp(rarmPos.x,rarmPos.y-1);
-        self.marm.position = ccp(larmPos.x,larmPos.y- 1);
-        return;
+        }
+        if(fnumber == 2){
+            self.mrleg.position = ccp(rlegPos.x+2,rlegPos.y + 3);
+            self.mleg.position = ccp(llegPos.x-5,llegPos.y+3);
+            self.mbody.position = ccp(bodyPos.x,bodyPos.y+1);
+            self.mhead.position = ccp(headPos.x,headPos.y+1);
+            self.mrarm.position = ccp(rarmPos.x-9, rarmPos.y+1);
+            self.marm.position = ccp(larmPos.x+6,larmPos.y+1);
+            return;
+        }
+        if(fnumber == 3){
+            self.mrleg.position = ccp(rlegPos.x,rlegPos.y + 2);
+            self.mleg.position = ccp(llegPos.x-2,llegPos.y+2);
+            self.mbody.position = ccp(bodyPos.x,bodyPos.y);
+            self.mhead.position = ccp(headPos.x,headPos.y);
+            self.mrarm.position = ccp(rarmPos.x,rarmPos.y-1);
+            self.marm.position = ccp(larmPos.x,larmPos.y- 1);
+            return;
+        }
+    }else if(s == 1){
+        
     }
 
 }
