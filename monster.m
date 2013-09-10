@@ -47,6 +47,8 @@
         prect = 0.5;
         sstate = 2;
         health = mhead.health;
+        health = 10;
+        NSLog(@"monster health is %d",health);
         self.damage = 0;
         [self scheduleUpdate];
     }
@@ -83,7 +85,7 @@
 }
 
 
--(void) setUpPos:(int)x yPos:(int)y{
+-(void) setUpPos:(double)x yPos:(int)y{
     mbody.position = ccp(x+5,y);
     mrarm.position = ccp(x+5,y-2);
     marm.position = ccp(x+5,y-2);
@@ -96,6 +98,8 @@
     llegPos = mleg.position;
     rarmPos = mrarm.position;
     larmPos = marm.position;
+    xPos = x;
+    yPos = y;
 }
 
 - (void)encodeWithCoder:(NSCoder *)encoder {
@@ -120,8 +124,21 @@
 }
 
 -(void) moveMonster:(ccTime)ct{
-    mhead.position = ccp(mhead.position.x - 1,mhead.position.y);
-    mbody.position = ccp(mbody.position.x - 1,mbody.position.y);
+    //[self unscheduleUpdate];
+    //[self updatePos];
+    /*
+    mhead.position = ccp(headPos.x - 0.1,headPos.y);
+    mbody.position = ccp(bodyPos.x - 0.1,bodyPos.y);
+    mrleg.position = ccp(rlegPos.x -0.1, rlegPos.y);
+    mleg.position = ccp(llegPos.x - 0.1,llegPos.y);
+    mrarm.position = ccp(rarmPos.x -0.1,rarmPos.y);
+    marm.position = ccp(larmPos.x -0.1,larmPos.y);*/
+    //[self updatePos];
+    //[self scheduleUpdate];
+    //[self setUpPos:mbody.position.x-1 yPos:mbody.position.y];
+    
+    [self setUpPos:xPos-0.1 yPos:yPos];
+    [self fixPos];
 }
 
 -(void) monsterAttack:(GameObj* )s timer:(ccTime)ct{
@@ -164,6 +181,7 @@
     }else{
         sstate = 2;
         [self moveMonster:ct];
+        
         return NO;
     }
     
@@ -173,49 +191,64 @@
 
 
 -(void) update:(ccTime) dt{
-    if(sstate == 2){
-        int fnumber = [marm frameOfAnimation:marm.currentAni];
-        NSLog(@"%d",fnumber);
-        if(fnumber == 0){
-            self.mrleg.position = ccp(rlegPos.x -6,rlegPos.y+2);
-            self.mleg.position = ccp(llegPos.x+1, llegPos.y+2);
-            self.mbody.position = ccp(bodyPos.x,bodyPos.y);
-            self.mhead.position = ccp(headPos.x,headPos.y);
-            self.mrarm.position = ccp(rarmPos.x+5,rarmPos.y);
-            self.marm.position = ccp(larmPos.x-9,larmPos.y);
-            return;
-        }
-        if(fnumber == 1){
-            self.mrleg.position = ccp(rlegPos.x,rlegPos.y+1);
-            self.mleg.position = ccp(llegPos.x+10,llegPos.y+5);
-            self.mbody.position = ccp(bodyPos.x,bodyPos.y+1);
-            self.mhead.position = ccp(headPos.x,headPos.y+1);
-            self.mrarm.position = ccp(rarmPos.x, rarmPos.y+1);
-            self.marm.position = ccp(larmPos.x-3,larmPos.y);
-            return;
-
-        }
-        if(fnumber == 2){
-            self.mrleg.position = ccp(rlegPos.x+2,rlegPos.y + 3);
-            self.mleg.position = ccp(llegPos.x-5,llegPos.y+3);
-            self.mbody.position = ccp(bodyPos.x,bodyPos.y+1);
-            self.mhead.position = ccp(headPos.x,headPos.y+1);
-            self.mrarm.position = ccp(rarmPos.x-9, rarmPos.y+1);
-            self.marm.position = ccp(larmPos.x+6,larmPos.y+1);
-            return;
-        }
-        if(fnumber == 3){
-            self.mrleg.position = ccp(rlegPos.x,rlegPos.y + 2);
-            self.mleg.position = ccp(llegPos.x-2,llegPos.y+2);
-            self.mbody.position = ccp(bodyPos.x,bodyPos.y);
-            self.mhead.position = ccp(headPos.x,headPos.y);
-            self.mrarm.position = ccp(rarmPos.x,rarmPos.y-1);
-            self.marm.position = ccp(larmPos.x,larmPos.y- 1);
-            return;
-        }
     
+    if(sstate == 2){
+        [self fixPos];
+        //[self updatePos];
     }
 
+}
+
+-(void) fixPos{
+    int fnumber = [marm frameOfAnimation:marm.currentAni];
+    if(fnumber == 0){
+        self.mrleg.position = ccp(rlegPos.x -6,rlegPos.y+2);
+        self.mleg.position = ccp(llegPos.x+1, llegPos.y+2);
+        self.mbody.position = ccp(bodyPos.x,bodyPos.y);
+        self.mhead.position = ccp(headPos.x,headPos.y);
+        self.mrarm.position = ccp(rarmPos.x+5,rarmPos.y);
+        self.marm.position = ccp(larmPos.x-9,larmPos.y);
+        return;
+    }
+    if(fnumber == 1){
+        self.mrleg.position = ccp(rlegPos.x,rlegPos.y+1);
+        self.mleg.position = ccp(llegPos.x+10,llegPos.y+5);
+        self.mbody.position = ccp(bodyPos.x,bodyPos.y+1);
+        self.mhead.position = ccp(headPos.x,headPos.y+1);
+        self.mrarm.position = ccp(rarmPos.x, rarmPos.y+1);
+        self.marm.position = ccp(larmPos.x-3,larmPos.y);
+        return;
+        
+    }
+    if(fnumber == 2){
+        self.mrleg.position = ccp(rlegPos.x+2,rlegPos.y + 3);
+        self.mleg.position = ccp(llegPos.x-5,llegPos.y+3);
+        self.mbody.position = ccp(bodyPos.x,bodyPos.y+1);
+        self.mhead.position = ccp(headPos.x,headPos.y+1);
+        self.mrarm.position = ccp(rarmPos.x-9, rarmPos.y+1);
+        self.marm.position = ccp(larmPos.x+6,larmPos.y+1);
+        return;
+    }
+    if(fnumber == 3){
+        self.mrleg.position = ccp(rlegPos.x,rlegPos.y + 2);
+        self.mleg.position = ccp(llegPos.x-2,llegPos.y+2);
+        self.mbody.position = ccp(bodyPos.x,bodyPos.y);
+        self.mhead.position = ccp(headPos.x,headPos.y);
+        self.mrarm.position = ccp(rarmPos.x,rarmPos.y-1);
+        self.marm.position = ccp(larmPos.x,larmPos.y- 1);
+        return;
+    }
+
+}
+
+-(void) updatePos{
+    rlegPos.x = self.mrleg.position.x;
+    llegPos.x = self.mleg.position.x;
+    bodyPos.x = self.mbody.position.x;
+    headPos.x = self.mhead.position.x;
+    rarmPos.x = self.mrarm.position.x;
+    larmPos.x = self.mrarm.position.x;
+    
 }
 
 -(void) killed{

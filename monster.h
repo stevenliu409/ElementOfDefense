@@ -20,6 +20,7 @@
     CGPoint llegPos;
     CGPoint rarmPos;
     CGPoint larmPos;
+    double xPos,yPos;
 }
 
 
@@ -45,5 +46,5 @@
 -(int) getMSpeed;
 -(BOOL) updateMonster:(ccTime) ct soilders:(GameObj*) s1;
 -(void) killed;
--(void) setUpPos:(int) x yPos:(int) y;
+-(void) setUpPos:(double) x yPos:(int) y;
 @end

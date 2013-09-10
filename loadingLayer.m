@@ -48,18 +48,18 @@
             l = [prefs objectForKey:@"level1"];
             [prefs setValue:l forKey:@"currentLevel"];
             [prefs synchronize];
-            transition = [CCTransitionFade transitionWithDuration:2 scene:[HelloWorldLayer scene] withColor:ccWHITE];
+            transition = [CCTransitionFade transitionWithDuration:0 scene:[HelloWorldLayer scene] withColor:ccWHITE];
             break;
         case 997:
             [self updateItemList];
-            transition = [CCTransitionFade transitionWithDuration:2 scene:[shopLayer scene] withColor:ccWHITE];
+            transition = [CCTransitionFade transitionWithDuration:0 scene:[shopLayer scene] withColor:ccWHITE];
             break;
         case 998:
-            transition = [CCTransitionFade transitionWithDuration:2 scene:[openningLayer scene] withColor:ccWHITE];
+            transition = [CCTransitionFade transitionWithDuration:0 scene:[openningLayer scene] withColor:ccWHITE];
             break;
         case 999:
             [self display];
-            transition = [CCTransitionFade transitionWithDuration:2 scene:[logingLayer scene] withColor:ccWHITE];
+            transition = [CCTransitionFade transitionWithDuration:0 scene:[logingLayer scene] withColor:ccWHITE];
             break;
         default:
             break;

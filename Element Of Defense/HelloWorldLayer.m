@@ -71,7 +71,6 @@ static HelloWorldLayer* level;
 	if( (self=[super init]) ) {
         [self resetTimer];
         levelIndex = 1;
-        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"mlist.plist"];
         
         [[CCSpriteFrameCache sharedSpriteFrameCache]
          addSpriteFramesWithFile:@"scene1atlasiPhone.plist"];         

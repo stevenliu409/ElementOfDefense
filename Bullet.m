@@ -44,6 +44,7 @@
         [self refresh];
         m.health -= damage;
         if(m.health <= 0){
+            NSLog(@"monster dead");
             m.dead = YES;
         }
         return;
