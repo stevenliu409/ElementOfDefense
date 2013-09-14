@@ -223,6 +223,7 @@
 }
 
 -(void) fixPos:(int) s{
+    
     if(s == 2){
         int fnumber = [marm frameOfAnimation:marm.currentAni];
         if(fnumber == 0){
@@ -265,6 +266,7 @@
     }else if(s == 1){
         
     }
+     
 
 }
 
